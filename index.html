@@ -7,147 +7,869 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Fokus 6M">
+<meta name="description" content="Ett personligt command center för sex månader av fokus, progress och familjestöd.">
 <title>Fokus 6M</title>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icon.svg">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
 <style>
-:root{--bg:#07090d;--card:rgba(18,21,29,.84);--card2:rgba(26,30,40,.9);--text:#f7f8fa;--muted:#a5acb9;--line:rgba(255,255,255,.09);--accent:#f4f5f7;--danger:#ff7777;--good:#8de0b2;--shadow:0 18px 55px rgba(0,0,0,.34)}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}body{transition:.3s background;background-attachment:fixed}body[data-theme="midnight"]{background:radial-gradient(circle at 80% 0,#202841 0,transparent 32%),radial-gradient(circle at 0 75%,#111928 0,transparent 38%),#07090d}body[data-theme="ember"]{background:radial-gradient(circle at 80% 10%,#46231a 0,transparent 33%),radial-gradient(circle at 10% 80%,#24110e 0,transparent 38%),#090706}body[data-theme="forest"]{background:radial-gradient(circle at 75% 5%,#17382d 0,transparent 33%),radial-gradient(circle at 5% 85%,#0d2119 0,transparent 38%),#060a08}body[data-theme="violet"]{background:radial-gradient(circle at 80% 5%,#35204f 0,transparent 34%),radial-gradient(circle at 5% 85%,#1e1231 0,transparent 38%),#09070d}button,input,select{font:inherit}.app{max-width:760px;margin:auto;padding:18px 15px 105px}.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin:6px 2px 18px}.brand{font-size:11px;font-weight:900;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}.top h1{font-size:31px;line-height:1;margin:6px 0 0;letter-spacing:-.04em}.date{text-align:right;color:var(--muted);font-size:12px;line-height:1.35}.hero,.card{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);backdrop-filter:blur(18px)}.hero{padding:20px;margin-bottom:12px;background:linear-gradient(145deg,rgba(34,39,52,.92),rgba(13,15,21,.9))}.hero .title{font-size:25px;font-weight:950;line-height:1.08;letter-spacing:-.035em}.hero p,.muted,.note{color:var(--muted)}.hero p{margin:7px 0 0;line-height:1.45}.card{padding:16px;margin:11px 0}.card h2{font-size:17px;margin:0 0 12px}.card h3{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:15px 0 8px}.nextup{display:flex;align-items:center;gap:12px}.pulse{width:11px;height:11px;border-radius:50%;background:var(--good);box-shadow:0 0 0 7px rgba(141,224,178,.11);flex:0 0 auto}.nextup b{display:block;font-size:17px}.task{display:flex;gap:11px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.task:last-child{border-bottom:0}.task input[type=checkbox]{width:23px;height:23px;accent-color:#fff;flex:0 0 auto}.task label{font-size:15px;font-weight:800;flex:1}.task small{display:block;color:var(--muted);font-weight:500;margin-top:2px;line-height:1.35}.input,.select{width:100%;background:rgba(5,7,11,.6);border:1px solid var(--line);color:var(--text);border-radius:14px;padding:12px 13px;outline:none}.input:focus,.select:focus{border-color:rgba(255,255,255,.28)}.row{display:flex;gap:9px;align-items:center}.row>*{flex:1}.btn{border:0;border-radius:15px;padding:12px 14px;background:#f6f7f8;color:#111;font-weight:950;cursor:pointer}.btn.secondary{background:rgba(255,255,255,.07);color:#fff;border:1px solid var(--line)}.btn.danger{background:rgba(125,32,37,.28);color:#ff9a9a;border:1px solid rgba(255,119,119,.25)}.btn.full{width:100%}.btn:active{transform:scale(.985)}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{background:var(--card2);border:1px solid var(--line);border-radius:19px;padding:14px}.metric .num{font-size:29px;font-weight:950;letter-spacing:-.04em}.metric .lab{font-size:11px;color:var(--muted);margin-top:2px}.progress{height:9px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:8px}.progress i{display:block;height:100%;width:0;background:#f5f6f8;border-radius:99px;transition:.25s}.timer{text-align:center;font-size:52px;font-weight:950;letter-spacing:-.06em;margin:12px 0}.priority{display:grid;grid-template-columns:30px 1fr;align-items:center;gap:10px;margin:8px 0}.priority b{text-align:center;font-size:21px}.schedule-row{display:grid;grid-template-columns:82px 1fr auto;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}.schedule-row:last-child{border-bottom:0}.timeinput{background:rgba(5,7,11,.6);border:1px solid var(--line);color:var(--text);padding:10px 7px;border-radius:12px;min-width:0}.mini{min-width:37px;height:37px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;border-radius:11px;font-weight:950}.badge{font-size:10px;font-weight:900;border:1px solid var(--line);background:rgba(255,255,255,.06);padding:5px 7px;border-radius:999px;color:#cdd2db}.weekline{display:grid;grid-template-columns:1fr auto auto auto;gap:7px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}.weekline:last-child{border-bottom:0}.counter{font-weight:950;min-width:58px;text-align:center}.tabs{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(7,9,13,.88);backdrop-filter:blur(22px);border-top:1px solid var(--line);padding:7px 8px calc(7px + env(safe-area-inset-bottom))}.tabgrid{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(6,1fr);gap:4px}.tab{border:0;background:transparent;color:#767d8b;border-radius:11px;padding:7px 2px;font-size:10px;font-weight:900}.tab span{display:block;font-size:18px;margin-bottom:1px}.tab.active{color:#fff;background:rgba(255,255,255,.07)}.section{display:none}.section.active{display:block}.resetlist{font-size:20px;font-weight:900;line-height:1.85}.quote{font-size:24px;font-weight:950;line-height:1.3;letter-spacing:-.03em}.quote-author{font-size:11px;color:var(--muted);margin-top:16px}.theme-row{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.theme{height:60px;border-radius:16px;border:2px solid transparent}.theme.selected{border-color:#fff}.theme[data-t=midnight]{background:linear-gradient(135deg,#0a0e17,#2c3552)}.theme[data-t=ember]{background:linear-gradient(135deg,#120907,#5b2c1e)}.theme[data-t=forest]{background:linear-gradient(135deg,#07120d,#1b503c)}.theme[data-t=violet]{background:linear-gradient(135deg,#100817,#4a2c68)}.switch{width:48px;height:28px;border-radius:99px;background:#2a2e37;padding:3px;cursor:pointer;flex:0 0 auto}.switch i{display:block;width:22px;height:22px;background:#fff;border-radius:50%;transition:.2s}.switch.on{background:#3a8d63}.switch.on i{transform:translateX(20px)}.settings-row{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.settings-row:last-child{border-bottom:0}.sharebox{background:rgba(4,6,9,.8);border:1px solid var(--line);padding:11px;border-radius:13px;font-size:11px;word-break:break-all;margin-top:9px;color:#c7ccd5}.hidden{display:none!important}.viewer-banner{background:rgba(82,124,255,.12);border:1px solid rgba(112,145,255,.25);padding:12px 14px;border-radius:15px;margin-bottom:10px}.install{position:fixed;left:12px;right:12px;bottom:88px;z-index:45;max-width:700px;margin:auto;background:#f4f5f7;color:#111;padding:10px 11px;border-radius:18px;display:none;align-items:center;gap:10px;box-shadow:0 18px 50px rgba(0,0,0,.35)}.install.show{display:flex}.install b{flex:1}.install .btn{background:#111;color:#fff;padding:9px 12px}.daychips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.chip{border:1px solid var(--line);background:rgba(255,255,255,.05);color:#d8dce3;border-radius:999px;padding:7px 9px;font-size:11px;font-weight:850}.chip.active{background:#f5f6f7;color:#111}.planstep{padding:11px 0;border-bottom:1px solid var(--line)}.planstep:last-child{border-bottom:0}.planstep b{display:block;margin-bottom:3px}.kicker{font-size:11px;color:var(--muted);font-weight:850;text-transform:uppercase;letter-spacing:.09em}.barrow{display:grid;grid-template-columns:70px 1fr 42px;gap:8px;align-items:center;margin:8px 0;font-size:12px}.barrow .progress{margin:0}.empty{color:var(--muted);font-size:13px;padding:8px 0}.viewer-only{display:none}body.viewer .editor-only,body.viewer nav,body.viewer .install{display:none!important}body.viewer .viewer-only{display:block}body.viewer .app{padding-bottom:25px}.topbtn{border:1px solid var(--line);background:rgba(255,255,255,.05);color:#fff;border-radius:11px;padding:7px 9px;font-size:11px;font-weight:850}.note{font-size:11px;line-height:1.5;margin:9px 0 0}@media(max-width:430px){.app{padding-left:12px;padding-right:12px}.top h1{font-size:28px}.hero .title{font-size:23px}.quote{font-size:22px}.timer{font-size:47px}.schedule-row{grid-template-columns:78px 1fr auto}.tab{font-size:9px}}
+:root{
+  --bg:#06080d;--panel:rgba(14,18,27,.78);--panel2:rgba(20,25,37,.82);--panel3:rgba(8,11,18,.72);
+  --text:#f7f9fc;--muted:#8f99aa;--muted2:#667184;--line:rgba(255,255,255,.08);
+  --accent:#7de7ff;--accent-rgb:125,231,255;--accent2:#627cff;--good:#76e7ad;--warn:#ffc46b;--bad:#ff7a8a;
+  --shadow:0 24px 80px rgba(0,0,0,.36);--radius:24px;--gap:14px;--fontScale:1;
+}
+*{box-sizing:border-box}
+html{background:var(--bg);font-size:calc(16px * var(--fontScale))}
+body{
+  margin:0;min-height:100vh;color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);overflow-x:hidden;
+}
+button,input,select{font:inherit}
+button{touch-action:manipulation}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-4;
+  background:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.6),transparent 82%);
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-3;opacity:.34;
+  background-image:radial-gradient(rgba(255,255,255,.16) .5px,transparent .5px);
+  background-size:5px 5px;mix-blend-mode:soft-light;
+}
+.ambient{position:fixed;z-index:-5;border-radius:50%;filter:blur(80px);opacity:.36;pointer-events:none;will-change:transform}
+.ambient.a{width:44vw;height:44vw;max-width:620px;max-height:620px;background:rgba(var(--accent-rgb),.2);top:-14vw;right:-12vw;animation:floatA 16s ease-in-out infinite alternate}
+.ambient.b{width:38vw;height:38vw;max-width:520px;max-height:520px;background:rgba(88,70,255,.18);bottom:-12vw;left:-12vw;animation:floatB 19s ease-in-out infinite alternate}
+@keyframes floatA{to{transform:translate(-8vw,8vh) scale(1.14)}}
+@keyframes floatB{to{transform:translate(10vw,-7vh) scale(.92)}}
+body.motion-off .ambient{animation:none}
+body.motion-off *,body.motion-off *::before,body.motion-off *::after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+body[data-theme="obsidian"]{--bg:#05070b;--panel:rgba(14,18,27,.78);--panel2:rgba(20,25,37,.82)}
+body[data-theme="aurora"]{--bg:#071014;--panel:rgba(8,24,29,.78);--panel2:rgba(11,31,35,.82)}
+body[data-theme="carbon"]{--bg:#090909;--panel:rgba(19,19,19,.82);--panel2:rgba(28,28,28,.86)}
+body[data-theme="forest"]{--bg:#07100c;--panel:rgba(11,27,19,.8);--panel2:rgba(16,35,25,.86)}
+body[data-theme="ember"]{--bg:#100907;--panel:rgba(31,17,13,.8);--panel2:rgba(42,22,16,.86)}
+body[data-theme="violet"]{--bg:#0b0710;--panel:rgba(24,15,34,.8);--panel2:rgba(34,20,47,.86)}
+body[data-accent="ice"]{--accent:#7de7ff;--accent-rgb:125,231,255;--accent2:#6680ff}
+body[data-accent="blue"]{--accent:#6ba7ff;--accent-rgb:107,167,255;--accent2:#4361ff}
+body[data-accent="violet"]{--accent:#b58cff;--accent-rgb:181,140,255;--accent2:#7b5cff}
+body[data-accent="emerald"]{--accent:#72e3ad;--accent-rgb:114,227,173;--accent2:#22a878}
+body[data-accent="gold"]{--accent:#ffd178;--accent-rgb:255,209,120;--accent2:#e29a36}
+body[data-density="compact"]{--gap:10px;--radius:20px}
+body[data-density="large"]{--gap:18px;--radius:28px;--fontScale:1.07}
+.shell{max-width:1220px;margin:auto;display:grid;grid-template-columns:220px minmax(0,1fr);min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;padding:22px 14px 18px;border-right:1px solid var(--line);background:rgba(5,7,11,.34);backdrop-filter:blur(24px);display:flex;flex-direction:column;z-index:20}
+.logo{display:flex;align-items:center;gap:11px;padding:6px 8px 22px}
+.logo-mark{width:38px;height:38px;border-radius:13px;background:linear-gradient(145deg,rgba(var(--accent-rgb),.28),rgba(255,255,255,.05));border:1px solid rgba(var(--accent-rgb),.34);display:grid;place-items:center;box-shadow:0 0 35px rgba(var(--accent-rgb),.12)}
+.logo-mark svg{width:22px;height:22px}
+.logo b{display:block;letter-spacing:-.02em}.logo small{color:var(--muted);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;font-weight:800}
+.nav{display:flex;flex-direction:column;gap:5px}
+.navbtn{appearance:none;border:0;background:transparent;color:var(--muted);display:flex;align-items:center;gap:11px;border-radius:14px;padding:11px 12px;text-align:left;font-weight:780;cursor:pointer;transition:.2s}
+.navbtn svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8}
+.navbtn:hover{background:rgba(255,255,255,.045);color:#dbe1eb}
+.navbtn.active{background:linear-gradient(90deg,rgba(var(--accent-rgb),.13),rgba(var(--accent-rgb),.04));color:var(--text);box-shadow:inset 3px 0 0 var(--accent)}
+.side-bottom{margin-top:auto;padding:10px 5px}
+.micro-status{display:flex;align-items:center;gap:8px;padding:10px;color:var(--muted);font-size:.72rem}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--muted2)}
+.dot.good{background:var(--good);box-shadow:0 0 14px rgba(118,231,173,.55)}
+.dot.warn{background:var(--warn)}.dot.bad{background:var(--bad)}
+.main{min-width:0;padding:18px 22px 110px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:3px 2px 18px}
+.top-left .eyebrow{color:var(--muted);font-size:.7rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}
+.top-left h1{margin:4px 0 0;font-size:2rem;letter-spacing:-.05em;line-height:1}
+.top-actions{display:flex;align-items:center;gap:8px}
+.pill{display:inline-flex;align-items:center;gap:7px;min-height:34px;padding:7px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:.72rem;font-weight:800;color:#cbd2df;white-space:nowrap}
+.iconbtn{width:38px;height:38px;border-radius:13px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);display:grid;place-items:center;cursor:pointer}
+.iconbtn svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8}
+.page{display:none;animation:pageIn .28s ease both}
+.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.card{background:linear-gradient(145deg,var(--panel),rgba(8,11,17,.66));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(22px);overflow:hidden}
+.card.pad{padding:18px}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+.card-header h2{font-size:1rem;margin:0;letter-spacing:-.02em}.card-header p{color:var(--muted);font-size:.76rem;margin:4px 0 0;line-height:1.4}
+.dashboard{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--gap)}
+.stack{display:grid;gap:var(--gap)}
+.hero{position:relative;min-height:235px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;background:
+ linear-gradient(135deg,rgba(var(--accent-rgb),.13),transparent 52%),
+ linear-gradient(145deg,var(--panel2),rgba(6,8,13,.74))}
+.hero::after{content:"";position:absolute;right:-48px;top:-70px;width:230px;height:230px;border-radius:50%;border:1px solid rgba(var(--accent-rgb),.18);box-shadow:0 0 0 28px rgba(var(--accent-rgb),.025),0 0 0 62px rgba(var(--accent-rgb),.018)}
+.hero-top{display:flex;justify-content:space-between;gap:16px;position:relative;z-index:2}
+.kicker{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:900}
+.hero h2{font-size:clamp(1.7rem,4vw,2.65rem);max-width:680px;line-height:1.02;letter-spacing:-.055em;margin:8px 0}
+.hero-meta{color:#bbc4d2;font-size:.86rem}
+.hero-actions{display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:2}
+.btn{appearance:none;border:0;border-radius:14px;padding:11px 14px;font-weight:900;cursor:pointer;transition:transform .16s,box-shadow .16s,background .16s;color:#081014;background:var(--accent);box-shadow:0 9px 28px rgba(var(--accent-rgb),.14)}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:scale(.98)}
+.btn.secondary{color:var(--text);background:rgba(255,255,255,.055);border:1px solid var(--line);box-shadow:none}
+.btn.ghost{color:var(--muted);background:transparent;border:1px solid var(--line);box-shadow:none}
+.btn.danger{color:#ffd9dd;background:rgba(255,83,105,.11);border:1px solid rgba(255,122,138,.25);box-shadow:none}
+.btn.small{padding:8px 10px;border-radius:11px;font-size:.74rem}
+.ring{--p:0;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--accent) calc(var(--p)*1%),rgba(255,255,255,.07) 0);position:relative;flex:0 0 auto}
+.ring::after{content:"";position:absolute;inset:7px;border-radius:50%;background:#0d1119;border:1px solid rgba(255,255,255,.045)}
+.ring b,.ring small{position:relative;z-index:2}.ring b{font-size:1rem}.ring small{display:block;color:var(--muted);font-size:.55rem;text-align:center}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.metric{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:17px;padding:13px}
+.metric strong{display:block;font-size:1.45rem;letter-spacing:-.045em}.metric span{color:var(--muted);font-size:.68rem}
+.input{width:100%;border:1px solid var(--line);background:rgba(2,5,10,.42);color:var(--text);border-radius:13px;padding:11px 12px;outline:none;transition:.18s}
+.input:focus{border-color:rgba(var(--accent-rgb),.48);box-shadow:0 0 0 3px rgba(var(--accent-rgb),.08)}
+.priority{display:grid;grid-template-columns:27px 1fr;align-items:center;gap:9px;margin:8px 0}
+.priority b{width:27px;height:27px;border-radius:9px;display:grid;place-items:center;background:rgba(var(--accent-rgb),.08);border:1px solid rgba(var(--accent-rgb),.15);color:var(--accent);font-size:.75rem}
+.task{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid var(--line)}
+.task:last-child{border-bottom:0}.check{width:23px;height:23px;border-radius:8px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.035);display:grid;place-items:center;cursor:pointer;transition:.18s;flex:0 0 auto}
+.check svg{width:14px;height:14px;opacity:0;transform:scale(.6);stroke:#07120d;fill:none;stroke-width:2.4;transition:.18s}
+.check.done{background:var(--accent);border-color:var(--accent);box-shadow:0 0 20px rgba(var(--accent-rgb),.16)}.check.done svg{opacity:1;transform:scale(1)}
+.task-label{flex:1;font-weight:760;font-size:.88rem}.task-label small{display:block;color:var(--muted);font-weight:500;font-size:.7rem;margin-top:2px}
+.focus-wrap{display:grid;place-items:center;padding:4px 0 8px}
+.timer-ring{--p:0;width:185px;height:185px;border-radius:50%;background:conic-gradient(var(--accent) calc(var(--p)*1%),rgba(255,255,255,.06) 0);display:grid;place-items:center;position:relative;box-shadow:0 0 60px rgba(var(--accent-rgb),.07)}
+.timer-ring::before{content:"";position:absolute;inset:9px;border-radius:50%;background:linear-gradient(145deg,#0d1119,#080b11);border:1px solid rgba(255,255,255,.055)}
+.timer-core{position:relative;text-align:center}.timer-core b{font-size:2.45rem;letter-spacing:-.07em}.timer-core span{display:block;color:var(--muted);font-size:.68rem;margin-top:2px}
+.preset-row,.energy-row,.segmented{display:flex;gap:7px;flex-wrap:wrap}
+.preset,.energy,.seg{flex:1;min-width:64px;border:1px solid var(--line);background:rgba(255,255,255,.035);color:var(--muted);border-radius:12px;padding:9px 8px;font-weight:850;font-size:.75rem;cursor:pointer}
+.preset.active,.energy.active,.seg.active{color:#071015;background:var(--accent);border-color:var(--accent)}
+.energy-card{background:linear-gradient(145deg,rgba(var(--accent-rgb),.06),rgba(255,255,255,.018))}
+.quote-mini{font-size:1.12rem;line-height:1.35;letter-spacing:-.025em;font-weight:780}
+.goal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.goal{padding:15px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.028)}
+.goal-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.goal-name{font-weight:850}.goal-count{font-weight:950;font-size:1.25rem;letter-spacing:-.04em}
+.goal-controls{display:flex;gap:6px;margin-top:11px}.counterbtn{width:38px;height:34px;border-radius:11px;border:1px solid var(--line);background:rgba(255,255,255,.045);color:var(--text);font-size:1.05rem;font-weight:900;cursor:pointer}
+.bar{height:8px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden;margin-top:10px}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:999px;transition:.35s}
+.heat{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.heatday{text-align:center}.heatbox{height:42px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.025);position:relative;overflow:hidden}.heatbox i{position:absolute;inset:auto 0 0;height:0;background:linear-gradient(180deg,rgba(var(--accent-rgb),.28),rgba(var(--accent-rgb),.68));transition:.35s}.heatday small{display:block;color:var(--muted);font-size:.62rem;margin-top:5px}
+.timeline{position:relative}.timeline::before{content:"";position:absolute;left:18px;top:14px;bottom:14px;width:1px;background:linear-gradient(var(--accent),rgba(255,255,255,.07))}
+.event{display:grid;grid-template-columns:38px 84px minmax(0,1fr) auto;gap:9px;align-items:center;padding:10px 0;position:relative}.event-dot{width:11px;height:11px;border-radius:50%;background:#151a24;border:2px solid var(--muted2);z-index:2;margin-left:13px}.event.next .event-dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 18px rgba(var(--accent-rgb),.55)}.event.done .event-dot{background:var(--good);border-color:var(--good)}.time{font-weight:900;font-size:.83rem}.event-title{font-weight:780}.event-title small{display:block;color:var(--muted);font-size:.65rem;font-weight:500;margin-top:2px}
+.days{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.day{width:27px;height:25px;border-radius:8px;border:1px solid var(--line);background:rgba(255,255,255,.025);color:var(--muted);font-size:.62rem;font-weight:850;cursor:pointer}.day.on{background:rgba(var(--accent-rgb),.14);border-color:rgba(var(--accent-rgb),.28);color:var(--accent)}
+.schedule-edit{padding:12px 0;border-bottom:1px solid var(--line)}.schedule-edit:last-child{border:0}.schedule-row{display:grid;grid-template-columns:88px 1fr auto;gap:8px}
+.switch{width:48px;height:28px;border-radius:999px;background:#282e3b;padding:3px;cursor:pointer;flex:0 0 auto;border:1px solid rgba(255,255,255,.05)}.switch i{display:block;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s}.switch.on{background:rgba(var(--accent-rgb),.5)}.switch.on i{transform:translateX(20px)}
+.settings-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}.settings-row:last-child{border:0}.settings-row b{font-size:.85rem}.settings-row p{color:var(--muted);font-size:.68rem;margin:3px 0 0}
+.chart{width:100%;height:180px;overflow:visible}.chart text{fill:var(--muted);font-size:10px}.chart .gridline{stroke:rgba(255,255,255,.065);stroke-width:1}.chart .line{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 8px rgba(var(--accent-rgb),.3))}.chart .area{fill:url(#areaGrad)}.chart .pt{fill:var(--bg);stroke:var(--accent);stroke-width:3}
+.roadmap{display:grid;gap:9px}.road{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:11px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025)}.road-num{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(var(--accent-rgb),.07);color:var(--accent);font-weight:950}.road b{font-size:.86rem}.road small{display:block;color:var(--muted);font-size:.68rem;margin-top:2px}
+.livebox{position:relative;padding:20px;background:linear-gradient(145deg,rgba(118,231,173,.07),rgba(var(--accent-rgb),.045));border:1px solid rgba(118,231,173,.15);border-radius:20px}.livehead{display:flex;align-items:center;gap:9px}.livepulse{width:10px;height:10px;border-radius:50%;background:var(--good);box-shadow:0 0 0 0 rgba(118,231,173,.4);animation:livePulse 2s infinite}@keyframes livePulse{70%{box-shadow:0 0 0 9px rgba(118,231,173,0)}100%{box-shadow:0 0 0 0 rgba(118,231,173,0)}}
+.sharelink{padding:11px 12px;border-radius:13px;background:rgba(0,0,0,.25);border:1px solid var(--line);font-size:.67rem;color:#bcc6d5;word-break:break-all;margin-top:11px}
+.quote-stage{min-height:330px;display:flex;flex-direction:column;justify-content:space-between;padding:26px;background:
+ radial-gradient(circle at 100% 0,rgba(var(--accent-rgb),.13),transparent 35%),
+ linear-gradient(145deg,var(--panel2),rgba(7,9,14,.8))}
+.quote-stage blockquote{font-size:clamp(1.6rem,4vw,2.5rem);line-height:1.18;letter-spacing:-.045em;font-weight:820;margin:0;max-width:800px}.quote-stage footer{color:var(--muted);font-size:.74rem}
+.theme-grid,.accent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.themebtn{height:76px;border-radius:16px;border:2px solid transparent;cursor:pointer;position:relative;overflow:hidden}.themebtn.active{border-color:var(--accent)}.themebtn span{position:absolute;left:8px;bottom:7px;font-size:.62rem;font-weight:900;color:white;text-shadow:0 1px 8px #000}
+.themebtn[data-v=obsidian]{background:linear-gradient(135deg,#05070b,#222b3d)}.themebtn[data-v=aurora]{background:linear-gradient(135deg,#071014,#15554f)}.themebtn[data-v=carbon]{background:linear-gradient(135deg,#050505,#353535)}.themebtn[data-v=forest]{background:linear-gradient(135deg,#07100c,#1e4934)}.themebtn[data-v=ember]{background:linear-gradient(135deg,#100907,#6b2d1e)}.themebtn[data-v=violet]{background:linear-gradient(135deg,#0b0710,#4b2a68)}
+.accentbtn{height:42px;border-radius:13px;border:2px solid transparent;cursor:pointer}.accentbtn.active{border-color:white}.accentbtn[data-v=ice]{background:#7de7ff}.accentbtn[data-v=blue]{background:#6ba7ff}.accentbtn[data-v=violet]{background:#b58cff}.accentbtn[data-v=emerald]{background:#72e3ad}.accentbtn[data-v=gold]{background:#ffd178}
+.mobile-nav{display:none}
+.fab{display:none;position:fixed;right:16px;bottom:86px;width:48px;height:48px;border-radius:16px;border:1px solid rgba(var(--accent-rgb),.28);background:linear-gradient(145deg,var(--accent),var(--accent2));color:#071015;z-index:40;box-shadow:0 14px 35px rgba(var(--accent-rgb),.22);font-size:1.4rem;font-weight:500}
+.modal-back{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(12px);z-index:100;display:none;align-items:flex-end;justify-content:center;padding:14px}.modal-back.show{display:flex}.modal{width:min(640px,100%);max-height:88vh;overflow:auto;background:linear-gradient(145deg,#121824,#090d14);border:1px solid var(--line);border-radius:26px;padding:20px;box-shadow:0 30px 100px rgba(0,0,0,.6);animation:modalIn .24s ease}@keyframes modalIn{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+.minimum-list{display:grid;gap:9px;margin:16px 0}.minimum-step{padding:14px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid var(--line);font-weight:820}
+.toast-area{position:fixed;right:16px;top:16px;z-index:150;display:grid;gap:8px}.toast{min-width:220px;max-width:340px;padding:12px 14px;border-radius:14px;background:#131923;border:1px solid var(--line);box-shadow:var(--shadow);font-size:.76rem;font-weight:760;animation:toastIn .25s ease both}@keyframes toastIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.viewer-shell{display:none;max-width:920px;margin:auto;padding:24px 16px 50px}
+body.viewer .shell,body.viewer .mobile-nav,body.viewer .fab{display:none!important}body.viewer .viewer-shell{display:block}
+.viewer-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}.viewer-brand{display:flex;gap:10px;align-items:center}.live-tag{display:inline-flex;gap:7px;align-items:center;padding:7px 10px;border:1px solid rgba(118,231,173,.2);background:rgba(118,231,173,.07);border-radius:999px;font-size:.68rem;font-weight:900;color:#bdf5d7}
+.viewer-hero{padding:26px;min-height:245px;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(circle at 90% 0,rgba(var(--accent-rgb),.14),transparent 34%),linear-gradient(145deg,var(--panel2),rgba(7,9,14,.82))}
+.viewer-hero h1{font-size:clamp(2rem,6vw,3.7rem);line-height:.98;letter-spacing:-.065em;margin:10px 0}.viewer-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--gap);margin-top:var(--gap)}
+.viewer-goals{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.skeleton{height:14px;border-radius:8px;background:linear-gradient(90deg,rgba(255,255,255,.04),rgba(255,255,255,.09),rgba(255,255,255,.04));background-size:200% 100%;animation:shimmer 1.2s infinite}@keyframes shimmer{to{background-position:-200% 0}}
+.hidden{display:none!important}
+@media(max-width:880px){
+  .shell{display:block}.sidebar{display:none}.main{padding:14px 13px 105px}.topbar{padding-top:4px}.top-left h1{font-size:1.75rem}.dashboard{grid-template-columns:1fr}.mobile-nav{display:block;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:7px 8px calc(7px + env(safe-area-inset-bottom));background:rgba(6,8,13,.86);border-top:1px solid var(--line);backdrop-filter:blur(24px)}.mobile-nav-inner{display:grid;grid-template-columns:repeat(6,1fr);gap:3px;max-width:760px;margin:auto}.mnav{border:0;background:transparent;color:#707b8e;border-radius:11px;padding:6px 2px;font-size:.57rem;font-weight:850}.mnav svg{display:block;width:19px;height:19px;margin:0 auto 2px;stroke:currentColor;fill:none;stroke-width:1.8}.mnav.active{color:var(--text);background:rgba(255,255,255,.055)}.fab{display:block}.top-actions .pill.labelled{display:none}.viewer-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .main{padding-left:11px;padding-right:11px}.hero{min-height:220px;padding:19px}.hero-top{align-items:flex-start}.ring{width:68px;height:68px}.metrics{grid-template-columns:repeat(3,1fr)}.metric{padding:11px}.metric strong{font-size:1.2rem}.goal-grid{grid-template-columns:1fr}.event{grid-template-columns:34px 68px minmax(0,1fr) auto}.schedule-row{grid-template-columns:82px 1fr auto}.theme-grid{grid-template-columns:repeat(2,1fr)}.viewer-goals{grid-template-columns:1fr}.viewer-hero{padding:21px}.toast-area{left:12px;right:12px}.toast{max-width:none}
+}
+
+.auth-gate{position:fixed;inset:0;z-index:300;display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 75% 10%,rgba(var(--accent-rgb),.13),transparent 30%),rgba(4,6,10,.91);backdrop-filter:blur(28px)}
+.auth-gate.hidden{display:none}.auth-panel{width:min(430px,100%);padding:25px;border-radius:28px;background:linear-gradient(145deg,rgba(20,26,38,.96),rgba(8,11,17,.96));border:1px solid rgba(255,255,255,.1);box-shadow:0 35px 120px rgba(0,0,0,.65)}
+.auth-brand{display:flex;align-items:center;gap:12px;margin-bottom:24px}.auth-panel h1{font-size:2rem;letter-spacing:-.055em;margin:7px 0 6px}.auth-panel .lead{color:var(--muted);font-size:.82rem;line-height:1.5;margin-bottom:18px}.auth-field{margin-top:11px}.auth-field label{display:block;color:var(--muted);font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin:0 0 7px}.password-wrap{position:relative}.password-wrap .input{padding-right:55px}.password-toggle{position:absolute;right:6px;top:6px;height:34px;border:0;border-radius:10px;padding:0 9px;background:rgba(255,255,255,.055);color:var(--muted);font-size:.67rem;font-weight:900;cursor:pointer}.auth-error{min-height:20px;color:#ff9ba6;font-size:.72rem;font-weight:750;margin-top:10px}.security-chip{display:inline-flex;align-items:center;gap:7px;color:#c4f5da;font-size:.68rem;font-weight:850;margin-top:15px}.account-id{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.72rem;color:#d5dbea;background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:12px;padding:10px 11px}.auth-user-pill{display:inline-flex;align-items:center;gap:7px}.auth-user-pill svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.9}
+
 </style>
 </head>
-<body data-theme="midnight">
-<div class="app">
-  <div class="top">
-    <div><div class="brand">Fokus 6M · v4.2</div><h1 id="pageTitle">Idag</h1></div>
-    <div><div class="date" id="dateLabel"></div><button class="topbtn editor-only" id="installTop">Installera</button></div>
-  </div>
+<body data-theme="obsidian" data-accent="ice" data-density="comfortable">
+<div class="ambient a"></div><div class="ambient b"></div>
+<div class="toast-area" id="toastArea"></div>
 
-  <div id="viewerBanner" class="viewer-banner viewer-only"><b>Följarläge</b><div class="muted" id="viewerStamp">Delad utveckling</div></div>
-
-  <section id="today" class="section active">
-    <div class="hero"><div class="title" id="heroTitle">Bara nästa steg.</div><p id="heroText">Du behöver inte lösa hela livet idag.</p></div>
-    <div class="card editor-only"><div class="nextup"><div class="pulse"></div><div><div class="kicker">Nästa</div><b id="nextUpText">Laddar dagens schema…</b></div></div></div>
-    <div class="card editor-only">
-      <h2>Dagens 3 viktigaste</h2>
-      <div class="priority"><b>1</b><input id="p1" class="input" placeholder="Viktigaste saken idag"></div>
-      <div class="priority"><b>2</b><input id="p2" class="input" placeholder="Andra viktiga saken"></div>
-      <div class="priority"><b>3</b><input id="p3" class="input" placeholder="Tredje viktiga saken"></div>
-    </div>
-    <div class="card editor-only">
-      <h2>Dagens bas</h2>
-      <div class="task"><input id="wake" type="checkbox"><label for="wake">Vakna samma tid<small>08:30 som grund.</small></label></div>
-      <div class="task"><input id="food" type="checkbox"><label for="food">Ät dagens måltider<small>Morgon liten om aptiten är låg. Mer från lunch till kväll.</small></label></div>
-      <div class="task"><input id="learn" type="checkbox"><label for="learn">Lärande 20–30 min<small>Politik • samhälle • ekonomi • historia • rättigheter</small></label></div>
-      <div class="task"><input id="mainact" type="checkbox"><label for="mainact">Gym eller musik<small>En huvudaktivitet räcker.</small></label></div>
-      <div class="task"><input id="evening" type="checkbox"><label for="evening">Kvällskoll 2 min<small>Vad är viktigast imorgon?</small></label></div>
-    </div>
-    <div class="card editor-only"><h2>Fokusblock</h2><div class="timer" id="timer">30:00</div><div class="row"><button class="btn" id="startTimer">Start</button><button class="btn secondary" id="resetTimer">Återställ</button></div></div>
-    <button class="btn danger full editor-only" onclick="showTab('reset')">Jag har en skitdag</button>
-
-    <div class="viewer-only">
-      <div class="grid2"><div class="metric"><div class="num" id="vWeek">0%</div><div class="lab">veckan klar</div></div><div class="metric"><div class="num" id="vStreak">0</div><div class="lab">dagars kedja</div></div></div>
-      <div class="card"><h2>Veckans utveckling</h2><div id="viewerBars"></div></div>
-      <div class="card"><h2>Kropp</h2><div class="grid2"><div class="metric"><div class="num" id="vWeight">—</div><div class="lab">senaste vikt</div></div><div class="metric"><div class="num">65</div><div class="lab">första viktmål</div></div></div></div>
-      <div class="card"><h2>6-månadersresan</h2><div id="vMonths" class="muted">Ingen månadsstatus delad ännu.</div></div>
-    </div>
-  </section>
-
-  <section id="week" class="section editor-only">
-    <div class="hero"><div class="title">Veckan tänker åt dig.</div><p>Missat = fortsätt. Ingen dubbel kompensation.</p></div>
-    <div class="card"><h2>Veckomål</h2>
-      <div class="weekline"><div><b>Gym</b><div class="muted">4 pass</div></div><div class="counter"><span id="gymN">0</span>/4</div><button class="mini" aria-label="Minska Gym" onclick="dec('gym')">−1</button><button class="mini" aria-label="Öka Gym" onclick="inc('gym',4)">+1</button></div>
-      <div class="weekline"><div><b>Musik</b><div class="muted">4 × 30 min</div></div><div class="counter"><span id="musicN">0</span>/4</div><button class="mini" aria-label="Minska Musik" onclick="dec('music')">−1</button><button class="mini" aria-label="Öka Musik" onclick="inc('music',4)">+1</button></div>
-      <div class="weekline"><div><b>Lärande</b><div class="muted">5 pass</div></div><div class="counter"><span id="learnN">0</span>/5</div><button class="mini" aria-label="Minska Lärande" onclick="dec('learnw')">−1</button><button class="mini" aria-label="Öka Lärande" onclick="inc('learnw',5)">+1</button></div>
-      <div class="weekline"><div><b>Framtid</b><div class="muted">2 fokusblock</div></div><div class="counter"><span id="futureN">0</span>/2</div><button class="mini" aria-label="Minska Framtid" onclick="dec('future')">−1</button><button class="mini" aria-label="Öka Framtid" onclick="inc('future',2)">+1</button></div>
-      <div class="weekline"><div><b>Veckokoll</b><div class="muted">1 × 15 min</div></div><div class="counter"><span id="reviewN">0</span>/1</div><button class="mini" aria-label="Minska Veckokoll" onclick="dec('review')">−1</button><button class="mini" aria-label="Öka Veckokoll" onclick="inc('review',1)">+1</button></div>
-    </div>
-    <div class="grid2"><div class="metric"><div class="num" id="weekScore">0%</div><div class="lab">veckan klar</div><div class="progress"><i id="weekBar"></i></div></div><div class="metric"><div class="num" id="streakN">0</div><div class="lab">dagars kedja</div><div class="progress"><i id="streakBar"></i></div></div></div>
-    <div class="card"><h2>Veckans 3 viktigaste</h2><input class="input" id="w1" placeholder="1."><div style="height:8px"></div><input class="input" id="w2" placeholder="2."><div style="height:8px"></div><input class="input" id="w3" placeholder="3."></div>
-    <button class="btn secondary full" onclick="resetWeek()">Ny vecka / nollställ räknare</button>
-  </section>
-
-  <section id="plan" class="section editor-only">
-    <div class="hero"><div class="title">Schema & påminnelser</div><p>Håll schemat kort. Appen visar alltid nästa sak.</p></div>
-    <div class="card"><h2>Mitt dagschema</h2><div id="scheduleEditor"></div><button class="btn secondary full" id="addSchedule">+ Lägg till aktivitet</button><p class="note">Sätt bara tider för saker som faktiskt behöver en tid.</p></div>
-    <div class="card"><h2>Imorgon — topp viktigt</h2><input class="input" id="tom1" placeholder="Viktigast imorgon"><div style="height:8px"></div><input class="input" id="tom2" placeholder="Nästa viktiga"><div style="height:8px"></div><input class="input" id="tom3" placeholder="Tredje om det behövs"></div>
-    <div class="card"><h2>Notiser</h2>
-      <div class="settings-row"><div><b>5 min före aktivitet</b><div class="muted">Appnotis när appen kan köra.</div></div><div class="switch" id="notifySwitch"><i></i></div></div>
-      <div class="settings-row"><div><b>Imorgon-viktigast</b><div class="muted">Påminnelse kl. 19:00 kvällen innan.</div></div><div class="switch" id="tomorrowSwitch"><i></i></div></div>
-      <button class="btn secondary full" id="testNotify">Testa appnotis</button><div style="height:8px"></div>
-      <button class="btn full" id="calendarExport">Lägg påminnelser i telefonens kalender</button>
-      <p class="note" id="notifyStatus"></p><p class="note">Kalenderexporten lägger 5-minuterslarm på dina schemapunkter. Det är det pålitliga alternativet när PWA:n är helt stängd.</p>
-    </div>
-  </section>
-
-  <section id="progress" class="section editor-only">
-    <div class="hero"><div class="title">Bevis, inte känsla.</div><p>Här ser du vad du faktiskt genomför.</p></div>
-    <div class="grid2"><div class="metric"><div class="num" id="weightNow">61</div><div class="lab">kg nu</div></div><div class="metric"><div class="num">65</div><div class="lab">första viktmål</div></div></div>
-    <div class="card"><h2>Logga vikt</h2><div class="row"><input class="input" id="weightInput" inputmode="decimal" placeholder="t.ex. 62,4"><button class="btn" id="saveWeight">Spara</button></div><div id="weightHistory" class="muted" style="margin-top:12px"></div></div>
-    <div class="card"><h2>Månadsfokus</h2>
-      <div class="task"><input type="checkbox" id="m1"><label for="m1">Månad 1 — Kontroll<small>Rutiner, mat, sömn, gym, musik, lärande, soc/vård.</small></label></div>
-      <div class="task"><input type="checkbox" id="m2"><label for="m2">Månad 2 — Disciplin<small>Missad dag = fortsätt.</small></label></div>
-      <div class="task"><input type="checkbox" id="m3"><label for="m3">Månad 3 — Bevis<small>Kropp, styrka, kunskap och färdiga pass.</small></label></div>
-      <div class="task"><input type="checkbox" id="m4"><label for="m4">Månad 4 — Riktning<small>Betyg, Komvux och yrkesspår.</small></label></div>
-      <div class="task"><input type="checkbox" id="m5"><label for="m5">Månad 5 — Självständighet<small>Boka, planera, ansöka och komma i tid.</small></label></div>
-      <div class="task"><input type="checkbox" id="m6"><label for="m6">Månad 6 — Håller systemet?<small>Behåll det som fungerar.</small></label></div>
-    </div>
-    <div class="card"><h2>Dela min utveckling</h2><p class="muted">Skapar en permanent live-länk med progress, vikt och sexmånadersstatus. Privata anteckningar och dagens topp 3 följer inte med.</p><button class="btn full" id="createShare">Starta live-följning</button><div class="sharebox hidden" id="shareBox"></div><div style="height:8px"></div><div class="row hidden" id="shareActions"><button class="btn secondary" id="copyShare">Kopiera</button><button class="btn secondary" id="nativeShare">Dela</button></div><p class="note" id="cloudStatus">Molnstatus: inte startad.</p><p class="note" id="cloudProfileNote"></p><p class="note">Länken uppdateras automatiskt från molnet. Endast delad progress visas.</p></div>
-    <div class="card"><h2>Backup</h2><div class="row"><button class="btn secondary" id="exportData">Exportera data</button><label class="btn secondary" style="text-align:center;cursor:pointer">Importera<input type="file" id="importData" accept="application/json" hidden></label></div></div>
-  </section>
-
-  <section id="quotes" class="section editor-only">
-    <div class="hero"><div class="title">Ord när huvudet drar iväg.</div><p>Korta påminnelser. Inga långa tal.</p></div>
-    <div class="card"><div class="quote" id="quoteText"></div><div class="quote-author">Fokus 6M</div><button class="btn secondary full" id="nextQuote" style="margin-top:14px">Nästa</button></div>
-    <div class="card"><h2>Bakgrund</h2><div class="theme-row"><button class="theme" data-t="midnight" aria-label="Midnight"></button><button class="theme" data-t="ember" aria-label="Ember"></button><button class="theme" data-t="forest" aria-label="Forest"></button><button class="theme" data-t="violet" aria-label="Violet"></button></div></div>
-  </section>
-
-  <section id="reset" class="section editor-only">
-    <div class="hero"><div class="title">Minimumdag.</div><p>Du ska inte rädda veckan. Bara håll kedjan levande.</p></div>
-    <div class="card"><div class="resetlist">1. Ät något.<br>2. Duscha / byt kläder.<br>3. Gå 10 minuter.<br>4. Gör EN viktig sak i 5 minuter.</div></div>
-    <div class="card"><div class="brand">Fråga dig</div><div class="quote">Vad kan jag påverka JUST NU?</div></div>
-    <div class="card"><h2>Tre regler</h2><div class="planstep"><b>Ingen kompensation.</b><div class="muted">Inte dubbelt imorgon.</div></div><div class="planstep"><b>Ingen “börjar på måndag”.</b><div class="muted">Nästa steg kan börja idag.</div></div><div class="planstep"><b>Resultat tar tid.</b><div class="muted">I början är systemet själva resultatet.</div></div></div>
-  </section>
+<div class="auth-gate hidden" id="authGate">
+  <form class="auth-panel" id="authForm">
+    <div class="auth-brand"><div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M7 4h11M7 4v16M7 11h9"/></svg></div><div><b>Fokus 6M</b><div class="kicker">SECURE OWNER ACCESS</div></div></div>
+    <div class="kicker">ÄGARLÄGE</div><h1>Logga in.</h1>
+    <div class="lead">Redigering, privata anteckningar och molnbackup öppnas bara för det verifierade ägarkontot. Familjelänken kräver ingen inloggning och är alltid read-only.</div>
+    <div class="auth-field"><label for="loginUsername">Användarnamn</label><input class="input" id="loginUsername" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="Användarnamn"></div>
+    <div class="auth-field"><label for="loginPassword">Lösenord</label><div class="password-wrap"><input class="input" id="loginPassword" type="password" autocomplete="current-password" placeholder="Lösenord"><button type="button" class="password-toggle" id="loginShow">VISA</button></div></div>
+    <div class="auth-error" id="authError"></div>
+    <button class="btn" id="loginButton" type="submit" style="width:100%;margin-top:2px">Lås upp Command Center</button>
+    <div class="security-chip"><span class="dot good"></span> Supabase Auth · krypterad HTTPS-session · inga ägarlösenord i GitHub</div>
+  </form>
 </div>
 
-<nav class="tabs editor-only"><div class="tabgrid"><button class="tab active" data-tab="today"><span>●</span>Idag</button><button class="tab" data-tab="week"><span>▦</span>Vecka</button><button class="tab" data-tab="plan"><span>◷</span>Plan</button><button class="tab" data-tab="progress"><span>↗</span>Progress</button><button class="tab" data-tab="quotes"><span>✦</span>Citat</button><button class="tab" data-tab="reset"><span>↺</span>Reset</button></div></nav>
-<div class="install editor-only" id="installBanner"><b>Installera Fokus 6M som app</b><button class="btn" id="installBtn">Installera</button></div>
 
-<script>
-const $=id=>document.getElementById(id);const S={g:(k,d)=>{try{let v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch{return d}},s:(k,v)=>localStorage.setItem(k,JSON.stringify(v))};const pad=n=>String(n).padStart(2,'0');const dateKey=(d=new Date())=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;const today=dateKey();const tomorrowDate=(()=>{let d=new Date();d.setDate(d.getDate()+1);return dateKey(d)})();const titles={today:'Idag',week:'Vecka',plan:'Plan',progress:'Progress',quotes:'Citat',reset:'Reset'};
-function showTab(id){document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));$('pageTitle').textContent=titles[id]||'Fokus 6M';scrollTo({top:0,behavior:'smooth'})}window.showTab=showTab;document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));let now=new Date();$('dateLabel').innerHTML=now.toLocaleDateString('sv-SE',{weekday:'short',day:'numeric',month:'short'}).replace('.','')+'<br>'+now.getFullYear();
+<div class="shell">
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M7 4h11M7 4v16M7 11h9"/></svg></div>
+      <div><b>Fokus 6M</b><small>Command Center</small></div>
+    </div>
+    <nav class="nav">
+      <button class="navbtn active" data-page="today"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m12 8 1 4 3 1"/></svg>Idag</button>
+      <button class="navbtn" data-page="week"><svg viewBox="0 0 24 24"><path d="M5 4v3M19 4v3M4 9h16M5 6h14a1 1 0 0 1 1 1v12H4V7a1 1 0 0 1 1-1Z"/></svg>Vecka</button>
+      <button class="navbtn" data-page="plan"><svg viewBox="0 0 24 24"><path d="M6 5h12M6 12h12M6 19h8"/><circle cx="4" cy="5" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="19" r="1"/></svg>Plan</button>
+      <button class="navbtn" data-page="progress"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>Progress</button>
+      <button class="navbtn" data-page="family"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 20c0-4 2-7 6-7s6 3 6 7M15 14c3 0 5 2 5 5"/></svg>Familj</button>
+      <button class="navbtn" data-page="quotes"><svg viewBox="0 0 24 24"><path d="M6 8h5v5H7c0 3-1 5-3 6M15 8h5v5h-4c0 3-1 5-3 6"/></svg>Citat</button>
+    </nav>
+    <div class="side-bottom">
+      <button class="navbtn" data-page="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.5-2.4 1A8 8 0 0 0 15 6l-.4-2.6h-4L10 6a8 8 0 0 0-1.6 1L6 6 4 9.5 6.1 11A7 7 0 0 0 6 12c0 .3 0 .7.1 1L4 14.5 6 18l2.4-1A8 8 0 0 0 10 18l.5 2.6h4L15 18a8 8 0 0 0 1.6-1l2.4 1 2-3.5-2.1-1.5c.1-.3.1-.7.1-1Z"/></svg>Inställningar</button>
+      <button class="navbtn" id="minimumSide"><svg viewBox="0 0 24 24"><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/><circle cx="12" cy="12" r="2"/></svg>Minimumläge</button>
+      <div class="micro-status"><span class="dot" id="sideDot"></span><span id="sideStatus">Lokal</span></div>
+    </div>
+  </aside>
 
-const CLOUD_ENDPOINT='https://mepttxkpvygtxvlmkhuj.supabase.co/functions/v1/fokus-sync';const APP_VERSION='4.1';
-function base64url(obj){let s=btoa(unescape(encodeURIComponent(JSON.stringify(obj))));return s.replace(/=+$/,'').replace(/\+/g,'-').replace(/\//g,'_')}function unbase64url(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return JSON.parse(decodeURIComponent(escape(atob(s))))}
-function renderViewer(v,stamp){document.body.classList.add('viewer');$('pageTitle').textContent='Utveckling';$('heroTitle').textContent=v.name||'Fokus 6M';$('heroText').textContent='Livevy över den utveckling som har delats.';$('viewerStamp').textContent='Uppdaterad '+new Date(stamp||v.ts||Date.now()).toLocaleString('sv-SE',{dateStyle:'medium',timeStyle:'short'});$('vWeek').textContent=(v.weekPct||0)+'%';$('vStreak').textContent=v.streak||0;$('vWeight').textContent=v.weight?String(v.weight).replace('.',',')+' kg':'—';let goals=[['Gym',v.week?.gym||0,4],['Musik',v.week?.music||0,4],['Lärande',v.week?.learnw||0,5],['Framtid',v.week?.future||0,2]];$('viewerBars').innerHTML=goals.map(([n,x,m])=>`<div class="barrow"><b>${n}</b><div class="progress"><i style="width:${Math.min(100,x/m*100)}%"></i></div><span>${x}/${m}</span></div>`).join('');$('vMonths').innerHTML=(v.months||[]).length?`Klara fokusmånader: <b>${v.months.join(', ')}</b> av 6.`:'Ingen månadsstatus delad ännu.'}
-function viewerMode(){let live=location.hash.match(/^#live=([0-9a-f-]+)$/i);if(live){document.body.classList.add('viewer');async function refresh(){try{let r=await fetch(CLOUD_ENDPOINT+'?token='+encodeURIComponent(live[1]),{cache:'no-store'});if(!r.ok)throw 0;let j=await r.json();renderViewer(j.data,j.updated_at)}catch{$('viewerStamp').textContent='Kunde inte hämta live-data just nu.'}}refresh();setInterval(refresh,15000);return true}let h=location.hash.match(/^#follow=(.+)$/);if(!h)return false;try{renderViewer(unbase64url(h[1]));return true}catch(e){return false}}
-if(viewerMode()){
-  if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-}else{
-const daily=S.g('daily:'+today,{});['p1','p2','p3','wake','food','learn','mainact','evening'].forEach(id=>{let e=$(id);if(e.type==='checkbox')e.checked=!!daily[id];else e.value=daily[id]||'';let save=()=>{daily[id]=e.type==='checkbox'?e.checked:e.value;S.s('daily:'+today,daily);streak();queueCloudSync()};e.addEventListener(e.type==='checkbox'?'change':'input',save)});
-const wt=S.g('week:text',{w1:'',w2:'',w3:''});['w1','w2','w3'].forEach(id=>{let e=$(id);e.value=wt[id]||'';e.oninput=()=>{wt[id]=e.value;S.s('week:text',wt)}});let counts=S.g('week:counts',{gym:0,music:0,learnw:0,future:0,review:0});function renderCounts(){gymN.textContent=counts.gym;musicN.textContent=counts.music;learnN.textContent=counts.learnw;futureN.textContent=counts.future;reviewN.textContent=counts.review;let p=Math.round((counts.gym+counts.music+counts.learnw+counts.future+counts.review)/16*100);weekScore.textContent=p+'%';weekBar.style.width=p+'%'}function inc(k,m){counts[k]=Math.min(m,(counts[k]||0)+1);S.s('week:counts',counts);renderCounts();queueCloudSync()}window.inc=inc;function dec(k){counts[k]=Math.max(0,(counts[k]||0)-1);S.s('week:counts',counts);renderCounts();queueCloudSync()}window.dec=dec;function resetWeek(){if(!confirm('Nollställ veckans räknare?'))return;counts={gym:0,music:0,learnw:0,future:0,review:0};S.s('week:counts',counts);renderCounts();queueCloudSync()}window.resetWeek=resetWeek;renderCounts();
-// v4.2: remove the single Gym +1 that was created only for the cloud-sync test.
-if(!S.g('v42:test-cleaned',false)&&S.g('cloud:share',null)?.public_token==='cee86cc5-3302-4834-ba03-9a41d0cffb5a'&&counts.gym===1&&counts.music===0&&counts.learnw===0&&counts.future===0&&counts.review===0){counts.gym=0;S.s('week:counts',counts);S.s('v42:test-cleaned',true);renderCounts();setTimeout(()=>queueCloudSync(),700)}
-function streak(){let s=0,x=new Date();for(let i=0;i<60;i++){let v=S.g('daily:'+dateKey(x),null);if(v&&(v.wake||v.food||v.learn||v.mainact||v.evening))s++;else if(i>0)break;x.setDate(x.getDate()-1)}streakN.textContent=s;streakBar.style.width=Math.min(100,s/14*100)+'%';return s}streak();
-let sec=1800,timerInt=null;function renderTimer(){timer.textContent=`${pad(Math.floor(sec/60))}:${pad(sec%60)}`}startTimer.onclick=()=>{if(timerInt){clearInterval(timerInt);timerInt=null;startTimer.textContent='Start';return}startTimer.textContent='Paus';timerInt=setInterval(()=>{if(sec){sec--;renderTimer()}else{clearInterval(timerInt);timerInt=null;startTimer.textContent='Start';sendNotif('Fokusblock klart','Bra. Paus nu.')}},1000)};resetTimer.onclick=()=>{clearInterval(timerInt);timerInt=null;sec=1800;renderTimer();startTimer.textContent='Start'};renderTimer();
-let schedule=S.g('schedule:v3',[{id:crypto.randomUUID?.()||String(Date.now()),time:'08:30',title:'Upp + morgonrutin'}]);const esc=s=>String(s||'').replace(/[&<>"']/g,a=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[a]));function mins(time){let[h,m]=time.split(':').map(Number),x=new Date();x.setHours(h,m,0,0);return Math.round((x-Date.now())/60000)}function saveSchedule(){schedule.sort((a,b)=>a.time.localeCompare(b.time));S.s('schedule:v3',schedule);renderSchedule();renderToday();renderNext()}function renderSchedule(){scheduleEditor.innerHTML='';schedule.forEach((it,i)=>{let r=document.createElement('div');r.className='schedule-row';r.innerHTML=`<input class="timeinput" type="time" value="${it.time}"><input class="input" value="${esc(it.title)}" placeholder="Aktivitet"><button class="mini">×</button>`;let[a,b,z]=r.children;a.onchange=()=>{it.time=a.value;saveSchedule()};b.oninput=()=>{it.title=b.value;S.s('schedule:v3',schedule);renderToday();renderNext()};z.onclick=()=>{schedule.splice(i,1);saveSchedule()};scheduleEditor.appendChild(r)})}function renderToday(){/* today list intentionally summarized through next-up */}function renderNext(){let x=schedule.slice().sort((a,b)=>a.time.localeCompare(b.time)).find(i=>mins(i.time)>=0);nextUpText.textContent=x?`${x.time} — ${x.title||'Aktivitet'}${mins(x.time)<=60?' • om '+mins(x.time)+' min':''}`:'Dagens schemapunkter är klara. Kolla morgondagens topp 3.'}addSchedule.onclick=()=>{schedule.push({id:crypto.randomUUID?.()||String(Date.now()+Math.random()),time:'18:00',title:''});saveSchedule()};renderSchedule();renderNext();setInterval(renderNext,30000);
-const tm=S.g('tomorrow:'+tomorrowDate,{tom1:'',tom2:'',tom3:''});['tom1','tom2','tom3'].forEach(id=>{let e=$(id);e.value=tm[id]||'';e.oninput=()=>{tm[id]=e.value;S.s('tomorrow:'+tomorrowDate,tm)}});
-let notify=S.g('notify:v3',{before5:false,tomorrow:false});async function askNotify(){if(!('Notification'in window))return false;if(Notification.permission==='granted')return true;return(await Notification.requestPermission())==='granted'}async function sendNotif(title,body){if(!('Notification'in window)||Notification.permission!=='granted')return;try{let reg=await navigator.serviceWorker.ready;await reg.showNotification(title,{body,icon:'icon.svg',badge:'icon.svg',tag:title})}catch{new Notification(title,{body})}}function renderNotify(){notifySwitch.classList.toggle('on',notify.before5);tomorrowSwitch.classList.toggle('on',notify.tomorrow);notifyStatus.textContent=!('Notification'in window)?'Den här webbläsaren stöder inte appnotiser.':Notification.permission==='granted'?'Appnotiser är tillåtna. Kalenderknappen ger pålitliga larm även när appen är stängd.':Notification.permission==='denied'?'Notiser är blockerade i telefonens/webbläsarens inställningar.':'Tryck på ett reglage och tillåt notiser.'}notifySwitch.onclick=async()=>{if(!notify.before5&&!(await askNotify()))return;notify.before5=!notify.before5;S.s('notify:v3',notify);renderNotify()};tomorrowSwitch.onclick=async()=>{if(!notify.tomorrow&&!(await askNotify()))return;notify.tomorrow=!notify.tomorrow;S.s('notify:v3',notify);renderNotify()};testNotify.onclick=async()=>{if(await askNotify())sendNotif('Fokus 6M','Testnotisen fungerar.')};renderNotify();let sent={};setInterval(()=>{if(Notification.permission!=='granted')return;if(notify.before5)schedule.forEach(i=>{let m=mins(i.time),k=today+i.time;if(m>=4&&m<=5&&!sent[k]){sent[k]=1;sendNotif('Om 5 minuter',i.title||'Nästa aktivitet')}});if(notify.tomorrow){let n=new Date();if(n.getHours()===19&&n.getMinutes()<3&&!sent['tom'+today]){let a=[tm.tom1,tm.tom2,tm.tom3].filter(Boolean);if(a.length){sent['tom'+today]=1;sendNotif('Viktigast imorgon',a.join(' • '))}}}},30000);
-function icsEscape(s){return String(s||'').replace(/\\/g,'\\\\').replace(/,/g,'\\,').replace(/;/g,'\\;').replace(/\n/g,'\\n')}function toICSLocal(d){return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}T${pad(d.getHours())}${pad(d.getMinutes())}00`}calendarExport.onclick=()=>{let base=new Date();base.setSeconds(0,0);let lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Fokus 6M//SV','CALSCALE:GREGORIAN','METHOD:PUBLISH'];schedule.forEach((it,idx)=>{let[h,m]=it.time.split(':').map(Number),d=new Date();d.setHours(h,m,0,0);let end=new Date(d.getTime()+30*60000);lines.push('BEGIN:VEVENT',`UID:fokus6m-${idx}-${it.time}@fokus6m`,`DTSTAMP:${toICSLocal(new Date())}`,`DTSTART:${toICSLocal(d)}`,`DTEND:${toICSLocal(end)}`,'RRULE:FREQ=DAILY',`SUMMARY:${icsEscape(it.title||'Fokus 6M')}`,'BEGIN:VALARM','TRIGGER:-PT5M','ACTION:DISPLAY',`DESCRIPTION:${icsEscape(it.title||'Nästa aktivitet')}`,'END:VALARM','END:VEVENT')});let a=[tm.tom1,tm.tom2,tm.tom3].filter(Boolean);if(a.length){let d=new Date();d.setHours(19,0,0,0);let end=new Date(d.getTime()+15*60000);lines.push('BEGIN:VEVENT','UID:fokus6m-tomorrow-'+today+'@fokus6m',`DTSTAMP:${toICSLocal(new Date())}`,`DTSTART:${toICSLocal(d)}`,`DTEND:${toICSLocal(end)}`,`SUMMARY:${icsEscape('Imorgon: '+a.join(' • '))}`,'BEGIN:VALARM','TRIGGER:PT0M','ACTION:DISPLAY',`DESCRIPTION:${icsEscape(a.join(' • '))}`,'END:VALARM','END:VEVENT')}lines.push('END:VCALENDAR');let blob=new Blob([lines.join('\r\n')],{type:'text/calendar;charset=utf-8'}),u=URL.createObjectURL(blob),ael=document.createElement('a');ael.href=u;ael.download='Fokus-6M-paminnelser.ics';ael.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};
-let weights=S.g('weights',[]);function renderWeights(){let last=weights.at(-1)?.value||61;weightNow.textContent=String(last).replace('.',',');weightHistory.innerHTML=weights.length?weights.slice(-6).reverse().map(x=>`${x.date}: <b>${String(x.value).replace('.',',')} kg</b>`).join('<br>'):'Ingen vikt loggad ännu.'}saveWeight.onclick=()=>{let v=parseFloat(weightInput.value.replace(',','.'));if(!Number.isFinite(v)||v<35||v>200)return;weights.push({date:today,value:Math.round(v*10)/10});S.s('weights',weights);weightInput.value='';renderWeights();queueCloudSync()};renderWeights();['m1','m2','m3','m4','m5','m6'].forEach(id=>{let e=$(id),k='month:'+id;e.checked=S.g(k,false);e.onchange=()=>{S.s(k,e.checked);queueCloudSync()}});
-const quotes=['Du behöver inte komma ikapp alla. Du behöver bygga vidare från där du står.','Bara nästa steg. Hela problemet behöver inte lösas idag.','Missad dag betyder fortsätt — inte börja om.','Tålamod är också disciplin.','I början är systemet själva resultatet.','Självförtroende byggs av bevis: små löften du faktiskt håller.','Det som tar tid är fortfarande värt att bygga.','Fråga inte hur långt du har kvar. Fråga vad du kan påverka idag.','En dålig dag får vara liten. Den behöver inte bli en förstörd vecka.','Nuet är platsen där du faktiskt kan ändra framtiden.','Du behöver inte känna motivation för att göra fem minuter.','Låt handlingarna bli starkare än gamla bilder av vem du var.','Du är inte sen till ditt eget liv. Du bygger från en annan startpunkt.','Håll löftet litet nog för att kunna hålla det. Sedan bygger du vidare.'];let qi=Math.floor(Math.random()*quotes.length);function renderQuote(){quoteText.textContent=quotes[qi]}nextQuote.onclick=()=>{qi=(qi+1)%quotes.length;renderQuote()};renderQuote();let theme=S.g('theme','midnight');document.body.dataset.theme=theme;document.querySelectorAll('.theme').forEach(b=>{b.classList.toggle('selected',b.dataset.t===theme);b.onclick=()=>{theme=b.dataset.t;document.body.dataset.theme=theme;S.s('theme',theme);document.querySelectorAll('.theme').forEach(x=>x.classList.toggle('selected',x===b))}});
-function shareSnapshot(){let weekPct=Math.round((counts.gym+counts.music+counts.learnw+counts.future+counts.review)/16*100);return{v:3,name:'Min 6-månadersutveckling',ts:Date.now(),week:{...counts},weekPct,weight:weights.at(-1)?.value||null,streak:+streakN.textContent,months:[1,2,3,4,5,6].filter(n=>S.g('month:m'+n,false))}}
-let cloudShare=S.g('cloud:share',null),cloudTimer=null,cloudBusy=false,cloudPending=false,shareUrl='';
-function cloudStatusText(text,ok=false){if(!window.cloudStatus)return;cloudStatus.textContent='Molnstatus: '+text;cloudStatus.style.color=ok?'#8de0b2':'';if(window.cloudProfileNote&&cloudShare?.public_token)cloudProfileNote.textContent='Aktiv följprofil: '+cloudShare.public_token.slice(0,8)+'…'}
-async function ensureCloudShare(){if(cloudShare?.public_token&&cloudShare?.owner_token)return cloudShare;cloudStatusText('kopplar…');let r=await fetch(CLOUD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'create',data:shareSnapshot()}),cache:'no-store'});if(!r.ok)throw new Error('create '+r.status);cloudShare=await r.json();S.s('cloud:share',cloudShare);return cloudShare}
-async function doCloudUpdate(){if(!cloudShare?.public_token||!cloudShare?.owner_token){cloudStatusText('live-följning inte startad');return false}let r=await fetch(CLOUD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','x-owner-token':cloudShare.owner_token},body:JSON.stringify({action:'update',public_token:cloudShare.public_token,data:shareSnapshot()}),cache:'no-store'});if(!r.ok)throw new Error('update '+r.status);let j=await r.json().catch(()=>({}));let t=j.updated_at?new Date(j.updated_at):new Date();cloudStatusText('synkad '+t.toLocaleTimeString('sv-SE',{hour:'2-digit',minute:'2-digit',second:'2-digit'}),true);S.s('cloud:lastSync',Date.now());return true}
-async function syncCloud(){if(cloudBusy){cloudPending=true;return}cloudBusy=true;cloudPending=false;cloudStatusText(navigator.onLine?'synkar…':'offline — väntar');try{let delays=[0,1200,3000];let last;for(let i=0;i<delays.length;i++){if(delays[i])await new Promise(r=>setTimeout(r,delays[i]));try{await doCloudUpdate();last=null;break}catch(e){last=e}}if(last)throw last}catch(e){cloudStatusText('kunde inte synka — försöker igen');cloudPending=true}finally{cloudBusy=false;if(cloudPending){cloudPending=false;clearTimeout(cloudTimer);cloudTimer=setTimeout(syncCloud,5000)}}}
-function queueCloudSync(){if(!cloudShare?.public_token||!cloudShare?.owner_token)return;cloudPending=true;clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>{cloudPending=false;syncCloud()},250)}
-createShare.onclick=async()=>{try{createShare.disabled=true;createShare.textContent='Kopplar molnet…';await ensureCloudShare();await syncCloud();shareUrl=location.origin+location.pathname+'#live='+cloudShare.public_token;shareBox.textContent=shareUrl;shareBox.classList.remove('hidden');shareActions.classList.remove('hidden');createShare.textContent='Live-följning aktiv ✓'}catch(e){cloudStatusText('anslutning misslyckades');createShare.textContent='Försök igen';alert('Kunde inte starta live-följning just nu.')}finally{createShare.disabled=false}};
-if(cloudShare?.public_token){shareUrl=location.origin+location.pathname+'#live='+cloudShare.public_token;shareBox.textContent=shareUrl;shareBox.classList.remove('hidden');shareActions.classList.remove('hidden');createShare.textContent='Live-följning aktiv ✓';cloudStatusText('kontrollerar…');queueCloudSync();setInterval(()=>{if(document.visibilityState==='visible'&&navigator.onLine)queueCloudSync()},30000);addEventListener('online',queueCloudSync);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')queueCloudSync()});addEventListener('pagehide',()=>{if(navigator.onLine)syncCloud()})}
-copyShare.onclick=async()=>{if(!shareUrl)return;await navigator.clipboard.writeText(shareUrl);copyShare.textContent='Kopierad ✓';setTimeout(()=>copyShare.textContent='Kopiera',1100)};nativeShare.onclick=async()=>{if(!shareUrl){await createShare.click()}if(navigator.share&&shareUrl)await navigator.share({title:'Fokus 6M',text:'Här kan du följa min utveckling live.',url:shareUrl});else copyShare.click()};
-exportData.onclick=()=>{let data={version:3,exportedAt:new Date().toISOString(),localStorage:{}};for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(k)data.localStorage[k]=localStorage.getItem(k)}let b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='Fokus-6M-backup-'+today+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};importData.onchange=async e=>{let f=e.target.files?.[0];if(!f)return;try{let data=JSON.parse(await f.text());if(!data.localStorage)throw 0;if(!confirm('Importera backup och ersätt appens sparade data?'))return;Object.entries(data.localStorage).forEach(([k,v])=>localStorage.setItem(k,v));location.reload()}catch{alert('Kunde inte läsa backupfilen.')}};
-let deferred=null;function installHelp(){if(deferred){deferred.prompt();deferred.userChoice.finally(()=>{deferred=null;installBanner.classList.remove('show')})}else alert('Android/Chrome: webbläsarens meny → Installera app. iPhone/Safari: Dela → Lägg till på hemskärmen.')}addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;installBanner.classList.add('show')});installBtn.onclick=installHelp;installTop.onclick=installHelp;
-if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+  <main class="main">
+    <header class="topbar">
+      <div class="top-left"><div class="eyebrow" id="dateLabel"></div><h1 id="pageTitle">Idag</h1></div>
+      <div class="top-actions">
+        <div class="pill labelled"><span class="dot" id="cloudDot"></span><span id="cloudTopText">Moln ej startat</span></div>
+        <div class="pill labelled" id="networkPill">Online</div>
+        <button class="iconbtn" id="installBtn" title="Installera appen"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14"/></svg></button>
+        <button class="iconbtn" id="logoutTop" title="Lås ägarläget"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></button>
+        <button class="iconbtn" data-page="settings" title="Inställningar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.5-2.4 1A8 8 0 0 0 15 6l-.4-2.6h-4L10 6a8 8 0 0 0-1.6 1L6 6 4 9.5 6.1 11A7 7 0 0 0 6 12c0 .3 0 .7.1 1L4 14.5 6 18l2.4-1A8 8 0 0 0 10 18l.5 2.6h4L15 18a8 8 0 0 0 1.6-1l2.4 1 2-3.5-2.1-1.5c.1-.3.1-.7.1-1Z"/></svg></button>
+      </div>
+    </header>
+
+    <section class="page active" id="today">
+      <div class="card hero">
+        <div class="hero-top">
+          <div>
+            <div class="kicker">NEXT MOVE</div>
+            <h2 id="nextTitle">Bara nästa steg.</h2>
+            <div class="hero-meta" id="nextMeta">Appen räknar ut vad som kommer härnäst.</div>
+          </div>
+          <div class="ring" id="dailyRing"><div><b id="dailyPct">0%</b><small>idag</small></div></div>
+        </div>
+        <div class="hero-actions">
+          <button class="btn" id="completeNext">Markera schemapunkt klar</button>
+          <button class="btn secondary" id="openFocus">Starta fokus</button>
+          <button class="btn ghost" id="minimumHero">Minimumläge</button>
+        </div>
+      </div>
+
+      <div class="dashboard" style="margin-top:var(--gap)">
+        <div class="stack">
+          <div class="card pad">
+            <div class="card-header"><div><h2>Dagens tre</h2><p>Det enda du ska hålla aktivt i huvudet idag.</p></div><span class="pill">3 max</span></div>
+            <div class="priority"><b>1</b><input class="input" id="p1" placeholder="Viktigaste saken idag"></div>
+            <div class="priority"><b>2</b><input class="input" id="p2" placeholder="Nästa viktiga sak"></div>
+            <div class="priority"><b>3</b><input class="input" id="p3" placeholder="Tredje om den behövs"></div>
+          </div>
+          <div class="card pad">
+            <div class="card-header"><div><h2>Dagens bas</h2><p>Små bevis på att systemet fortfarande lever.</p></div></div>
+            <div id="dailyTasks"></div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card pad">
+            <div class="card-header"><div><h2>Fokusmotor</h2><p>En uppgift. En timer. Sedan paus.</p></div></div>
+            <div class="focus-wrap">
+              <div class="timer-ring" id="timerRing"><div class="timer-core"><b id="timerText">30:00</b><span id="timerState">REDO</span></div></div>
+            </div>
+            <div class="preset-row" id="presetRow">
+              <button class="preset" data-min="5">5 min</button><button class="preset" data-min="20">20 min</button><button class="preset active" data-min="30">30 min</button>
+            </div>
+            <div class="hero-actions" style="margin-top:9px"><button class="btn" id="timerStart">Start</button><button class="btn secondary" id="timerReset">Återställ</button></div>
+          </div>
+          <div class="card pad energy-card" id="energyModule">
+            <div class="card-header"><div><h2>Energi nu</h2><p>Det ändrar inte planen. Det ändrar hur hårt du kör den.</p></div></div>
+            <div class="energy-row"><button class="energy" data-e="low">Låg</button><button class="energy" data-e="steady">Stabil</button><button class="energy" data-e="high">Hög</button></div>
+            <div class="quote-mini" id="energyAdvice" style="margin-top:15px"></div>
+          </div>
+          <div class="card pad" id="quoteMiniModule">
+            <div class="kicker">SIGNAL</div><div class="quote-mini" id="miniQuote" style="margin-top:8px"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="week">
+      <div class="dashboard">
+        <div class="stack">
+          <div class="card pad">
+            <div class="card-header"><div><h2>Veckomål</h2><p>Tryck + när något är gjort. − om du råkade trycka fel.</p></div><div class="ring" id="weekRing" style="width:64px;height:64px"><div><b id="weekPct">0%</b><small>vecka</small></div></div></div>
+            <div class="goal-grid" id="goalGrid"></div>
+            <button class="btn ghost small" id="resetWeekBtn" style="margin-top:12px">Nollställ veckan</button>
+          </div>
+          <div class="card pad">
+            <div class="card-header"><div><h2>Veckans tre</h2><p>Riktningen, inte hela livet.</p></div></div>
+            <div class="priority"><b>1</b><input class="input" id="w1" placeholder="Veckans viktigaste"></div>
+            <div class="priority"><b>2</b><input class="input" id="w2" placeholder="Nästa"></div>
+            <div class="priority"><b>3</b><input class="input" id="w3" placeholder="Tredje"></div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card pad">
+            <div class="card-header"><div><h2>7 dagar</h2><p>Hur mycket av basen du faktiskt genomförde.</p></div><span class="pill" id="sevenAvg">0% snitt</span></div>
+            <div class="heat" id="heatMap"></div>
+          </div>
+          <div class="card pad">
+            <div class="card-header"><div><h2>Systemstatus</h2><p>Det viktiga är riktning och återkomst.</p></div></div>
+            <div class="metrics">
+              <div class="metric"><strong id="streakMetric">0</strong><span>dagars kedja</span></div>
+              <div class="metric"><strong id="doneMetric">0</strong><span>pass denna vecka</span></div>
+              <div class="metric"><strong id="nextMilestone">25%</strong><span>nästa nivå</span></div>
+            </div>
+            <div class="quote-mini" id="weekInsight" style="margin-top:16px"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="plan">
+      <div class="dashboard">
+        <div class="stack">
+          <div class="card pad">
+            <div class="card-header"><div><h2>Dagens timeline</h2><p>Aktuellt och nästa markeras automatiskt.</p></div><button class="btn secondary small" id="addSchedule">+ Aktivitet</button></div>
+            <div class="timeline" id="timeline"></div>
+          </div>
+          <div class="card pad">
+            <div class="card-header"><div><h2>Redigera schema</h2><p>Välj tid, aktivitet och vilka dagar den gäller.</p></div></div>
+            <div id="scheduleEditor"></div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card pad">
+            <div class="card-header"><div><h2>Imorgon — topp viktigt</h2><p>En kvällspåminnelse om det som verkligen spelar roll.</p></div></div>
+            <input class="input" id="tom1" placeholder="Viktigast imorgon"><div style="height:8px"></div>
+            <input class="input" id="tom2" placeholder="Nästa"><div style="height:8px"></div>
+            <input class="input" id="tom3" placeholder="Tredje om den behövs">
+          </div>
+          <div class="card pad">
+            <div class="card-header"><div><h2>Påminnelser</h2><p>Appnotis när appen kan köra. Kalenderlarm är den pålitliga backupen.</p></div></div>
+            <div class="settings-row"><div><b>5 min före aktivitet</b><p>Notis från appen.</p></div><div class="switch" id="notifySwitch"><i></i></div></div>
+            <div class="settings-row"><div><b>Imorgon-viktigast kl. 19</b><p>Visar morgondagens topppunkter.</p></div><div class="switch" id="tomorrowSwitch"><i></i></div></div>
+            <div class="hero-actions" style="margin-top:12px"><button class="btn secondary" id="testNotify">Testa notis</button><button class="btn" id="calendarExport">Exportera kalenderlarm</button></div>
+            <p class="hero-meta" id="notifyStatus" style="margin-top:12px"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="progress">
+      <div class="dashboard">
+        <div class="stack">
+          <div class="card pad" id="weightModule">
+            <div class="card-header"><div><h2>Vikt & kropp</h2><p>Trend över tid, inte dagsform.</p></div><span class="pill"><b id="weightNow">—</b>&nbsp;kg</span></div>
+            <svg class="chart" id="weightChart" viewBox="0 0 560 180" preserveAspectRatio="none">
+              <defs><linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".26"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>
+            </svg>
+            <div class="hero-actions"><input class="input" id="weightInput" inputmode="decimal" placeholder="t.ex. 62,4" style="max-width:180px"><button class="btn" id="saveWeight">Logga vikt</button><span class="pill">Mål: <b id="weightGoalLabel">65</b> kg</span></div>
+          </div>
+          <div class="card pad">
+            <div class="card-header"><div><h2>6-månaders roadmap</h2><p>Kryssa när en fas är genomförd. Namnen går att ändra i inställningar.</p></div></div>
+            <div class="roadmap" id="roadmap"></div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card pad">
+            <div class="card-header"><div><h2>Progress Intelligence</h2><p>Enkel analys baserad på det du faktiskt loggar.</p></div></div>
+            <div class="metrics">
+              <div class="metric"><strong id="progressWeek">0%</strong><span>vecka</span></div>
+              <div class="metric"><strong id="progressStreak">0</strong><span>streak</span></div>
+              <div class="metric"><strong id="roadDone">0/6</strong><span>faser</span></div>
+            </div>
+            <div class="quote-mini" id="progressInsight" style="margin-top:16px"></div>
+          </div>
+          <div class="card pad">
+            <div class="card-header"><div><h2>Senaste viktloggar</h2><p>De senaste sex registreringarna.</p></div></div>
+            <div id="weightHistory" class="hero-meta"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="family">
+      <div class="dashboard">
+        <div class="stack">
+          <div class="card pad">
+            <div class="card-header"><div><h2>Familj / följarläge</h2><p>En permanent read-only-länk. Ägarnyckeln lämnar aldrig din telefon.</p></div><span class="pill" id="familyCloudBadge"><span class="dot"></span><span>Ej startad</span></span></div>
+            <div class="livebox">
+              <div class="livehead"><span class="livepulse"></span><div><b id="liveTitle">Live-delning</b><div class="hero-meta" id="cloudStatus">Starta när du vill låta familjen följa utvecklingen.</div></div></div>
+              <div class="sharelink hidden" id="shareLink"></div>
+              <div class="hero-actions" style="margin-top:12px">
+                <button class="btn" id="startShare">Starta live-följning</button>
+                <button class="btn secondary hidden" id="copyShare">Kopiera länk</button>
+                <button class="btn secondary hidden" id="viewFamily">Visa som familj</button>
+              </div>
+            </div>
+          </div>
+          <div class="card pad">
+            <div class="card-header"><div><h2>Vad familjen får se</h2><p>Privata dagens anteckningar och ditt schema delas aldrig.</p></div></div>
+            <div id="familyPrivacy"></div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card pad">
+            <div class="card-header"><div><h2>Följarsidans identitet</h2><p>Anpassa rubriken utan att dela mer data.</p></div></div>
+            <label class="kicker">Namn / rubrik</label><input class="input" id="displayName" style="margin-top:7px" placeholder="Min utveckling">
+            <div style="height:10px"></div><label class="kicker">Resans namn</label><input class="input" id="journeyTitle" style="margin-top:7px" placeholder="6 månader av fokus">
+          </div>
+          <div class="card pad">
+            <div class="card-header"><div><h2>Säkerhet</h2><p>Om länken hamnar fel kan du döda den och skapa en ny.</p></div></div>
+            <div class="hero-actions">
+              <button class="btn secondary" id="regenerateShare">Byt följarlänk</button>
+              <button class="btn danger" id="stopShare">Stäng live-delning</button>
+            </div>
+            <p class="hero-meta" style="margin-top:12px">Alla som har följarlänken kan se det du valt att dela. De kan inte ändra din data.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="quotes">
+      <div class="card quote-stage">
+        <div class="kicker">MENTAL SIGNAL</div>
+        <blockquote id="quoteText"></blockquote>
+        <footer><span id="quoteIndex"></span><div class="hero-actions" style="margin-top:12px"><button class="btn" id="nextQuote">Nästa</button><button class="btn secondary" id="favQuote">Spara favorit</button></div></footer>
+      </div>
+      <div class="dashboard" style="margin-top:var(--gap)">
+        <div class="card pad"><div class="card-header"><div><h2>Favoriter</h2><p>Dina sparade citat.</p></div></div><div id="favoriteQuotes"></div></div>
+        <div class="card pad"><div class="card-header"><div><h2>Principer</h2><p>Systemreglerna som håller planen enkel.</p></div></div>
+          <div class="road"><div class="road-num">01</div><div><b>Bara nästa steg</b><small>Inte hela problemet på en gång.</small></div></div>
+          <div class="road"><div class="road-num">02</div><div><b>Missat = fortsätt</b><small>Ingen dubbel kompensation.</small></div></div>
+          <div class="road"><div class="road-num">03</div><div><b>Max 30 min fokus</b><small>Paus är en del av systemet.</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="settings">
+      <div class="dashboard">
+        <div class="stack">
+          <div class="card pad">
+            <div class="card-header"><div><h2>Utseende</h2><p>Bygg ett gränssnitt du faktiskt vill öppna varje dag.</p></div></div>
+            <div class="kicker">Bakgrund</div><div class="theme-grid" id="themeGrid" style="margin-top:8px">
+              <button class="themebtn" data-v="obsidian"><span>Obsidian</span></button><button class="themebtn" data-v="aurora"><span>Aurora</span></button><button class="themebtn" data-v="carbon"><span>Carbon</span></button><button class="themebtn" data-v="forest"><span>Forest</span></button><button class="themebtn" data-v="ember"><span>Ember</span></button><button class="themebtn" data-v="violet"><span>Violet</span></button>
+            </div>
+            <div class="kicker" style="margin-top:16px">Accent</div><div class="accent-grid" id="accentGrid" style="margin-top:8px">
+              <button class="accentbtn" data-v="ice"></button><button class="accentbtn" data-v="blue"></button><button class="accentbtn" data-v="violet"></button><button class="accentbtn" data-v="emerald"></button><button class="accentbtn" data-v="gold"></button>
+            </div>
+            <div class="settings-row" style="margin-top:10px"><div><b>Bakgrundsanimation</b><p>Ambient glow och subtil rörelse.</p></div><div class="switch" id="bgMotionSwitch"><i></i></div></div>
+            <div class="settings-row"><div><b>Haptik</b><p>Lätt vibration på viktiga tryck.</p></div><div class="switch" id="hapticSwitch"><i></i></div></div>
+            <div class="kicker" style="margin-top:14px">Täthet</div><div class="segmented" id="densitySeg" style="margin-top:8px"><button class="seg" data-v="compact">Kompakt</button><button class="seg" data-v="comfortable">Normal</button><button class="seg" data-v="large">Stor</button></div>
+          </div>
+          <div class="card pad">
+            <div class="card-header"><div><h2>Moduler</h2><p>Göm sådant du inte använder.</p></div></div>
+            <div class="settings-row"><div><b>Energi-check</b><p>Visas på Idag.</p></div><div class="switch" id="energySwitch"><i></i></div></div>
+            <div class="settings-row"><div><b>Citatkort på Idag</b><p>En kort mental signal.</p></div><div class="switch" id="quoteSwitch"><i></i></div></div>
+            <div class="settings-row"><div><b>Viktmodul</b><p>Logg och graf under Progress.</p></div><div class="switch" id="weightSwitch"><i></i></div></div>
+            <div style="margin-top:12px"><label class="kicker">Viktmål</label><input class="input" id="weightGoalInput" inputmode="decimal" style="margin-top:7px"></div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card pad">
+            <div class="card-header"><div><h2>Anpassa veckomål</h2><p>Standard är byggd för din plan, men appen kan användas av andra.</p></div></div>
+            <div id="goalSettings"></div>
+          </div>
+          <div class="card pad">
+            <div class="card-header"><div><h2>Anpassa roadmappen</h2><p>Sex faser, valfria namn.</p></div></div>
+            <div id="roadSettings"></div>
+          </div>
+
+          <div class="card pad">
+            <div class="card-header"><div><h2>Konto & säkerhet</h2><p>Riktig ägarinloggning. Familjen använder endast read-only-länken.</p></div><span class="pill auth-user-pill"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-5 3-8 7-8s7 3 7 8"/></svg>ÄGARE</span></div>
+            <div class="kicker">Användarnamn</div><div class="account-id" id="accountUsername" style="margin-top:7px">—</div>
+            <div class="settings-row"><div><b>Privat molnbackup</b><p>Schema, inställningar och privat appdata följer med efter login på ny enhet.</p></div><span class="pill" id="privateSyncBadge"><span class="dot"></span><span>Kontrollerar</span></span></div>
+            <div style="margin-top:12px" class="kicker">Byt lösenord</div>
+            <div class="auth-field"><input class="input" id="currentPassword" type="password" autocomplete="current-password" placeholder="Nuvarande lösenord"></div>
+            <div class="auth-field"><input class="input" id="newPassword" type="password" autocomplete="new-password" placeholder="Nytt lösenord · minst 12 tecken"></div>
+            <div class="auth-field"><input class="input" id="confirmPassword" type="password" autocomplete="new-password" placeholder="Upprepa nytt lösenord"></div>
+            <div class="hero-actions" style="margin-top:11px"><button class="btn" id="changePassword" type="button">Byt lösenord</button><button class="btn danger" id="logoutSettings" type="button">Logga ut den här enheten</button></div>
+            <p class="hero-meta" id="accountStatus" style="margin-top:12px">Sessionen förnyas automatiskt när du använder appen.</p>
+          </div>
+          <div class="card pad">
+            <div class="card-header"><div><h2>App & data</h2><p>Installera, exportera eller återställ från backup.</p></div></div>
+            <div class="hero-actions"><button class="btn" id="installSettings">Installera app</button><button class="btn secondary" id="exportData">Exportera backup</button><label class="btn secondary" style="cursor:pointer">Importera<input type="file" id="importData" accept="application/json" hidden></label></div>
+            <p class="hero-meta" style="margin-top:12px">Fokus 6M v5.1 SECURE · Supabase Auth · privat cloud backup · offline-first PWA.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<nav class="mobile-nav">
+  <div class="mobile-nav-inner">
+    <button class="mnav active" data-page="today"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m12 8 1 4 3 1"/></svg>Idag</button>
+    <button class="mnav" data-page="week"><svg viewBox="0 0 24 24"><path d="M5 4v3M19 4v3M4 9h16M5 6h14a1 1 0 0 1 1 1v12H4V7a1 1 0 0 1 1-1Z"/></svg>Vecka</button>
+    <button class="mnav" data-page="plan"><svg viewBox="0 0 24 24"><path d="M6 5h12M6 12h12M6 19h8"/></svg>Plan</button>
+    <button class="mnav" data-page="progress"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>Progress</button>
+    <button class="mnav" data-page="family"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 20c0-4 2-7 6-7s6 3 6 7M15 14c3 0 5 2 5 5"/></svg>Familj</button>
+    <button class="mnav" data-page="quotes"><svg viewBox="0 0 24 24"><path d="M6 8h5v5H7c0 3-1 5-3 6M15 8h5v5h-4c0 3-1 5-3 6"/></svg>Citat</button>
+  </div>
+</nav>
+<button class="fab" id="fab">+</button>
+
+<div class="modal-back" id="minimumModal">
+  <div class="modal">
+    <div class="card-header"><div><div class="kicker">MINIMUM MODE</div><h2 style="font-size:1.55rem;margin-top:6px">Dagen behöver inte räddas.</h2><p>Bara håll kedjan levande.</p></div><button class="iconbtn modalClose">×</button></div>
+    <div class="minimum-list"><div class="minimum-step">1. Ät något.</div><div class="minimum-step">2. Duscha eller byt kläder.</div><div class="minimum-step">3. Gå 10 minuter.</div><div class="minimum-step">4. Gör EN viktig sak i 5 minuter.</div></div>
+    <div class="quote-mini">Vad kan jag påverka JUST NU?</div>
+    <button class="btn" id="minimumFocus" style="margin-top:16px">Starta 5 minuter</button>
+  </div>
+</div>
+
+<div class="modal-back" id="focusModal">
+  <div class="modal">
+    <div class="card-header"><div><div class="kicker">FOCUS MODE</div><h2 style="font-size:1.55rem;margin-top:6px">En sak. Inget annat.</h2><p id="focusModalTask">Välj dagens viktigaste eller kör utan titel.</p></div><button class="iconbtn modalClose">×</button></div>
+    <div class="focus-wrap"><div class="timer-ring" id="modalTimerRing" style="width:240px;height:240px"><div class="timer-core"><b id="modalTimerText">30:00</b><span>FOCUS</span></div></div></div>
+    <div class="hero-actions" style="justify-content:center"><button class="btn" id="modalTimerToggle">Start</button><button class="btn secondary" id="modalTimerDone">Avsluta</button></div>
+  </div>
+</div>
+
+<div class="viewer-shell" id="viewerShell">
+  <div class="viewer-top">
+    <div class="viewer-brand"><div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M7 4h11M7 4v16M7 11h9"/></svg></div><div><b>Fokus 6M</b><div class="kicker">SUPPORT VIEW</div></div></div>
+    <div class="live-tag"><span class="livepulse"></span><span id="viewerLiveText">LIVE</span></div>
+  </div>
+  <div class="card viewer-hero">
+    <div><div class="kicker">UTVECKLING</div><h1 id="viewerName">Min utveckling</h1><div class="hero-meta" id="viewerJourney">6 månader av fokus</div></div>
+    <div class="hero-actions"><div class="pill" id="viewerUpdated">Hämtar data…</div></div>
+  </div>
+  <div class="viewer-grid">
+    <div class="stack">
+      <div class="card pad" id="viewerWeekCard"><div class="card-header"><div><h2>Den här veckan</h2><p>Live progress från appen.</p></div><div class="ring" id="viewerWeekRing" style="width:68px;height:68px"><div><b id="viewerWeekPct">—</b><small>vecka</small></div></div></div><div class="viewer-goals" id="viewerGoals"></div></div>
+      <div class="card pad" id="viewerFocusCard"><div class="card-header"><div><h2>Veckans fokus</h2><p>Det som är viktigast just nu.</p></div></div><div id="viewerFocus"></div></div>
+      <div class="card pad" id="viewerRoadCard"><div class="card-header"><div><h2>6-månadersresan</h2><p>Genomförda faser.</p></div></div><div class="roadmap" id="viewerRoadmap"></div></div>
+    </div>
+    <div class="stack">
+      <div class="card pad"><div class="card-header"><div><h2>Översikt</h2><p>Delas bara om ägaren har valt det.</p></div></div><div class="metrics"><div class="metric" id="viewerStreakMetric"><strong id="viewerStreak">—</strong><span>streak</span></div><div class="metric" id="viewerWeightMetric"><strong id="viewerWeight">—</strong><span>vikt</span></div><div class="metric" id="viewerDailyMetric"><strong id="viewerDaily">—</strong><span>idag</span></div></div></div>
+      <div class="card pad"><div class="quote-mini">Stöd handlar inte om att göra jobbet åt någon. Det handlar om att kunna se att jobbet faktiskt blir gjort.</div></div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+const $=id=>document.getElementById(id);
+let __suppressPrivateHook=false;
+const S={g:(k,d)=>{try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch{return d}},s:(k,v)=>{localStorage.setItem(k,JSON.stringify(v));if(!__suppressPrivateHook&&window.__f6mPrivateChanged)window.__f6mPrivateChanged(k)},del:k=>{localStorage.removeItem(k);if(!__suppressPrivateHook&&window.__f6mPrivateChanged)window.__f6mPrivateChanged(k)}};
+const SUPABASE_URL='https://mepttxkpvygtxvlmkhuj.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY='sb_publishable_CbGEXURQo4j00jCbBEEVjw_qk1QmuTy';
+const CLOUD_ENDPOINT=SUPABASE_URL+'/functions/v1/fokus-sync';
+const OWNER_USERNAME='fokus6m-owner';
+const OWNER_EMAIL='fokus6m.owner@fokus6m.app';
+const AUTH_KEY='f6m:auth:v1';
+const PRIVATE_REMOTE_KEY='f6m:privateRemoteVersion';
+const APP_VERSION='5.1';
+const pad=n=>String(n).padStart(2,'0');
+const dateKey=(d=new Date())=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const today=dateKey();
+const pageNames={today:'Idag',week:'Vecka',plan:'Plan',progress:'Progress',family:'Familj',quotes:'Citat',settings:'Inställningar'};
+const quotes=[
+'Bara nästa steg. Hela problemet behöver inte lösas idag.',
+'Missad dag betyder fortsätt — inte börja om.',
+'Tålamod är också disciplin.',
+'I början är systemet själva resultatet.',
+'Självförtroende byggs av bevis: små löften du faktiskt håller.',
+'Det som tar tid är fortfarande värt att bygga.',
+'Fråga inte hur långt du har kvar. Fråga vad du kan påverka idag.',
+'En dålig dag får vara liten. Den behöver inte bli en förstörd vecka.',
+'Nuet är platsen där du faktiskt kan ändra framtiden.',
+'Du behöver inte känna motivation för att göra fem minuter.',
+'Låt handlingarna bli starkare än gamla bilder av vem du var.',
+'Du är inte sen till ditt eget liv. Du bygger från en annan startpunkt.',
+'Håll löftet litet nog för att kunna hålla det. Sedan bygger du vidare.',
+'Riktning slår intensitet när intensiteten inte går att hålla.',
+'Det du upprepar blir till slut lättare att lita på.'
+];
+const defaultGoals={
+ gym:{label:'Gym',target:4},music:{label:'Musik',target:4},learnw:{label:'Lärande',target:5},future:{label:'Framtid',target:2},review:{label:'Veckokoll',target:1}
+};
+const defaultRoad=['Kontroll','Disciplin','Bevis','Riktning','Självständighet','Systemet håller'];
+const dailyDefs=[
+ ['wake','Vakna samma tid','Rytm före perfektion.'],
+ ['food','Ät dagens måltider','Extra fokus från lunch till kväll.'],
+ ['learn','Lärande 20–30 min','Kunskap som bygger dig över tid.'],
+ ['mainact','Gym eller musik','En huvudaktivitet räcker.'],
+ ['evening','Kvällskoll 2 min','Bestäm nästa viktiga steg.']
+];
+let oldTheme=S.g('theme','obsidian');
+const themeMap={midnight:'obsidian',obsidian:'obsidian',aurora:'aurora',carbon:'carbon',forest:'forest',ember:'ember',violet:'violet'};
+let prefs=S.g('prefs:v5',{
+ theme:themeMap[oldTheme]||'obsidian',accent:'ice',density:'comfortable',bgMotion:true,haptics:true,
+ displayName:'Min utveckling',journeyTitle:'6 månader av fokus',weightGoal:65,
+ showEnergy:true,showQuote:true,showWeight:true
+});
+let familyPrefs=S.g('family:v5',{week:true,streak:true,weight:true,months:true,focus:true,dailyScore:true});
+let goalCfg=S.g('goals:v5',defaultGoals);
+for(const k in defaultGoals){goalCfg[k]={...defaultGoals[k],...(goalCfg[k]||{})}}
+let roadLabels=S.g('roadmap:v5',defaultRoad);
+if(!Array.isArray(roadLabels)||roadLabels.length!==6)roadLabels=[...defaultRoad];
+
+function toast(msg){
+ const e=document.createElement('div');e.className='toast';e.textContent=msg;$('toastArea').appendChild(e);
+ setTimeout(()=>{e.style.opacity='0';e.style.transform='translateY(-6px)';setTimeout(()=>e.remove(),250)},2600)
+}
+function haptic(pattern=18){if(prefs.haptics&&navigator.vibrate)navigator.vibrate(pattern)}
+function setSwitch(el,on){el.classList.toggle('on',!!on)}
+function applyPrefs(){
+ document.body.dataset.theme=prefs.theme;document.body.dataset.accent=prefs.accent;document.body.dataset.density=prefs.density;
+ document.body.classList.toggle('motion-off',!prefs.bgMotion||matchMedia('(prefers-reduced-motion: reduce)').matches);
+ $('energyModule').classList.toggle('hidden',!prefs.showEnergy);$('quoteMiniModule').classList.toggle('hidden',!prefs.showQuote);$('weightModule').classList.toggle('hidden',!prefs.showWeight);
+ $('weightGoalLabel').textContent=String(prefs.weightGoal).replace('.',',');
+ setSwitch($('bgMotionSwitch'),prefs.bgMotion);setSwitch($('hapticSwitch'),prefs.haptics);setSwitch($('energySwitch'),prefs.showEnergy);setSwitch($('quoteSwitch'),prefs.showQuote);setSwitch($('weightSwitch'),prefs.showWeight);
+ document.querySelectorAll('.themebtn').forEach(b=>b.classList.toggle('active',b.dataset.v===prefs.theme));
+ document.querySelectorAll('.accentbtn').forEach(b=>b.classList.toggle('active',b.dataset.v===prefs.accent));
+ document.querySelectorAll('#densitySeg .seg').forEach(b=>b.classList.toggle('active',b.dataset.v===prefs.density));
+ $('displayName').value=prefs.displayName;$('journeyTitle').value=prefs.journeyTitle;$('weightGoalInput').value=String(prefs.weightGoal).replace('.',',');
+}
+function savePrefs(){S.s('prefs:v5',prefs);applyPrefs();queueCloudSync()}
+
+function showPage(id){
+ document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));
+ document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+ $('pageTitle').textContent=pageNames[id]||'Fokus 6M';scrollTo({top:0,behavior:prefs.bgMotion?'smooth':'auto'});
+ if(id==='progress')renderProgress();if(id==='family')renderFamily();if(id==='settings')renderSettings()
+}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+const now=new Date();$('dateLabel').textContent=now.toLocaleDateString('sv-SE',{weekday:'long',day:'numeric',month:'long'}).replace('.','').toUpperCase();
+
+
+function readAuth(){try{return JSON.parse(localStorage.getItem(AUTH_KEY)||'null')}catch{return null}}
+function storeAuth(x){if(!x)return;const expires_at=x.expires_at||Math.floor(Date.now()/1000)+(Number(x.expires_in)||3600);localStorage.setItem(AUTH_KEY,JSON.stringify({access_token:x.access_token,refresh_token:x.refresh_token,expires_at,last_verified_at:Date.now(),user:x.user?{id:x.user.id,email:x.user.email}:undefined}))}
+async function authTokenRequest(grant,body){const r=await fetch(SUPABASE_URL+'/auth/v1/token?grant_type='+encodeURIComponent(grant),{method:'POST',headers:{apikey:SUPABASE_PUBLISHABLE_KEY,'Content-Type':'application/json'},body:JSON.stringify(body),cache:'no-store'});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error_description||j.msg||j.message||'Auth failed');return j}
+async function refreshAuth(){const s=readAuth();if(!s?.refresh_token)throw new Error('No refresh token');const j=await authTokenRequest('refresh_token',{refresh_token:s.refresh_token});storeAuth(j);return j.access_token}
+async function accessToken(){const s=readAuth();if(!s)return null;if(s.access_token&&Number(s.expires_at)>Math.floor(Date.now()/1000)+75)return s.access_token;if(!navigator.onLine&&s.last_verified_at&&Date.now()-s.last_verified_at<7*86400000)return s.access_token||null;try{return await refreshAuth()}catch{return null}}
+async function ownerCall(action,payload={}){const token=await accessToken();if(!token)throw new Error('AUTH_REQUIRED');const r=await fetch(CLOUD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify({action,...payload}),cache:'no-store'});if(r.status===401){try{const t=await refreshAuth();const rr=await fetch(CLOUD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+t},body:JSON.stringify({action,...payload}),cache:'no-store'});const jj=await rr.json().catch(()=>({}));if(!rr.ok)throw new Error(jj.error||String(rr.status));return jj}catch(e){throw e}}const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||String(r.status));return j}
+function isPrivateKey(k){return k==='prefs:v5'||k==='family:v5'||k==='goals:v5'||k==='roadmap:v5'||k==='week:counts'||k==='week:text'||k==='schedule:v5'||k==='tomorrow'||k==='notify:v3'||k==='weights'||k==='quote:index'||k==='quotes:favs'||k.startsWith('daily:')||k.startsWith('energy:')||k.startsWith('scheduleDone:')||k.startsWith('month:m')}
+function privateSnapshot(){const items={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&isPrivateKey(k))items[k]=localStorage.getItem(k)}return{version:5.1,savedAt:Date.now(),items}}
+function restorePrivateSnapshot(data){if(!data?.items||typeof data.items!=='object')return;__suppressPrivateHook=true;try{Object.entries(data.items).forEach(([k,v])=>{if(isPrivateKey(k)&&typeof v==='string')localStorage.setItem(k,v)})}finally{__suppressPrivateHook=false}}
+async function bootstrapPrivateCloud(){if(!navigator.onLine)return;try{const remote=await ownerCall('private-get');if(!remote.exists){const up=await ownerCall('private-put',{data:privateSnapshot()});if(up.updated_at)localStorage.setItem(PRIVATE_REMOTE_KEY,up.updated_at);return}const seen=localStorage.getItem(PRIVATE_REMOTE_KEY);if(remote.updated_at&&seen!==remote.updated_at){restorePrivateSnapshot(remote.data);localStorage.setItem(PRIVATE_REMOTE_KEY,remote.updated_at);location.reload()}}catch(e){console.warn('private bootstrap',e)}}
+async function ensureOwnerAuth(){let token=await accessToken();if(token){$('authGate').classList.add('hidden');await bootstrapPrivateCloud();return true}$('authGate').classList.remove('hidden');$('loginUsername').value=OWNER_USERNAME;return false}
+async function performLogin(username,password){if(String(username).trim().toLowerCase()!==OWNER_USERNAME)throw new Error('INVALID');const j=await authTokenRequest('password',{email:OWNER_EMAIL,password});storeAuth(j);return j}
+async function logoutOwner(){const s=readAuth();try{if(s?.access_token&&navigator.onLine)await fetch(SUPABASE_URL+'/auth/v1/logout',{method:'POST',headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:'Bearer '+s.access_token}})}catch{}localStorage.removeItem(AUTH_KEY);location.reload()}
+$('authForm').addEventListener('submit',async e=>{e.preventDefault();$('authError').textContent='';$('loginButton').disabled=true;$('loginButton').textContent='Verifierar…';try{await performLogin($('loginUsername').value,$('loginPassword').value);$('authGate').classList.add('hidden');location.reload()}catch{$('authError').textContent='Fel användarnamn eller lösenord.';$('loginPassword').select()}finally{$('loginButton').disabled=false;$('loginButton').textContent='Lås upp Command Center'}});
+$('loginShow').onclick=()=>{const i=$('loginPassword'),show=i.type==='password';i.type=show?'text':'password';$('loginShow').textContent=show?'DÖLJ':'VISA'};
+
+function viewerMode(){
+ const m=location.hash.match(/^#live=([0-9a-f-]+)$/i);if(!m)return false;
+ document.body.classList.add('viewer');
+ const token=m[1];
+ async function refresh(){
+   try{
+     const r=await fetch(CLOUD_ENDPOINT+'?token='+encodeURIComponent(token),{cache:'no-store'});
+     if(!r.ok)throw new Error(String(r.status));
+     const j=await r.json();renderViewer(j.data||{},j.updated_at);
+   }catch(e){
+     $('viewerLiveText').textContent='OFFLINE';$('viewerUpdated').textContent='Kunde inte hämta live-data';
+   }
+ }
+ refresh();setInterval(refresh,8000);return true;
+}
+function renderViewer(d,updated){
+ const visual=d.visual||{};if(visual.accent)document.body.dataset.accent=visual.accent;
+ $('viewerName').textContent=d.profile?.displayName||'Min utveckling';$('viewerJourney').textContent=d.profile?.journeyTitle||'6 månader av fokus';
+ const when=updated?new Date(updated):new Date(d.ts||Date.now());$('viewerUpdated').textContent='Uppdaterad '+when.toLocaleTimeString('sv-SE',{hour:'2-digit',minute:'2-digit'});
+ if(d.weekPct!=null){$('viewerWeekPct').textContent=d.weekPct+'%';$('viewerWeekRing').style.setProperty('--p',d.weekPct)}
+ else $('viewerWeekCard').classList.add('hidden');
+ const goals=Array.isArray(d.goals)?d.goals:[];$('viewerGoals').innerHTML=goals.map(g=>`<div class="goal"><div class="goal-top"><span class="goal-name">${escapeHtml(g.label)}</span><span class="goal-count">${g.value}/${g.target}</span></div><div class="bar"><i style="width:${Math.min(100,g.value/g.target*100)}%"></i></div></div>`).join('');
+ if(d.streak!=null)$('viewerStreak').textContent=d.streak;else $('viewerStreakMetric').classList.add('hidden');
+ if(d.weight!=null)$('viewerWeight').textContent=String(d.weight).replace('.',',')+' kg';else $('viewerWeightMetric').classList.add('hidden');
+ if(d.dailyScore!=null)$('viewerDaily').textContent=d.dailyScore+'%';else $('viewerDailyMetric').classList.add('hidden');
+ if(Array.isArray(d.focus)&&d.focus.length){$('viewerFocus').innerHTML=d.focus.map((x,i)=>`<div class="road"><div class="road-num">0${i+1}</div><div><b>${escapeHtml(x)}</b></div></div>`).join('')}
+ else $('viewerFocusCard').classList.add('hidden');
+ if(Array.isArray(d.months)){ $('viewerRoadmap').innerHTML=d.months.map((x,i)=>`<div class="road"><div class="road-num">${pad(i+1)}</div><div><b>${escapeHtml(x.label)}</b><small>${x.done?'Genomförd':'Pågående / kommande'}</small></div><span class="pill">${x.done?'KLAR':'—'}</span></div>`).join('')}
+ else $('viewerRoadCard').classList.add('hidden');
+}
+function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+
+if(!viewerMode()){
+ const __ownerReady=await ensureOwnerAuth();
+ if(__ownerReady){
+ applyPrefs();
+
+ // Daily state
+ let daily=S.g('daily:'+today,{});
+ ['p1','p2','p3'].forEach(id=>{const e=$(id);e.value=daily[id]||'';e.oninput=()=>{daily[id]=e.value;S.s('daily:'+today,daily);renderNext();queueCloudSync()}});
+ function renderDaily(){
+   $('dailyTasks').innerHTML=dailyDefs.map(([k,l,s])=>`<div class="task"><button class="check ${daily[k]?'done':''}" data-daily="${k}" aria-label="${escapeHtml(l)}"><svg viewBox="0 0 24 24"><path d="m5 12 4 4 10-10"/></svg></button><div class="task-label">${escapeHtml(l)}<small>${escapeHtml(s)}</small></div></div>`).join('');
+   document.querySelectorAll('[data-daily]').forEach(b=>b.onclick=()=>{const k=b.dataset.daily;daily[k]=!daily[k];S.s('daily:'+today,daily);renderDaily();renderWeekAnalytics();haptic();queueCloudSync()});
+   const done=dailyDefs.filter(([k])=>daily[k]).length,p=Math.round(done/dailyDefs.length*100);$('dailyPct').textContent=p+'%';$('dailyRing').style.setProperty('--p',p);
+ }
+ renderDaily();
+
+ // Energy
+ let energy=S.g('energy:'+today,'steady');
+ function renderEnergy(){
+   document.querySelectorAll('.energy').forEach(b=>b.classList.toggle('active',b.dataset.e===energy));
+   $('energyAdvice').textContent=energy==='low'?'Kör minimum. Fem minuter räknas.':energy==='high'?'Bra läge för ett svårt fokusblock — men stanna när tiden är slut.':'Håll normal takt. En sak i taget.';
+ }
+ document.querySelectorAll('.energy').forEach(b=>b.onclick=()=>{energy=b.dataset.e;S.s('energy:'+today,energy);renderEnergy();haptic()});renderEnergy();
+
+ // Weekly
+ let counts=S.g('week:counts',{gym:0,music:0,learnw:0,future:0,review:0});
+ function weekStats(){
+   const keys=Object.keys(defaultGoals),done=keys.reduce((a,k)=>a+(counts[k]||0),0),total=keys.reduce((a,k)=>a+(Number(goalCfg[k]?.target)||1),0);
+   return{done,total,pct:Math.round(done/Math.max(1,total)*100)}
+ }
+ function renderGoals(){
+   const st=weekStats();$('goalGrid').innerHTML=Object.keys(defaultGoals).map(k=>{const g=goalCfg[k],v=counts[k]||0,p=Math.min(100,v/Math.max(1,g.target)*100);return`<div class="goal"><div class="goal-top"><span class="goal-name">${escapeHtml(g.label)}</span><span class="goal-count">${v}/${g.target}</span></div><div class="bar"><i style="width:${p}%"></i></div><div class="goal-controls"><button class="counterbtn" data-dec="${k}">−</button><button class="counterbtn" data-inc="${k}">+</button></div></div>`}).join('');
+   document.querySelectorAll('[data-inc]').forEach(b=>b.onclick=()=>{const k=b.dataset.inc;counts[k]=Math.min(Number(goalCfg[k].target)||1,(counts[k]||0)+1);S.s('week:counts',counts);renderGoals();renderWeekAnalytics();haptic();queueCloudSync()});
+   document.querySelectorAll('[data-dec]').forEach(b=>b.onclick=()=>{const k=b.dataset.dec;counts[k]=Math.max(0,(counts[k]||0)-1);S.s('week:counts',counts);renderGoals();renderWeekAnalytics();haptic();queueCloudSync()});
+   $('weekPct').textContent=st.pct+'%';$('weekRing').style.setProperty('--p',st.pct);$('progressWeek').textContent=st.pct+'%';
+ }
+ $('resetWeekBtn').onclick=()=>{if(!confirm('Nollställ alla veckoräknare?'))return;counts={gym:0,music:0,learnw:0,future:0,review:0};S.s('week:counts',counts);renderGoals();renderWeekAnalytics();queueCloudSync()};
+ renderGoals();
+ let wt=S.g('week:text',{w1:'',w2:'',w3:''});['w1','w2','w3'].forEach(id=>{const e=$(id);e.value=wt[id]||'';e.oninput=()=>{wt[id]=e.value;S.s('week:text',wt);queueCloudSync()}});
+
+ // Schedule migrate
+ let schedule=S.g('schedule:v5',null);
+ if(!schedule){const old=S.g('schedule:v4',[]);schedule=(old.length?old:[{time:'08:30',title:'Upp + morgonrutin'},{time:'14:00',title:'Fokusblock'},{time:'18:00',title:'Gym / aktivitet'},{time:'20:00',title:'Musik / lärande'},{time:'23:30',title:'Kvällskoll'}]).map(x=>({id:x.id||crypto.randomUUID(),time:x.time,title:x.title||'',days:Array.isArray(x.days)?x.days:[0,1,2,3,4,5,6]}));S.s('schedule:v5',schedule)}
+ let scheduleDone=S.g('scheduleDone:'+today,[]);
+ const dayNames=['S','M','T','O','T','F','L'];
+ function applicable(it,d=new Date()){return (it.days||[]).includes(d.getDay())}
+ function minsTo(t){const [h,m]=t.split(':').map(Number),x=new Date;x.setHours(h,m,0,0);return Math.round((x-Date.now())/60000)}
+ function currentNext(){
+   return schedule.filter(x=>applicable(x)&&!scheduleDone.includes(x.id)).sort((a,b)=>a.time.localeCompare(b.time)).find(x=>minsTo(x.time)>=-30)||null
+ }
+ function renderTimeline(){
+   const todays=schedule.filter(x=>applicable(x)).sort((a,b)=>a.time.localeCompare(b.time)),next=currentNext();
+   $('timeline').innerHTML=todays.length?todays.map(it=>{const done=scheduleDone.includes(it.id),isNext=next?.id===it.id;return`<div class="event ${done?'done':''} ${isNext?'next':''}"><div class="event-dot"></div><div class="time">${it.time}</div><div class="event-title">${escapeHtml(it.title||'Aktivitet')}<small>${done?'Klar idag':isNext?'Nästa':'Planerad'}</small></div><button class="btn secondary small" data-eventdone="${it.id}">${done?'Ångra':'Klar'}</button></div>`}).join(''):'<div class="hero-meta">Inga schemapunkter idag.</div>';
+   document.querySelectorAll('[data-eventdone]').forEach(b=>b.onclick=()=>{const id=b.dataset.eventdone;const i=scheduleDone.indexOf(id);if(i>=0)scheduleDone.splice(i,1);else scheduleDone.push(id);S.s('scheduleDone:'+today,scheduleDone);renderTimeline();renderNext();haptic()})
+ }
+ function renderScheduleEditor(){
+   $('scheduleEditor').innerHTML=schedule.sort((a,b)=>a.time.localeCompare(b.time)).map((it,idx)=>`<div class="schedule-edit" data-sidx="${idx}"><div class="schedule-row"><input type="time" class="input sched-time" value="${it.time}"><input class="input sched-title" value="${escapeHtml(it.title)}" placeholder="Aktivitet"><button class="iconbtn sched-del">×</button></div><div class="days">${dayNames.map((d,n)=>`<button class="day ${(it.days||[]).includes(n)?'on':''}" data-day="${n}">${d}</button>`).join('')}</div></div>`).join('');
+   document.querySelectorAll('.schedule-edit').forEach(row=>{const idx=+row.dataset.sidx,it=schedule[idx];row.querySelector('.sched-time').onchange=e=>{it.time=e.target.value;saveSchedule()};row.querySelector('.sched-title').oninput=e=>{it.title=e.target.value;saveSchedule(false)};row.querySelector('.sched-del').onclick=()=>{schedule.splice(idx,1);saveSchedule()};row.querySelectorAll('.day').forEach(b=>b.onclick=()=>{const d=+b.dataset.day;it.days=it.days||[];it.days.includes(d)?it.days=it.days.filter(x=>x!==d):it.days.push(d);saveSchedule()})})
+ }
+ function saveSchedule(redraw=true){S.s('schedule:v5',schedule);if(redraw)renderScheduleEditor();renderTimeline();renderNext();queuePrivateSync()}
+ $('addSchedule').onclick=()=>{schedule.push({id:crypto.randomUUID(),time:'18:00',title:'',days:[1,2,3,4,5]});saveSchedule()};
+ renderScheduleEditor();renderTimeline();
+
+ function renderNext(){
+   const n=currentNext();if(n){const m=minsTo(n.time);$('nextTitle').textContent=n.title||'Nästa aktivitet';$('nextMeta').textContent=`${n.time} · ${m>0?'om '+m+' min':m>=-30?'pågår nu':'planerad'}`;$('completeNext').disabled=false}
+   else{$('nextTitle').textContent='Dagens timeline är klar.';$('nextMeta').textContent='Välj nästa lilla sak — resten kan vänta.';$('completeNext').disabled=true}
+ }
+ $('completeNext').onclick=()=>{const n=currentNext();if(!n)return;scheduleDone.push(n.id);S.s('scheduleDone:'+today,scheduleDone);renderTimeline();renderNext();toast('Schemapunkt markerad klar');haptic([18,35,18])};
+ renderNext();setInterval(renderNext,30000);
+
+ // Tomorrow
+ let tm=S.g('tomorrow',{tom1:'',tom2:'',tom3:''});['tom1','tom2','tom3'].forEach(id=>{const e=$(id);e.value=tm[id]||'';e.oninput=()=>{tm[id]=e.value;S.s('tomorrow',tm);queuePrivateSync()}});
+
+ // Notifications
+ let notify=S.g('notify:v3',{before5:false,tomorrow:false});
+ async function askNotify(){if(!('Notification'in window))return false;if(Notification.permission==='granted')return true;return(await Notification.requestPermission())==='granted'}
+ async function sendNotif(title,body){if(!('Notification'in window)||Notification.permission!=='granted')return;try{const reg=await navigator.serviceWorker.ready;await reg.showNotification(title,{body,icon:'icon-192.png',badge:'icon-192.png',tag:title})}catch{new Notification(title,{body})}}
+ function renderNotify(){setSwitch($('notifySwitch'),notify.before5);setSwitch($('tomorrowSwitch'),notify.tomorrow);$('notifyStatus').textContent=!('Notification'in window)?'Appnotiser stöds inte i denna webbläsare.':Notification.permission==='granted'?'Appnotiser är tillåtna. Kalenderexport ger larm även när appen är helt stängd.':Notification.permission==='denied'?'Notiser är blockerade i enhetens inställningar.':'Aktivera ett reglage och ge tillåtelse.'}
+ $('notifySwitch').onclick=async()=>{if(!notify.before5&&!(await askNotify()))return;notify.before5=!notify.before5;S.s('notify:v3',notify);renderNotify();queuePrivateSync()};
+ $('tomorrowSwitch').onclick=async()=>{if(!notify.tomorrow&&!(await askNotify()))return;notify.tomorrow=!notify.tomorrow;S.s('notify:v3',notify);renderNotify();queuePrivateSync()};
+ $('testNotify').onclick=async()=>{if(await askNotify())sendNotif('Fokus 6M','Testnotisen fungerar.')};renderNotify();
+ let sent={};setInterval(()=>{if(Notification.permission!=='granted')return;if(notify.before5)schedule.filter(x=>applicable(x)).forEach(i=>{const m=minsTo(i.time),k=today+i.id;if(m>=4&&m<=5&&!sent[k]){sent[k]=1;sendNotif('Om 5 minuter',i.title||'Nästa aktivitet')}});if(notify.tomorrow){const n=new Date(),a=[tm.tom1,tm.tom2,tm.tom3].filter(Boolean);if(n.getHours()===19&&n.getMinutes()<3&&a.length&&!sent['tom'+today]){sent['tom'+today]=1;sendNotif('Viktigast imorgon',a.join(' • '))}}},30000);
+ function icsEscape(s){return String(s||'').replace(/\\/g,'\\\\').replace(/,/g,'\\,').replace(/;/g,'\\;').replace(/\n/g,'\\n')}
+ function dt(d){return`${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}T${pad(d.getHours())}${pad(d.getMinutes())}00`}
+ const icsDays=['SU','MO','TU','WE','TH','FR','SA'];
+ $('calendarExport').onclick=()=>{let l=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Fokus 6M//SV','CALSCALE:GREGORIAN'];schedule.forEach((it,i)=>{const [h,m]=it.time.split(':').map(Number),d=new Date();d.setHours(h,m,0,0);const e=new Date(d.getTime()+30*60000),by=(it.days||[]).map(x=>icsDays[x]).join(',');l.push('BEGIN:VEVENT',`UID:f6m-${it.id}@fokus6m`,`DTSTAMP:${dt(new Date())}`,`DTSTART:${dt(d)}`,`DTEND:${dt(e)}`,`RRULE:FREQ=WEEKLY;BYDAY=${by}`,`SUMMARY:${icsEscape(it.title||'Fokus 6M')}`,'BEGIN:VALARM','TRIGGER:-PT5M','ACTION:DISPLAY',`DESCRIPTION:${icsEscape(it.title||'Nästa aktivitet')}`,'END:VALARM','END:VEVENT')});l.push('END:VCALENDAR');const b=new Blob([l.join('\r\n')],{type:'text/calendar'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='Fokus-6M-paminnelser.ics';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};
+
+ // Timer
+ let timerPreset=30,timerTotal=1800,timerSec=1800,timerInt=null;
+ function timerRender(){const pct=(1-timerSec/timerTotal)*100;$('timerRing').style.setProperty('--p',pct);$('modalTimerRing').style.setProperty('--p',pct);const t=`${pad(Math.floor(timerSec/60))}:${pad(timerSec%60)}`;$('timerText').textContent=t;$('modalTimerText').textContent=t;$('timerState').textContent=timerInt?'FOKUS':'REDO';$('timerStart').textContent=timerInt?'Paus':'Start';$('modalTimerToggle').textContent=timerInt?'Paus':'Start'}
+ function setPreset(m){if(timerInt)return;timerPreset=m;timerTotal=timerSec=m*60;document.querySelectorAll('.preset').forEach(b=>b.classList.toggle('active',+b.dataset.min===m));timerRender()}
+ document.querySelectorAll('.preset').forEach(b=>b.onclick=()=>setPreset(+b.dataset.min));
+ function toggleTimer(){if(timerInt){clearInterval(timerInt);timerInt=null;timerRender();return}timerInt=setInterval(()=>{timerSec--;if(timerSec<=0){clearInterval(timerInt);timerInt=null;timerSec=0;timerRender();haptic([40,60,40]);toast('Fokusblocket är klart. Paus nu.');sendNotif('Fokus klart','Bra. Ta pausen.') }else timerRender()},1000);timerRender()}
+ $('timerStart').onclick=toggleTimer;$('modalTimerToggle').onclick=toggleTimer;$('timerReset').onclick=()=>{clearInterval(timerInt);timerInt=null;timerSec=timerTotal;timerRender()};timerRender();
+ function openModal(id){$(id).classList.add('show')}function closeModals(){document.querySelectorAll('.modal-back').forEach(m=>m.classList.remove('show'))}
+ document.querySelectorAll('.modalClose').forEach(b=>b.onclick=closeModals);document.querySelectorAll('.modal-back').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModals()}));
+ $('minimumSide').onclick=$('minimumHero').onclick=()=>openModal('minimumModal');$('minimumFocus').onclick=()=>{closeModals();setPreset(5);openModal('focusModal')};
+ $('openFocus').onclick=()=>{$('focusModalTask').textContent=daily.p1?daily.p1:'En sak. Inget annat.';openModal('focusModal')};$('modalTimerDone').onclick=()=>{closeModals();clearInterval(timerInt);timerInt=null;timerSec=timerTotal;timerRender()};
+ $('fab').onclick=()=>openModal('minimumModal');
+
+ // Quotes
+ let qi=S.g('quote:index',Math.floor(Math.random()*quotes.length)),favs=S.g('quotes:favs',[]);
+ function renderQuote(){qi=(qi+quotes.length)%quotes.length;$('quoteText').textContent=quotes[qi];$('miniQuote').textContent=quotes[qi];$('quoteIndex').textContent=`${qi+1} / ${quotes.length}`;$('favQuote').textContent=favs.includes(quotes[qi])?'Sparad ✓':'Spara favorit'}
+ $('nextQuote').onclick=()=>{qi=(qi+1)%quotes.length;S.s('quote:index',qi);renderQuote()};$('favQuote').onclick=()=>{const q=quotes[qi];favs.includes(q)?favs=favs.filter(x=>x!==q):favs.push(q);S.s('quotes:favs',favs);renderQuote();renderFavs()};function renderFavs(){$('favoriteQuotes').innerHTML=favs.length?favs.map(q=>`<div class="road"><div class="road-num">✦</div><div><b>${escapeHtml(q)}</b></div></div>`).join(''):'<div class="hero-meta">Inga favoriter ännu.</div>'}renderQuote();renderFavs();
+
+ // Weights & roadmap
+ let weights=S.g('weights',[]);
+ function renderWeights(){
+   const last=weights.at(-1)?.value;$('weightNow').textContent=last!=null?String(last).replace('.',','):'—';$('weightHistory').innerHTML=weights.length?weights.slice(-6).reverse().map(x=>`${x.date}: <b>${String(x.value).replace('.',',')} kg</b>`).join('<br>'):'Ingen vikt loggad ännu.';
+   const svg=$('weightChart'),w=560,h=180,padX=32,padY=24;let inner=`<line class="gridline" x1="${padX}" y1="${h-padY}" x2="${w-8}" y2="${h-padY}"/>`;
+   const arr=weights.slice(-12);if(arr.length){let vals=arr.map(x=>x.value),mn=Math.min(...vals,prefs.weightGoal)-1,mx=Math.max(...vals,prefs.weightGoal)+1;if(mx-mn<3){mx+=1.5;mn-=1.5}let pts=arr.map((x,i)=>{let px=padX+(w-padX-16)*(arr.length===1?.5:i/(arr.length-1)),py=padY+(h-2*padY)*(1-(x.value-mn)/(mx-mn));return[px,py,x]});let pstr=pts.map(p=>p[0]+','+p[1]).join(' '),area=`${pts[0][0]},${h-padY} ${pstr} ${pts.at(-1)[0]},${h-padY}`;inner+=`<polygon class="area" points="${area}"/><polyline class="line" points="${pstr}"/>`+pts.map(p=>`<circle class="pt" cx="${p[0]}" cy="${p[1]}" r="4"/>`).join('');}
+   else inner+=`<text x="50%" y="50%" text-anchor="middle">Logga vikt för att bygga grafen</text>`;svg.innerHTML=svg.querySelector('defs')?.outerHTML+inner;
+ }
+ $('saveWeight').onclick=()=>{const v=parseFloat($('weightInput').value.replace(',','.'));if(!Number.isFinite(v)||v<35||v>200){toast('Kontrollera vikten.');return}weights.push({date:today,value:Math.round(v*10)/10});S.s('weights',weights);$('weightInput').value='';renderWeights();renderProgress();haptic();queueCloudSync()};
+ function renderRoadmap(){$('roadmap').innerHTML=roadLabels.map((l,i)=>{const done=S.g('month:m'+(i+1),false);return`<div class="road"><div class="road-num">${pad(i+1)}</div><div><b>${escapeHtml(l)}</b><small>${done?'Genomförd':'Pågående / kommande'}</small></div><button class="check ${done?'done':''}" data-road="${i+1}"><svg viewBox="0 0 24 24"><path d="m5 12 4 4 10-10"/></svg></button></div>`}).join('');document.querySelectorAll('[data-road]').forEach(b=>b.onclick=()=>{const k='month:m'+b.dataset.road;S.s(k,!S.g(k,false));renderRoadmap();renderProgress();haptic();queueCloudSync()})}
+ renderWeights();renderRoadmap();
+
+ function dailyScoreFor(key){const d=S.g('daily:'+key,{});return Math.round(dailyDefs.filter(([k])=>d[k]).length/dailyDefs.length*100)}
+ function streak(){let s=0,d=new Date();for(let i=0;i<90;i++){const k=dateKey(d),v=dailyScoreFor(k);if(v>0)s++;else if(i>0)break;d.setDate(d.getDate()-1)}return s}
+ function renderWeekAnalytics(){
+   const days=[],d=new Date();for(let i=6;i>=0;i--){const x=new Date(d);x.setDate(d.getDate()-i);days.push({date:x,key:dateKey(x),score:dailyScoreFor(dateKey(x))})}
+   $('heatMap').innerHTML=days.map(x=>`<div class="heatday"><div class="heatbox"><i style="height:${x.score}%"></i></div><small>${x.date.toLocaleDateString('sv-SE',{weekday:'short'}).replace('.','')}</small></div>`).join('');
+   const avg=Math.round(days.reduce((a,x)=>a+x.score,0)/7),st=streak(),ws=weekStats();$('sevenAvg').textContent=avg+'% snitt';$('streakMetric').textContent=st;$('doneMetric').textContent=ws.done;$('progressStreak').textContent=st;
+   const milestones=[25,50,75,100],next=milestones.find(x=>x>ws.pct)||100;$('nextMilestone').textContent=next+'%';
+   $('weekInsight').textContent=ws.pct===100?'Veckomålen är kompletta. Behåll tempot — lägg inte på mer bara för att du kan.':avg<30?'Gör veckan mindre, inte större. En liten genomförd dag slår en perfekt plan som inte startar.':st>=3?'Kedjan börjar bli ett bevis. Skydda den med små minimumdagar när energin sjunker.':'Fokus nu: få tre dagar att hänga ihop. Inte tre perfekta dagar.';
+ }
+ function renderProgress(){
+   const ws=weekStats(),rd=[1,2,3,4,5,6].filter(n=>S.g('month:m'+n,false)).length;$('progressWeek').textContent=ws.pct+'%';$('progressStreak').textContent=streak();$('roadDone').textContent=rd+'/6';
+   $('progressInsight').textContent=rd>=3?'Du är förbi uppstartsfasen. Nu är konsekvens viktigare än att lägga till nya system.':ws.pct>=50?'Veckan har momentum. Nästa vinst är att avsluta det du redan har planerat.':'Bygg signalen först: några få genomförda saker som går att upprepa.';
+   renderWeights();renderRoadmap()
+ }
+ renderWeekAnalytics();renderProgress();
+
+ // Family privacy
+ const familyRows=[['week','Veckomål','Visar mål och aktuell progress.'],['streak','Streak','Visar antal dagar i kedjan.'],['weight','Vikt','Visar senaste vikt och viktmål.'],['months','Roadmap','Visar sexmånadersfaser.'],['focus','Veckans fokus','Visar veckans tre prioriteringar.'],['dailyScore','Dagens score','Visar procent av dagens bas.']];
+ function renderFamilyPrivacy(){$('familyPrivacy').innerHTML=familyRows.map(([k,l,d])=>`<div class="settings-row"><div><b>${l}</b><p>${d}</p></div><div class="switch ${familyPrefs[k]?'on':''}" data-family="${k}"><i></i></div></div>`).join('');document.querySelectorAll('[data-family]').forEach(e=>e.onclick=()=>{const k=e.dataset.family;familyPrefs[k]=!familyPrefs[k];S.s('family:v5',familyPrefs);renderFamilyPrivacy();queueCloudSync()})}
+ renderFamilyPrivacy();
+ $('displayName').oninput=e=>{prefs.displayName=e.target.value;S.s('prefs:v5',prefs);queueCloudSync()};$('journeyTitle').oninput=e=>{prefs.journeyTitle=e.target.value;S.s('prefs:v5',prefs);queueCloudSync()};
+
+ // Settings controls
+ document.querySelectorAll('.themebtn').forEach(b=>b.onclick=()=>{prefs.theme=b.dataset.v;savePrefs()});document.querySelectorAll('.accentbtn').forEach(b=>b.onclick=()=>{prefs.accent=b.dataset.v;savePrefs()});document.querySelectorAll('#densitySeg .seg').forEach(b=>b.onclick=()=>{prefs.density=b.dataset.v;savePrefs()});
+ $('bgMotionSwitch').onclick=()=>{prefs.bgMotion=!prefs.bgMotion;savePrefs()};$('hapticSwitch').onclick=()=>{prefs.haptics=!prefs.haptics;savePrefs()};$('energySwitch').onclick=()=>{prefs.showEnergy=!prefs.showEnergy;savePrefs()};$('quoteSwitch').onclick=()=>{prefs.showQuote=!prefs.showQuote;savePrefs()};$('weightSwitch').onclick=()=>{prefs.showWeight=!prefs.showWeight;savePrefs()};
+ $('weightGoalInput').onchange=e=>{const v=parseFloat(e.target.value.replace(',','.'));if(Number.isFinite(v)&&v>=35&&v<=200){prefs.weightGoal=v;savePrefs();renderWeights()}};
+ function renderSettings(){
+   applyPrefs();$('goalSettings').innerHTML=Object.keys(defaultGoals).map(k=>`<div class="settings-row"><input class="input goal-label" data-k="${k}" value="${escapeHtml(goalCfg[k].label)}" style="max-width:190px"><input class="input goal-target" data-k="${k}" inputmode="numeric" value="${goalCfg[k].target}" style="max-width:80px"></div>`).join('');
+   document.querySelectorAll('.goal-label').forEach(e=>e.onchange=()=>{goalCfg[e.dataset.k].label=e.value.trim()||defaultGoals[e.dataset.k].label;S.s('goals:v5',goalCfg);renderGoals();queueCloudSync()});document.querySelectorAll('.goal-target').forEach(e=>e.onchange=()=>{let v=Math.max(1,Math.min(30,parseInt(e.value)||1));goalCfg[e.dataset.k].target=v;counts[e.dataset.k]=Math.min(counts[e.dataset.k]||0,v);S.s('goals:v5',goalCfg);S.s('week:counts',counts);renderGoals();renderWeekAnalytics();queueCloudSync()});
+   $('roadSettings').innerHTML=roadLabels.map((x,i)=>`<div class="settings-row"><span class="pill">M${i+1}</span><input class="input road-label" data-i="${i}" value="${escapeHtml(x)}"></div>`).join('');document.querySelectorAll('.road-label').forEach(e=>e.onchange=()=>{roadLabels[+e.dataset.i]=e.value.trim()||defaultRoad[+e.dataset.i];S.s('roadmap:v5',roadLabels);renderRoadmap();queueCloudSync()})
+ }
+ renderSettings();
+
+ // Authenticated cloud + private owner backup
+ let cloudShare=null,cloudTimer=null,cloudBusy=false,cloudPending=false,privateTimer=null,privateBusy=false,shareUrl='';
+ function shareSnapshot(){
+   const ws=weekStats(),snap={v:5,ts:Date.now(),profile:{displayName:prefs.displayName||'Min utveckling',journeyTitle:prefs.journeyTitle||'6 månader av fokus'},visual:{accent:prefs.accent}};
+   if(familyPrefs.week){snap.weekPct=ws.pct;snap.goals=Object.keys(defaultGoals).map(k=>({key:k,label:goalCfg[k].label,target:goalCfg[k].target,value:counts[k]||0}))}
+   if(familyPrefs.streak)snap.streak=streak();if(familyPrefs.weight&&prefs.showWeight){snap.weight=weights.at(-1)?.value??null;snap.weightGoal=prefs.weightGoal}
+   if(familyPrefs.months)snap.months=roadLabels.map((l,i)=>({label:l,done:S.g('month:m'+(i+1),false)}));
+   if(familyPrefs.focus)snap.focus=[wt.w1,wt.w2,wt.w3].filter(Boolean);if(familyPrefs.dailyScore)snap.dailyScore=dailyScoreFor(today);return snap
+ }
+ function cloudUi(text,state='idle'){$('cloudTopText').textContent=text;$('cloudStatus').textContent=text;$('sideStatus').textContent=text;[$('cloudDot'),$('sideDot')].forEach(d=>{d.className='dot '+(state==='good'?'good':state==='warn'?'warn':state==='bad'?'bad':'')});$('familyCloudBadge').querySelector('span:last-child').textContent=cloudShare?'Aktiv':'Ej startad';$('familyCloudBadge').querySelector('.dot').className='dot '+(cloudShare?'good':'')}
+ function privateUi(text,state='idle'){const b=$('privateSyncBadge');if(!b)return;b.querySelector('span:last-child').textContent=text;b.querySelector('.dot').className='dot '+(state==='good'?'good':state==='warn'?'warn':state==='bad'?'bad':'')}
+ async function recoverOwnerProfile(){try{const x=await ownerCall('owner-profile');cloudShare=x.exists?{public_token:x.public_token}:null;localStorage.removeItem('cloud:share');renderFamily();cloudUi(cloudShare?'Säker session · live aktiv':'Säker session · privat moln','good')}catch{cloudUi('Säker session · offline','warn')}}
+ async function ensureShare(){if(cloudShare?.public_token)return cloudShare;cloudUi('Skapar säker följarlänk…','warn');const x=await ownerCall('create',{data:shareSnapshot()});cloudShare={public_token:x.public_token};renderFamily();return cloudShare}
+ async function updateCloud(){if(!cloudShare?.public_token){cloudUi('Privat moln synkat','good');return false}const j=await ownerCall('update',{public_token:cloudShare.public_token,data:shareSnapshot()});const t=j.updated_at?new Date(j.updated_at):new Date();cloudUi('Synkad '+t.toLocaleTimeString('sv-SE',{hour:'2-digit',minute:'2-digit'}),'good');localStorage.setItem('cloud:lastSync',String(Date.now()));return true}
+ async function syncPrivate(){if(privateBusy||!navigator.onLine)return;privateBusy=true;privateUi('Synkar…','warn');try{const j=await ownerCall('private-put',{data:privateSnapshot()});if(j.updated_at)localStorage.setItem(PRIVATE_REMOTE_KEY,j.updated_at);privateUi('Synkad','good')}catch(e){privateUi('Väntar','bad')}finally{privateBusy=false}}
+ function queuePrivateSync(){clearTimeout(privateTimer);privateTimer=setTimeout(syncPrivate,900)}
+ async function syncCloud(){if(cloudBusy){cloudPending=true;return}cloudBusy=true;cloudPending=false;cloudUi(navigator.onLine?'Synkar…':'Offline — väntar','warn');try{let last;for(const ms of [0,1200,3000]){if(ms)await new Promise(r=>setTimeout(r,ms));try{await updateCloud();last=null;break}catch(e){last=e}}if(last)throw last}catch{cloudUi('Sync väntar på ny kontakt','bad');cloudPending=true}finally{cloudBusy=false;if(cloudPending){cloudPending=false;clearTimeout(cloudTimer);cloudTimer=setTimeout(syncCloud,5000)}}}
+ function queueCloudSync(){queuePrivateSync();if(!cloudShare?.public_token)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(syncCloud,300)}
+ window.__f6mPrivateChanged=(k)=>{if(isPrivateKey(k))queuePrivateSync()};
+ function renderFamily(){if(cloudShare?.public_token){shareUrl=location.origin+location.pathname+'#live='+cloudShare.public_token;$('shareLink').textContent=shareUrl;$('shareLink').classList.remove('hidden');$('copyShare').classList.remove('hidden');$('viewFamily').classList.remove('hidden');$('startShare').textContent='Live-följning aktiv ✓';$('liveTitle').textContent='Permanent följarlänk'}else{$('shareLink').classList.add('hidden');$('copyShare').classList.add('hidden');$('viewFamily').classList.add('hidden');$('startShare').textContent='Starta live-följning';$('liveTitle').textContent='Live-delning'}}
+ $('startShare').onclick=async()=>{try{$('startShare').disabled=true;await ensureShare();await syncCloud();renderFamily();toast('Live-följning är aktiv.')}catch{cloudUi('Kunde inte starta delning','bad');toast('Kunde inte starta live-följning.')}finally{$('startShare').disabled=false}};
+ $('copyShare').onclick=async()=>{if(!shareUrl)return;await navigator.clipboard.writeText(shareUrl);toast('Följarlänken kopierad.')};$('viewFamily').onclick=()=>{if(shareUrl)open(shareUrl,'_blank')};
+ async function deleteShare(){if(!cloudShare)return;await ownerCall('delete',{public_token:cloudShare.public_token}).catch(()=>{})}
+ $('regenerateShare').onclick=async()=>{if(!cloudShare){toast('Live-delning är inte startad.');return}if(!confirm('Byta följarlänk? Den gamla länken slutar fungera.'))return;await deleteShare();cloudShare=null;await ensureShare();await syncCloud();renderFamily();toast('Ny följarlänk skapad.')};
+ $('stopShare').onclick=async()=>{if(!cloudShare)return;if(!confirm('Stäng live-delningen? Följarlänken slutar fungera.'))return;await deleteShare();cloudShare=null;renderFamily();cloudUi('Säker session · privat moln','good');toast('Live-delningen är stängd. Privat backup fortsätter.')};
+ await recoverOwnerProfile();queuePrivateSync();if(cloudShare?.public_token)queueCloudSync();setInterval(()=>{if(document.visibilityState==='visible'&&navigator.onLine){queuePrivateSync();if(cloudShare?.public_token)queueCloudSync()}},30000);addEventListener('online',()=>{queuePrivateSync();if(cloudShare?.public_token)queueCloudSync()});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){queuePrivateSync();if(cloudShare?.public_token)queueCloudSync()}});
+
+ // Account security
+ $('accountUsername').textContent=OWNER_USERNAME;privateUi('Aktiv','good');$('accountStatus').textContent='Inloggad som '+OWNER_USERNAME+' · sessionen förnyas automatiskt.';
+ $('logoutTop').onclick=$('logoutSettings').onclick=()=>logoutOwner();
+ $('changePassword').onclick=async()=>{const cur=$('currentPassword').value,nw=$('newPassword').value,cf=$('confirmPassword').value;if(!cur||nw.length<12||nw!==cf){toast(nw!==cf?'De nya lösenorden matchar inte.':'Nytt lösenord måste vara minst 12 tecken.');return}$('changePassword').disabled=true;try{const verified=await authTokenRequest('password',{email:OWNER_EMAIL,password:cur});storeAuth(verified);const token=verified.access_token;const r=await fetch(SUPABASE_URL+'/auth/v1/user',{method:'PUT',headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify({password:nw}),cache:'no-store'});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.msg||j.message||'Password update failed');$('currentPassword').value=$('newPassword').value=$('confirmPassword').value='';toast('Lösenordet är bytt.')}catch{toast('Nuvarande lösenord stämmer inte eller bytet misslyckades.')}finally{$('changePassword').disabled=false}};
+
+ // Network
+ function renderNetwork(){$('networkPill').textContent=navigator.onLine?'Online':'Offline';$('networkPill').style.color=navigator.onLine?'':'var(--warn)'}addEventListener('online',renderNetwork);addEventListener('offline',renderNetwork);renderNetwork();
+
+ // Install
+ let deferred=null;function install(){if(deferred){deferred.prompt();deferred.userChoice.finally(()=>deferred=null)}else alert('Android/Chrome: meny → Installera app. iPhone/Safari: Dela → Lägg till på hemskärmen.')}
+ addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});$('installBtn').onclick=install;$('installSettings').onclick=install;
+
+ // Backup
+ $('exportData').onclick=()=>{const data={version:5.1,exportedAt:new Date().toISOString(),localStorage:{}};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k!==AUTH_KEY&&!k.startsWith('cloud:')&&k!==PRIVATE_REMOTE_KEY)data.localStorage[k]=localStorage.getItem(k)}const b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='Fokus-6M-backup-'+today+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};
+ $('importData').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!data.localStorage)throw 0;if(!confirm('Importera backup och ersätt appens sparade data?'))return;Object.entries(data.localStorage).forEach(([k,v])=>{if(k!==AUTH_KEY&&!k.startsWith('cloud:')&&k!==PRIVATE_REMOTE_KEY)localStorage.setItem(k,v)});queuePrivateSync();location.reload()}catch{toast('Backupfilen kunde inte läsas.')}};
+
+ if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+ }
 }
 </script>
 </body>

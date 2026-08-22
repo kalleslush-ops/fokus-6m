@@ -1,12 +1,35 @@
 {
-  "name":"Fokus 6M",
-  "short_name":"Fokus 6M",
-  "description":"Min 6-månaders utvecklingsapp: rutiner, träning, musik, lärande och framtid.",
-  "start_url":"./",
-  "scope":"./",
-  "display":"standalone",
-  "orientation":"portrait-primary",
-  "background_color":"#07090d",
-  "theme_color":"#07090d",
-  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+  "name": "Fokus 6M — Secure Command Center",
+  "short_name": "Fokus 6M",
+  "description": "Säkert personligt command center med ägarinloggning, privat molnbackup och read-only familjevy.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#06080d",
+  "theme_color": "#06080d",
+  "categories": [
+    "productivity",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
 }
