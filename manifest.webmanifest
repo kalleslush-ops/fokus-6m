@@ -1,7 +1,7 @@
 {
-  "name": "Ibbes Framsteg",
+  "name": "Ibbes Framsteg — Fokus, Tro & Kunskap",
   "short_name": "Ibbes Framsteg",
-  "description": "Fokus, kunskap, tro och utveckling i en app.",
+  "description": "Ibbes Framsteg v7.2 med visuellt kunskapsbibliotek, quiz, minne, tro, familj och progress.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
