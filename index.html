@@ -8,9 +8,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Fokus 6M">
 <meta name="description" content="Ett personligt command center för sex månader av fokus, progress och familjestöd.">
-<title>Fokus 6M</title>
+<title>Ibbes Framsteg · Fokus 6M</title>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root{
@@ -180,15 +180,26 @@ body.viewer .shell,body.viewer .mobile-nav,body.viewer .fab{display:none!importa
 .auth-gate.hidden{display:none}.auth-panel{width:min(430px,100%);padding:25px;border-radius:28px;background:linear-gradient(145deg,rgba(20,26,38,.96),rgba(8,11,17,.96));border:1px solid rgba(255,255,255,.1);box-shadow:0 35px 120px rgba(0,0,0,.65)}
 .auth-brand{display:flex;align-items:center;gap:12px;margin-bottom:24px}.auth-panel h1{font-size:2rem;letter-spacing:-.055em;margin:7px 0 6px}.auth-panel .lead{color:var(--muted);font-size:.82rem;line-height:1.5;margin-bottom:18px}.auth-field{margin-top:11px}.auth-field label{display:block;color:var(--muted);font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin:0 0 7px}.password-wrap{position:relative}.password-wrap .input{padding-right:55px}.password-toggle{position:absolute;right:6px;top:6px;height:34px;border:0;border-radius:10px;padding:0 9px;background:rgba(255,255,255,.055);color:var(--muted);font-size:.67rem;font-weight:900;cursor:pointer}.auth-error{min-height:20px;color:#ff9ba6;font-size:.72rem;font-weight:750;margin-top:10px}.security-chip{display:inline-flex;align-items:center;gap:7px;color:#c4f5da;font-size:.68rem;font-weight:850;margin-top:15px}.account-id{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.72rem;color:#d5dbea;background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:12px;padding:10px 11px}.auth-user-pill{display:inline-flex;align-items:center;gap:7px}.auth-user-pill svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.9}
 
+
+.bg-scene{position:fixed;inset:0;z-index:-10;opacity:0;transition:opacity 1.8s ease;background-size:cover;background-position:center;pointer-events:none;will-change:opacity}
+.bg-scene.show{opacity:1}.bg-scene::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,6,10,.34),rgba(4,6,10,.69) 65%,rgba(4,6,10,.88));pointer-events:none}
+.logo-photo-mark{overflow:hidden}.logo-photo-mark img{width:100%;height:100%;display:block;object-fit:cover}.viewer-brand .logo-photo-mark{width:42px;height:42px}
+.lang-chip{cursor:pointer;user-select:none}.lang-prompt{position:fixed;z-index:85;right:14px;top:72px;display:none;width:min(330px,calc(100vw - 28px));padding:14px;border-radius:18px;background:rgba(12,16,24,.94);border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(24px)}.lang-prompt.show{display:block;animation:pageIn .25s ease both}.lang-prompt h3{margin:0;font-size:.95rem}.lang-prompt p{color:var(--muted);font-size:.7rem;margin:5px 0 10px}.lang-choices{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+body.lang-ar{direction:rtl;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif}body.lang-ar .main,body.lang-ar .sidebar,body.lang-ar .viewer-shell,body.lang-ar .auth-panel,body.lang-ar .modal{direction:rtl;text-align:right}body.lang-ar .navbtn,body.lang-ar .logo,body.lang-ar .viewer-brand,body.lang-ar .settings-row,body.lang-ar .livehead,body.lang-ar .card-header{flex-direction:row-reverse}body.lang-ar .top-actions{flex-direction:row-reverse}body.lang-ar .priority{grid-template-columns:1fr 27px}body.lang-ar .priority b{order:2}body.lang-ar .priority input{order:1}body.lang-ar .task{flex-direction:row-reverse}body.lang-ar .timeline::before{left:auto;right:18px}body.lang-ar .event{grid-template-columns:auto minmax(0,1fr) 84px 38px}body.lang-ar .event-dot{margin-left:0;margin-right:13px}body.lang-ar .schedule-row{grid-template-columns:auto 1fr 88px}body.lang-ar .hero-actions{flex-direction:row-reverse}body.lang-ar input,body.lang-ar textarea{text-align:right}
+.comment-list{display:grid;gap:9px}.comment-item{padding:13px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.028)}.comment-item.unread{border-color:rgba(var(--accent-rgb),.28);background:rgba(var(--accent-rgb),.055)}.comment-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:5px}.comment-author{font-weight:900;font-size:.82rem}.comment-time{color:var(--muted);font-size:.62rem}.comment-message{font-size:.79rem;line-height:1.5;white-space:pre-wrap;word-break:break-word}.comment-actions{display:flex;gap:6px;margin-top:9px}.comment-form{display:grid;gap:8px}.textarea{width:100%;min-height:90px;resize:vertical;border:1px solid var(--line);background:rgba(2,5,10,.42);color:var(--text);border-radius:13px;padding:11px 12px;outline:none}.textarea:focus{border-color:rgba(var(--accent-rgb),.48);box-shadow:0 0 0 3px rgba(var(--accent-rgb),.08)}.comments-empty{padding:15px 0;color:var(--muted);font-size:.75rem}.comment-badge{min-width:22px;height:22px;border-radius:999px;display:inline-grid;place-items:center;background:var(--accent);color:#071015;font-weight:950;font-size:.65rem;padding:0 6px}.comment-badge.hidden{display:none}.comment-pulse{animation:commentPulse .5s ease}@keyframes commentPulse{50%{transform:scale(1.15)}}
+.scene-preview{height:72px;border-radius:16px;border:1px solid var(--line);overflow:hidden;position:relative;background:radial-gradient(circle at 18% 30%,rgba(var(--accent-rgb),.28),transparent 24%),linear-gradient(135deg,#06080d,#152030 58%,#06080d)}.scene-preview::after{content:"12–20s";position:absolute;right:9px;bottom:8px;padding:5px 7px;border-radius:999px;background:rgba(0,0,0,.42);font-size:.6rem;font-weight:900;color:#dce5f4}
+@media(max-width:880px){.lang-prompt{top:58px}.top-actions #languageBtn{display:none}.viewer-top{align-items:flex-start}.viewer-top-actions{display:flex;gap:6px;align-items:center}}
+
 </style>
 </head>
 <body data-theme="obsidian" data-accent="ice" data-density="comfortable">
-<div class="ambient a"></div><div class="ambient b"></div>
+<div class="ambient a"></div><div class="ambient b"></div><div class="bg-scene show" id="bgSceneA"></div><div class="bg-scene" id="bgSceneB"></div>
 <div class="toast-area" id="toastArea"></div>
+<div class="lang-prompt" id="langPrompt"><h3>Språk / اللغة</h3><p>Vill du visa Ibbes Framsteg på svenska eller arabiska?</p><div class="lang-choices"><button class="btn small" id="promptSv" type="button">Svenska</button><button class="btn secondary small" id="promptAr" type="button">العربية</button></div></div>
 
 <div class="auth-gate hidden" id="authGate">
   <form class="auth-panel" id="authForm">
-    <div class="auth-brand"><div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M7 4h11M7 4v16M7 11h9"/></svg></div><div><b>Fokus 6M</b><div class="kicker">SECURE OWNER ACCESS</div></div></div>
+    <div class="auth-brand"><div class="logo-mark logo-photo-mark"><img src="logo-photo.png" alt="Ibbe"></div><div><b>Ibbes Framsteg</b><div class="kicker">SECURE OWNER ACCESS</div></div></div>
     <div class="kicker">ÄGARLÄGE</div><h1>Logga in.</h1>
     <div class="lead">Redigering, privata anteckningar och molnbackup öppnas bara för det verifierade ägarkontot. Familjelänken kräver ingen inloggning och är alltid read-only.</div>
     <div class="auth-field"><label for="loginUsername">Användarnamn</label><input class="input" id="loginUsername" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="Användarnamn"></div>
@@ -203,8 +214,8 @@ body.viewer .shell,body.viewer .mobile-nav,body.viewer .fab{display:none!importa
 <div class="shell">
   <aside class="sidebar">
     <div class="logo">
-      <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M7 4h11M7 4v16M7 11h9"/></svg></div>
-      <div><b>Fokus 6M</b><small>Command Center</small></div>
+      <div class="logo-mark logo-photo-mark"><img src="logo-photo.png" alt="Ibbe"></div>
+      <div><b>Ibbes Framsteg</b><small>Fokus 6M</small></div>
     </div>
     <nav class="nav">
       <button class="navbtn active" data-page="today"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m12 8 1 4 3 1"/></svg>Idag</button>
@@ -227,6 +238,8 @@ body.viewer .shell,body.viewer .mobile-nav,body.viewer .fab{display:none!importa
       <div class="top-actions">
         <div class="pill labelled"><span class="dot" id="cloudDot"></span><span id="cloudTopText">Moln ej startat</span></div>
         <div class="pill labelled" id="networkPill">Online</div>
+        <button class="pill labelled lang-chip" id="languageBtn" type="button">🌐 Svenska / العربية</button>
+        <button class="pill labelled hidden" id="topCommentBadge" type="button" title="Olästa familjekommentarer">💬 <span id="topCommentCount">0</span></button>
         <button class="iconbtn" id="installBtn" title="Installera appen"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14"/></svg></button>
         <button class="iconbtn" id="logoutTop" title="Lås ägarläget"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></button>
         <button class="iconbtn" data-page="settings" title="Inställningar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.5-2.4 1A8 8 0 0 0 15 6l-.4-2.6h-4L10 6a8 8 0 0 0-1.6 1L6 6 4 9.5 6.1 11A7 7 0 0 0 6 12c0 .3 0 .7.1 1L4 14.5 6 18l2.4-1A8 8 0 0 0 10 18l.5 2.6h4L15 18a8 8 0 0 0 1.6-1l2.4 1 2-3.5-2.1-1.5c.1-.3.1-.7.1-1Z"/></svg></button>
@@ -386,7 +399,7 @@ body.viewer .shell,body.viewer .mobile-nav,body.viewer .fab{display:none!importa
       <div class="dashboard">
         <div class="stack">
           <div class="card pad">
-            <div class="card-header"><div><h2>Familj / följarläge</h2><p>En permanent read-only-länk. Ägarnyckeln lämnar aldrig din telefon.</p></div><span class="pill" id="familyCloudBadge"><span class="dot"></span><span>Ej startad</span></span></div>
+            <div class="card-header"><div><h2>Familj / följarläge</h2><p>En permanent read-only-länk. Bara ditt verifierade ägarkonto kan ändra data.</p></div><span class="pill" id="familyCloudBadge"><span class="dot"></span><span>Ej startad</span></span></div>
             <div class="livebox">
               <div class="livehead"><span class="livepulse"></span><div><b id="liveTitle">Live-delning</b><div class="hero-meta" id="cloudStatus">Starta när du vill låta familjen följa utvecklingen.</div></div></div>
               <div class="sharelink hidden" id="shareLink"></div>
@@ -400,6 +413,11 @@ body.viewer .shell,body.viewer .mobile-nav,body.viewer .fab{display:none!importa
           <div class="card pad">
             <div class="card-header"><div><h2>Vad familjen får se</h2><p>Privata dagens anteckningar och ditt schema delas aldrig.</p></div></div>
             <div id="familyPrivacy"></div>
+          </div>
+          <div class="card pad" id="ownerCommentsCard">
+            <div class="card-header"><div><h2>Familjens kommentarer</h2><p>Kommentarer sparas här även när du inte har appen öppen.</p></div><span class="comment-badge hidden" id="ownerUnreadBadge">0</span></div>
+            <div class="hero-actions" style="margin-bottom:12px"><button class="btn secondary small" id="enableCommentNotify" type="button">Aktivera kommentarsnotiser</button><button class="btn ghost small" id="markCommentsRead" type="button">Markera alla lästa</button></div>
+            <div class="comment-list" id="ownerComments"><div class="comments-empty">Inga kommentarer ännu.</div></div>
           </div>
         </div>
         <div class="stack">
@@ -448,6 +466,9 @@ body.viewer .shell,body.viewer .mobile-nav,body.viewer .fab{display:none!importa
               <button class="accentbtn" data-v="ice"></button><button class="accentbtn" data-v="blue"></button><button class="accentbtn" data-v="violet"></button><button class="accentbtn" data-v="emerald"></button><button class="accentbtn" data-v="gold"></button>
             </div>
             <div class="settings-row" style="margin-top:10px"><div><b>Bakgrundsanimation</b><p>Ambient glow och subtil rörelse.</p></div><div class="switch" id="bgMotionSwitch"><i></i></div></div>
+            <div class="settings-row"><div><b>Dynamiska bakgrunder</b><p>Slumpad mörk scen byts mjukt var 12–20 sekund.</p></div><div class="switch" id="sceneSwitch"><i></i></div></div>
+            <div class="scene-preview" id="scenePreview"></div>
+            <div class="settings-row"><div><b>Språk / اللغة</b><p>Byt hela appen mellan svenska och arabiska.</p></div><button class="btn secondary small" id="settingsLanguageBtn" type="button">Byt språk</button></div>
             <div class="settings-row"><div><b>Haptik</b><p>Lätt vibration på viktiga tryck.</p></div><div class="switch" id="hapticSwitch"><i></i></div></div>
             <div class="kicker" style="margin-top:14px">Täthet</div><div class="segmented" id="densitySeg" style="margin-top:8px"><button class="seg" data-v="compact">Kompakt</button><button class="seg" data-v="comfortable">Normal</button><button class="seg" data-v="large">Stor</button></div>
           </div>
@@ -483,7 +504,7 @@ body.viewer .shell,body.viewer .mobile-nav,body.viewer .fab{display:none!importa
           <div class="card pad">
             <div class="card-header"><div><h2>App & data</h2><p>Installera, exportera eller återställ från backup.</p></div></div>
             <div class="hero-actions"><button class="btn" id="installSettings">Installera app</button><button class="btn secondary" id="exportData">Exportera backup</button><label class="btn secondary" style="cursor:pointer">Importera<input type="file" id="importData" accept="application/json" hidden></label></div>
-            <p class="hero-meta" style="margin-top:12px">Fokus 6M v5.1 SECURE · Supabase Auth · privat cloud backup · offline-first PWA.</p>
+            <p class="hero-meta" style="margin-top:12px">Ibbes Framsteg v5.2 FAMILY · svenska/arabiska · familjekommentarer · dynamiska bakgrunder · secure cloud.</p>
           </div>
         </div>
       </div>
@@ -503,6 +524,13 @@ body.viewer .shell,body.viewer .mobile-nav,body.viewer .fab{display:none!importa
 </nav>
 <button class="fab" id="fab">+</button>
 
+
+<div class="modal-back" id="languageModal">
+  <div class="modal" style="max-width:430px">
+    <div class="card-header"><div><div class="kicker">LANGUAGE</div><h2 style="font-size:1.5rem;margin-top:6px">Välj språk / اختر اللغة</h2><p>Du kan byta när du vill. Valet sparas bara på den här enheten.</p></div><button class="iconbtn modalClose">×</button></div>
+    <div class="lang-choices"><button class="btn" id="pickSv" type="button">🇸🇪 Svenska</button><button class="btn secondary" id="pickAr" type="button">🇸🇦 العربية</button></div>
+  </div>
+</div>
 <div class="modal-back" id="minimumModal">
   <div class="modal">
     <div class="card-header"><div><div class="kicker">MINIMUM MODE</div><h2 style="font-size:1.55rem;margin-top:6px">Dagen behöver inte räddas.</h2><p>Bara håll kedjan levande.</p></div><button class="iconbtn modalClose">×</button></div>
@@ -522,8 +550,8 @@ body.viewer .shell,body.viewer .mobile-nav,body.viewer .fab{display:none!importa
 
 <div class="viewer-shell" id="viewerShell">
   <div class="viewer-top">
-    <div class="viewer-brand"><div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M7 4h11M7 4v16M7 11h9"/></svg></div><div><b>Fokus 6M</b><div class="kicker">SUPPORT VIEW</div></div></div>
-    <div class="live-tag"><span class="livepulse"></span><span id="viewerLiveText">LIVE</span></div>
+    <div class="viewer-brand"><div class="logo-mark logo-photo-mark"><img src="logo-photo.png" alt="Ibbe"></div><div><b>Ibbes Framsteg</b><div class="kicker">SUPPORT VIEW</div></div></div>
+    <div class="viewer-top-actions"><button class="pill lang-chip" id="viewerLanguageBtn" type="button">🌐 عربي / SV</button><div class="live-tag"><span class="livepulse"></span><span id="viewerLiveText">LIVE</span></div></div>
   </div>
   <div class="card viewer-hero">
     <div><div class="kicker">UTVECKLING</div><h1 id="viewerName">Min utveckling</h1><div class="hero-meta" id="viewerJourney">6 månader av fokus</div></div>
@@ -533,11 +561,15 @@ body.viewer .shell,body.viewer .mobile-nav,body.viewer .fab{display:none!importa
     <div class="stack">
       <div class="card pad" id="viewerWeekCard"><div class="card-header"><div><h2>Den här veckan</h2><p>Live progress från appen.</p></div><div class="ring" id="viewerWeekRing" style="width:68px;height:68px"><div><b id="viewerWeekPct">—</b><small>vecka</small></div></div></div><div class="viewer-goals" id="viewerGoals"></div></div>
       <div class="card pad" id="viewerFocusCard"><div class="card-header"><div><h2>Veckans fokus</h2><p>Det som är viktigast just nu.</p></div></div><div id="viewerFocus"></div></div>
+      <div class="card pad" id="viewerCommentsCard"><div class="card-header"><div><h2>Stöd & kommentarer</h2><p>Skriv något till Ibbe. Det sparas direkt och syns i hans app.</p></div></div>
+        <div class="comment-form"><input class="input" id="viewerCommentName" maxlength="32" placeholder="Ditt namn, t.ex. Mamma"><textarea class="textarea" id="viewerCommentText" maxlength="280" placeholder="Skriv en kommentar…"></textarea><div class="hero-actions"><button class="btn" id="viewerCommentSend" type="button">Skicka kommentar</button><span class="pill" id="viewerCommentHint">Max 280 tecken</span></div></div>
+        <div class="comment-list" id="viewerComments" style="margin-top:14px"><div class="comments-empty">Inga kommentarer ännu.</div></div>
+      </div>
       <div class="card pad" id="viewerRoadCard"><div class="card-header"><div><h2>6-månadersresan</h2><p>Genomförda faser.</p></div></div><div class="roadmap" id="viewerRoadmap"></div></div>
     </div>
     <div class="stack">
       <div class="card pad"><div class="card-header"><div><h2>Översikt</h2><p>Delas bara om ägaren har valt det.</p></div></div><div class="metrics"><div class="metric" id="viewerStreakMetric"><strong id="viewerStreak">—</strong><span>streak</span></div><div class="metric" id="viewerWeightMetric"><strong id="viewerWeight">—</strong><span>vikt</span></div><div class="metric" id="viewerDailyMetric"><strong id="viewerDaily">—</strong><span>idag</span></div></div></div>
-      <div class="card pad"><div class="quote-mini">Stöd handlar inte om att göra jobbet åt någon. Det handlar om att kunna se att jobbet faktiskt blir gjort.</div></div>
+      <div class="card pad"><div class="quote-mini">Stöd betyder: se framstegen, lämna några ord och låt Ibbe göra jobbet själv.</div></div>
     </div>
   </div>
 </div>
@@ -553,7 +585,7 @@ const OWNER_USERNAME='fokus6m-owner';
 const OWNER_EMAIL='fokus6m.owner@fokus6m.app';
 const AUTH_KEY='f6m:auth:v1';
 const PRIVATE_REMOTE_KEY='f6m:privateRemoteVersion';
-const APP_VERSION='5.1';
+const APP_VERSION='5.2';
 const pad=n=>String(n).padStart(2,'0');
 const dateKey=(d=new Date())=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
 const today=dateKey();
@@ -590,9 +622,13 @@ let oldTheme=S.g('theme','obsidian');
 const themeMap={midnight:'obsidian',obsidian:'obsidian',aurora:'aurora',carbon:'carbon',forest:'forest',ember:'ember',violet:'violet'};
 let prefs=S.g('prefs:v5',{
  theme:themeMap[oldTheme]||'obsidian',accent:'ice',density:'comfortable',bgMotion:true,haptics:true,
- displayName:'Min utveckling',journeyTitle:'6 månader av fokus',weightGoal:65,
- showEnergy:true,showQuote:true,showWeight:true
+ displayName:'Ibbes Framsteg',journeyTitle:'Ibrahims resa framåt',weightGoal:65,
+ showEnergy:true,showQuote:true,showWeight:true,sceneRotation:true
 });
+if(prefs.displayName==='Min utveckling')prefs.displayName='Ibbes Framsteg';
+if(prefs.journeyTitle==='6 månader av fokus')prefs.journeyTitle='Ibrahims resa framåt';
+if(typeof prefs.sceneRotation!=='boolean')prefs.sceneRotation=true;
+S.s('prefs:v5',prefs);
 let familyPrefs=S.g('family:v5',{week:true,streak:true,weight:true,months:true,focus:true,dailyScore:true});
 let goalCfg=S.g('goals:v5',defaultGoals);
 for(const k in defaultGoals){goalCfg[k]={...defaultGoals[k],...(goalCfg[k]||{})}}
@@ -610,7 +646,7 @@ function applyPrefs(){
  document.body.classList.toggle('motion-off',!prefs.bgMotion||matchMedia('(prefers-reduced-motion: reduce)').matches);
  $('energyModule').classList.toggle('hidden',!prefs.showEnergy);$('quoteMiniModule').classList.toggle('hidden',!prefs.showQuote);$('weightModule').classList.toggle('hidden',!prefs.showWeight);
  $('weightGoalLabel').textContent=String(prefs.weightGoal).replace('.',',');
- setSwitch($('bgMotionSwitch'),prefs.bgMotion);setSwitch($('hapticSwitch'),prefs.haptics);setSwitch($('energySwitch'),prefs.showEnergy);setSwitch($('quoteSwitch'),prefs.showQuote);setSwitch($('weightSwitch'),prefs.showWeight);
+ setSwitch($('bgMotionSwitch'),prefs.bgMotion);setSwitch($('sceneSwitch'),prefs.sceneRotation);setSwitch($('hapticSwitch'),prefs.haptics);setSwitch($('energySwitch'),prefs.showEnergy);setSwitch($('quoteSwitch'),prefs.showQuote);setSwitch($('weightSwitch'),prefs.showWeight);
  document.querySelectorAll('.themebtn').forEach(b=>b.classList.toggle('active',b.dataset.v===prefs.theme));
  document.querySelectorAll('.accentbtn').forEach(b=>b.classList.toggle('active',b.dataset.v===prefs.accent));
  document.querySelectorAll('#densitySeg .seg').forEach(b=>b.classList.toggle('active',b.dataset.v===prefs.density));
@@ -622,7 +658,7 @@ function showPage(id){
  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));
  document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
  $('pageTitle').textContent=pageNames[id]||'Fokus 6M';scrollTo({top:0,behavior:prefs.bgMotion?'smooth':'auto'});
- if(id==='progress')renderProgress();if(id==='family')renderFamily();if(id==='settings')renderSettings()
+ if(id==='progress')renderProgress();if(id==='family'){renderFamily();loadOwnerComments(false)}if(id==='settings')renderSettings();setTimeout(()=>localize(),0)
 }
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
 const now=new Date();$('dateLabel').textContent=now.toLocaleDateString('sv-SE',{weekday:'long',day:'numeric',month:'long'}).replace('.','').toUpperCase();
@@ -644,24 +680,65 @@ async function logoutOwner(){const s=readAuth();try{if(s?.access_token&&navigato
 $('authForm').addEventListener('submit',async e=>{e.preventDefault();$('authError').textContent='';$('loginButton').disabled=true;$('loginButton').textContent='Verifierar…';try{await performLogin($('loginUsername').value,$('loginPassword').value);$('authGate').classList.add('hidden');location.reload()}catch{$('authError').textContent='Fel användarnamn eller lösenord.';$('loginPassword').select()}finally{$('loginButton').disabled=false;$('loginButton').textContent='Lås upp Command Center'}});
 $('loginShow').onclick=()=>{const i=$('loginPassword'),show=i.type==='password';i.type=show?'text':'password';$('loginShow').textContent=show?'DÖLJ':'VISA'};
 
+
+const LANG_KEY='lang:v52',LANG_SEEN='langSeen:v52';
+let currentLang=S.g(LANG_KEY,'sv');
+const I18N_ORIGINAL=new WeakMap();let i18nBusy=false;
+const AR={
+'Idag':'اليوم','Vecka':'الأسبوع','Plan':'الخطة','Progress':'التقدّم','Familj':'العائلة','Citat':'اقتباسات','Inställningar':'الإعدادات','Minimumläge':'وضع الحد الأدنى','Lokal':'محلي','Online':'متصل','Offline':'غير متصل','Installera appen':'تثبيت التطبيق','Lås ägarläget':'قفل وضع المالك','Moln ej startat':'السحابة غير مفعلة','Ibbes Framsteg':'تقدّم إبّي','Fokus 6M':'فوكَس 6M','SUPPORT VIEW':'عرض العائلة','UTVECKLING':'التقدّم','Den här veckan':'هذا الأسبوع','Live progress från appen.':'تقدّم مباشر من التطبيق.','Veckans fokus':'تركيز هذا الأسبوع','Det som är viktigast just nu.':'الأهم الآن.','6-månadersresan':'رحلة 6 أشهر','Genomförda faser.':'المراحل المكتملة.','Översikt':'نظرة عامة','Delas bara om ägaren har valt det.':'يظهر فقط إذا اختار المالك مشاركته.','LIVE':'مباشر','NEXT MOVE':'الخطوة التالية','Bara nästa steg.':'فقط الخطوة التالية.','Dagens tre':'أهم ثلاثة اليوم','Det enda du ska hålla aktivt i huvudet idag.':'هذه فقط الأشياء التي تحتاج أن تركز عليها اليوم.','Dagens bas':'أساسيات اليوم','Små bevis på att systemet fortfarande lever.':'خطوات صغيرة تثبت أن النظام مستمر.','Fokusmotor':'محرك التركيز','En uppgift. En timer. Sedan paus.':'مهمة واحدة. مؤقت واحد. ثم استراحة.','Energi nu':'طاقة الآن','Det ändrar inte planen. Det ändrar hur hårt du kör den.':'لا يغيّر الخطة، بل يغيّر شدة التنفيذ.','Låg':'منخفضة','Stabil':'مستقرة','Hög':'عالية','SIGNAL':'إشارة','Veckomål':'أهداف الأسبوع','Tryck + när något är gjort. − om du råkade trycka fel.':'اضغط + عند الإنجاز و− لتصحيح الخطأ.','Veckans tre':'أهم ثلاثة هذا الأسبوع','Riktningen, inte hela livet.':'الاتجاه فقط، وليس كل الحياة.','7 dagar':'7 أيام','Hur mycket av basen du faktiskt genomförde.':'كم نفذت فعلياً من الأساسيات.','Systemstatus':'حالة النظام','Det viktiga är riktning och återkomst.':'المهم هو الاتجاه والعودة للاستمرار.','Dagens timeline':'جدول اليوم','Aktuellt och nästa markeras automatiskt.':'الحالي والتالي يتم تحديدهما تلقائياً.','Redigera schema':'تعديل الجدول','Välj tid, aktivitet och vilka dagar den gäller.':'اختر الوقت والنشاط والأيام.','Imorgon — topp viktigt':'غداً — الأهم','En kvällspåminnelse om det som verkligen spelar roll.':'تذكير مسائي بما يهم فعلاً.','Påminnelser':'التذكيرات','Appnotis när appen kan köra. Kalenderlarm är den pålitliga backupen.':'إشعار من التطبيق مع تنبيه تقويم كنسخة احتياطية موثوقة.','5 min före aktivitet':'قبل النشاط بـ5 دقائق','Notis från appen.':'إشعار من التطبيق.','Imorgon-viktigast kl. 19':'أهم ما في الغد الساعة 19','Visar morgondagens topppunkter.':'يعرض أهم نقاط الغد.','Testa notis':'اختبار الإشعار','Exportera kalenderlarm':'تصدير تنبيهات التقويم','Vikt & kropp':'الوزن والجسم','Trend över tid, inte dagsform.':'الاتجاه مع الوقت، وليس يوم واحد.','6-månaders roadmap':'خارطة 6 أشهر','Kryssa när en fas är genomförd. Namnen går att ändra i inställningar.':'حدد المرحلة عند إكمالها. يمكن تغيير الأسماء من الإعدادات.','Progress Intelligence':'تحليل التقدّم','Enkel analys baserad på det du faktiskt loggar.':'تحليل بسيط بناءً على ما تسجله فعلاً.','Senaste viktloggar':'آخر تسجيلات الوزن','De senaste sex registreringarna.':'آخر ستة تسجيلات.','Familj / följarläge':'العائلة / وضع المتابعة','En permanent read-only-länk. Bara ditt verifierade ägarkonto kan ändra data.':'رابط دائم للقراءة فقط. فقط حساب المالك الموثق يستطيع تعديل البيانات.','Vad familjen får se':'ما الذي تراه العائلة','Privata dagens anteckningar och ditt schema delas aldrig.':'ملاحظاتك الخاصة وجدولك لا تتم مشاركتهما أبداً.','Följarsidans identitet':'هوية صفحة المتابعة','Anpassa rubriken utan att dela mer data.':'خصص العنوان دون مشاركة بيانات إضافية.','Säkerhet':'الأمان','Om länken hamnar fel kan du döda den och skapa en ny.':'إذا وصل الرابط لشخص غير مرغوب يمكنك إلغاؤه وإنشاء رابط جديد.','Familjens kommentarer':'تعليقات العائلة','Kommentarer sparas här även när du inte har appen öppen.':'التعليقات تُحفظ هنا حتى عندما يكون التطبيق مغلقاً.','Aktivera kommentarsnotiser':'تفعيل إشعارات التعليقات','Markera alla lästa':'تحديد الكل كمقروء','Stöd & kommentarer':'الدعم والتعليقات','Skriv något till Ibbe. Det sparas direkt och syns i hans app.':'اكتب شيئاً لإبّي. سيتم حفظه مباشرة ويظهر في تطبيقه.','Skicka kommentar':'إرسال التعليق','Max 280 tecken':'حد أقصى 280 حرفاً','Inga kommentarer ännu.':'لا توجد تعليقات بعد.','Favoriter':'المفضلة','Dina sparade citat.':'اقتباساتك المحفوظة.','Principer':'المبادئ','Systemreglerna som håller planen enkel.':'قواعد النظام التي تبقي الخطة بسيطة.','Utseende':'المظهر','Bygg ett gränssnitt du faktiskt vill öppna varje dag.':'اصنع واجهة تريد فعلاً فتحها كل يوم.','Bakgrund':'الخلفية','Accent':'لون التمييز','Bakgrundsanimation':'حركة الخلفية','Ambient glow och subtil rörelse.':'إضاءة وحركة خفيفة.','Dynamiska bakgrunder':'خلفيات ديناميكية','Slumpad mörk scen byts mjukt var 12–20 sekund.':'خلفية داكنة عشوائية تتبدل بسلاسة كل 12–20 ثانية.','Haptik':'اهتزاز','Lätt vibration på viktiga tryck.':'اهتزاز خفيف عند الضغطات المهمة.','Täthet':'حجم الواجهة','Kompakt':'مضغوط','Normal':'عادي','Stor':'كبير','Moduler':'الوحدات','Göm sådant du inte använder.':'اخفِ ما لا تستخدمه.','Energi-check':'فحص الطاقة','Visas på Idag.':'يظهر في صفحة اليوم.','Citatkort på Idag':'بطاقة اقتباس في اليوم','En kort mental signal.':'إشارة ذهنية قصيرة.','Viktmodul':'وحدة الوزن','Logg och graf under Progress.':'سجل ورسم بياني في التقدّم.','Viktmål':'هدف الوزن','Anpassa veckomål':'تخصيص أهداف الأسبوع','Standard är byggd för din plan, men appen kan användas av andra.':'الإعداد الافتراضي لخطة إبّي ويمكن تخصيصه للآخرين.','Anpassa roadmappen':'تخصيص خارطة الطريق','Sex faser, valfria namn.':'ست مراحل بأسماء قابلة للتغيير.','App & data':'التطبيق والبيانات','Installera, exportera eller återställ från backup.':'ثبّت التطبيق أو صدّر واستعد نسخة احتياطية.','Installera app':'تثبيت التطبيق','Exportera backup':'تصدير نسخة احتياطية','Importera':'استيراد','Konto & säkerhet':'الحساب والأمان','Riktig ägarinloggning. Familjen använder endast read-only-länken.':'تسجيل دخول حقيقي للمالك. العائلة تستخدم رابط القراءة فقط.','Användarnamn':'اسم المستخدم','Privat molnbackup':'نسخة سحابية خاصة','Schema, inställningar och privat appdata följer med efter login på ny enhet.':'الجدول والإعدادات والبيانات الخاصة تعود بعد تسجيل الدخول على جهاز جديد.','Byt lösenord':'تغيير كلمة المرور','Logga ut den här enheten':'تسجيل الخروج من هذا الجهاز','ÄGARLÄGE':'وضع المالك','Logga in.':'تسجيل الدخول.','Redigering, privata anteckningar och molnbackup öppnas bara för det verifierade ägarkontot. Familjelänken kräver ingen inloggning och är alltid read-only.':'التعديل والملاحظات الخاصة والنسخة السحابية متاحة فقط لحساب المالك الموثق. رابط العائلة لا يحتاج تسجيل دخول وهو للقراءة فقط.','Lösenord':'كلمة المرور','Lås upp Command Center':'فتح مركز التحكم','Säker session · krypterad HTTPS-session · inga ägarlösenord i GitHub':'جلسة آمنة · HTTPS مشفر · لا توجد كلمة مرور المالك في GitHub','Välj språk / اختر اللغة':'اختر اللغة / Välj språk','Du kan byta när du vill. Valet sparas bara på den här enheten.':'يمكنك التغيير في أي وقت. الاختيار يُحفظ على هذا الجهاز فقط.','Svenska':'السويدية','Ibrahims resa framåt':'رحلة إبراهيم إلى الأمام','Mål:':'الهدف:','vecka':'أسبوع','idag':'اليوم','streak':'استمرارية','vikt':'الوزن','faser':'مراحل','ÄGARE':'المالك','Aktiv':'فعال','Ej startad':'غير مفعّل','Starta live-följning':'بدء المتابعة المباشرة','Kopiera länk':'نسخ الرابط','Visa som familj':'عرض كالعائلة','Byt följarlänk':'تغيير رابط المتابعة','Stäng live-delning':'إيقاف المشاركة المباشرة','Live-delning':'مشاركة مباشرة','Permanent följarlänk':'رابط متابعة دائم','Namn / rubrik':'الاسم / العنوان','Resans namn':'اسم الرحلة','Bakgrundsanimation':'حركة الخلفية','Kommentarer':'التعليقات','Veckans fokus':'تركيز الأسبوع','Roadmap':'خارطة الطريق','Dagens score':'نتيجة اليوم','Start':'ابدأ','Paus':'إيقاف مؤقت','Återställ':'إعادة','Nästa':'التالي','Klar':'تم','Ångra':'تراجع','Planerad':'مجدول','Klar idag':'تم اليوم','REDO':'جاهز','FOKUS':'تركيز','FOCUS':'تركيز','En sak. Inget annat.':'شيء واحد فقط.','Dagen behöver inte räddas.':'لا تحتاج لإنقاذ اليوم كله.','Bara håll kedjan levande.':'فقط حافظ على الاستمرار.','Ät något.':'كُل شيئاً.','Duscha eller byt kläder.':'استحم أو غيّر ملابسك.','Gå 10 minuter.':'امشِ 10 دقائق.','Gör EN viktig sak i 5 minuter.':'افعل شيئاً مهماً واحداً لمدة 5 دقائق.','Vad kan jag påverka JUST NU?':'ما الذي أستطيع التأثير عليه الآن؟','Starta 5 minuter':'ابدأ 5 دقائق','Starta fokus':'ابدأ التركيز','Markera schemapunkt klar':'حدد النشاط كمكتمل','Nollställ veckan':'إعادة تعيين الأسبوع','+ Aktivitet':'+ نشاط','Logga vikt':'تسجيل الوزن','Nästa':'التالي','Spara favorit':'حفظ كمفضلة','Nästa':'التالي','Språk / اللغة':'اللغة / Language','Vill du visa Ibbes Framsteg på svenska eller arabiska?':'هل تريد عرض تقدّم إبّي بالسويدية أم العربية؟','Stöd betyder: se framstegen, lämna några ord och låt Ibbe göra jobbet själv.':'الدعم يعني رؤية التقدّم وترك كلمات طيبة وترك إبّي يقوم بالعمل بنفسه.'
+,'Gym':'الجيم','Musik':'الموسيقى','Lärande':'التعلّم','Framtid':'المستقبل','Veckokoll':'مراجعة الأسبوع','Kontroll':'التحكّم','Disciplin':'الانضباط','Bevis':'الأدلة','Riktning':'الاتجاه','Självständighet':'الاستقلال','Systemet håller':'النظام مستمر'
+,'Vakna samma tid':'استيقظ في نفس الوقت','Rytm före perfektion.':'الإيقاع أهم من الكمال.','Ät dagens måltider':'تناول وجبات اليوم','Extra fokus från lunch till kväll.':'ركّز أكثر من الغداء حتى المساء.','Lärande 20–30 min':'تعلّم 20–30 دقيقة','Kunskap som bygger dig över tid.':'معرفة تبنيك مع الوقت.','Gym eller musik':'الجيم أو الموسيقى','En huvudaktivitet räcker.':'نشاط رئيسي واحد يكفي.','Kvällskoll 2 min':'مراجعة مسائية دقيقتين','Bestäm nästa viktiga steg.':'حدد الخطوة المهمة التالية.'
+,'Kör minimum. Fem minuter räknas.':'نفّذ الحد الأدنى. خمس دقائق تُحسب.','Bra läge för ett svårt fokusblock — men stanna när tiden är slut.':'وقت مناسب لجلسة تركيز صعبة — لكن توقف عندما ينتهي الوقت.','Håll normal takt. En sak i taget.':'حافظ على وتيرة عادية. شيء واحد في كل مرة.'
+,'Dagens timeline är klar.':'جدول اليوم اكتمل.','Välj nästa lilla sak — resten kan vänta.':'اختر الخطوة الصغيرة التالية — الباقي يمكن أن ينتظر.','Appen räknar ut vad som kommer härnäst.':'التطبيق يحدد ما يأتي بعد ذلك.','Schemapunkt markerad klar':'تم تحديد نشاط الجدول كمكتمل.','Fokusblocket är klart. Paus nu.':'انتهت جلسة التركيز. خذ استراحة الآن.','Bra. Ta pausen.':'جيد. خذ الاستراحة.'
+,'Veckomålen är kompletta. Behåll tempot — lägg inte på mer bara för att du kan.':'أهداف الأسبوع مكتملة. حافظ على الوتيرة ولا تضف المزيد فقط لأنك تستطيع.','Gör veckan mindre, inte större. En liten genomförd dag slår en perfekt plan som inte startar.':'اجعل الأسبوع أبسط، لا أكبر. يوم صغير منفذ أفضل من خطة مثالية لا تبدأ.','Kedjan börjar bli ett bevis. Skydda den med små minimumdagar när energin sjunker.':'الاستمرار أصبح دليلاً. احمه بأيام حد أدنى عندما تنخفض الطاقة.','Fokus nu: få tre dagar att hänga ihop. Inte tre perfekta dagar.':'التركيز الآن: اربط ثلاثة أيام معاً، وليس ثلاثة أيام مثالية.'
+,'Du är förbi uppstartsfasen. Nu är konsekvens viktigare än att lägga till nya system.':'تجاوزت مرحلة البداية. الاستمرارية الآن أهم من إضافة أنظمة جديدة.','Veckan har momentum. Nästa vinst är att avsluta det du redan har planerat.':'الأسبوع لديه زخم. المكسب التالي هو إنهاء ما خططت له بالفعل.','Bygg signalen först: några få genomförda saker som går att upprepa.':'ابنِ الإشارة أولاً: أشياء قليلة منجزة يمكن تكرارها.'
+,'Bara nästa steg. Hela problemet behöver inte lösas idag.':'فقط الخطوة التالية. لا يجب حل المشكلة كلها اليوم.','Missad dag betyder fortsätt — inte börja om.':'يوم ضائع يعني استمر — لا تبدأ من الصفر.','Tålamod är också disciplin.':'الصبر أيضاً انضباط.','I början är systemet själva resultatet.':'في البداية، النظام نفسه هو النتيجة.','Självförtroende byggs av bevis: små löften du faktiskt håller.':'الثقة بالنفس تُبنى بالأدلة: وعود صغيرة تفي بها فعلاً.','Det som tar tid är fortfarande värt att bygga.':'ما يحتاج وقتاً ما زال يستحق البناء.','Fråga inte hur långt du har kvar. Fråga vad du kan påverka idag.':'لا تسأل كم بقي. اسأل ما الذي تستطيع التأثير عليه اليوم.','En dålig dag får vara liten. Den behöver inte bli en förstörd vecka.':'يمكن لليوم السيئ أن يبقى صغيراً. لا يجب أن يصبح أسبوعاً ضائعاً.','Nuet är platsen där du faktiskt kan ändra framtiden.':'الحاضر هو المكان الذي تستطيع فيه تغيير المستقبل فعلاً.','Du behöver inte känna motivation för att göra fem minuter.':'لا تحتاج للشعور بالحماس لكي تعمل خمس دقائق.','Låt handlingarna bli starkare än gamla bilder av vem du var.':'دع أفعالك تصبح أقوى من الصورة القديمة عن نفسك.','Du är inte sen till ditt eget liv. Du bygger från en annan startpunkt.':'أنت لست متأخراً عن حياتك. أنت تبني من نقطة بداية مختلفة.','Håll löftet litet nog för att kunna hålla det. Sedan bygger du vidare.':'اجعل الوعد صغيراً بما يكفي لتفي به، ثم ابنِ عليه.','Riktning slår intensitet när intensiteten inte går att hålla.':'الاتجاه يتفوق على الشدة عندما لا يمكن الحفاظ على الشدة.','Det du upprepar blir till slut lättare att lita på.':'ما تكرره يصبح مع الوقت أسهل في الوثوق به.'
+,'Radera':'حذف','Radera kommentaren?':'حذف التعليق؟','Kommentarerna är markerade som lästa.':'تم تحديد التعليقات كمقروءة.','Kunde inte markera kommentarer.':'تعذر تحديد التعليقات.','Kommentarsnotiser är aktiverade.':'تم تفعيل إشعارات التعليقات.','Kommentarsnotiser aktiva ✓':'إشعارات التعليقات فعالة ✓','Skriv något först.':'اكتب شيئاً أولاً.','Skickar…':'جارِ الإرسال…','Skickad ✓':'تم الإرسال ✓','Vänta lite innan nästa kommentar.':'انتظر قليلاً قبل التعليق التالي.','Kunde inte skicka just nu.':'تعذر الإرسال الآن.','Byt hela appen mellan svenska och arabiska.':'بدّل التطبيق بالكامل بين السويدية والعربية.','Byt språk':'تغيير اللغة'
+
+};
+const AR_RE=[
+ [/^Synkad (.+)$/,'تمت المزامنة $1'],[/^Uppdaterad (.+)$/,'تم التحديث $1'],[/^(\\d+)% snitt$/,'متوسط $1%'],[/^(\\d+) dagars kedja$/,'سلسلة $1 أيام'],[/^(\\d+) pass denna vecka$/,'$1 جلسات هذا الأسبوع'],[/^nästa nivå$/,'المستوى التالي'],[/^om (\\d+) min$/,'بعد $1 دقيقة'],[/^pågår nu$/,'يحدث الآن'],[/^Synkar…$/,'جارِ المزامنة…'],[/^Kontrollerar…$/,'جارِ التحقق…'],[/^Säker session · live aktiv$/,'جلسة آمنة · المتابعة فعالة'],[/^Säker session · privat moln$/,'جلسة آمنة · سحابة خاصة'],[/^Säker session · offline$/,'جلسة آمنة · دون اتصال'],[/^Privat moln synkat$/,'تمت مزامنة السحابة الخاصة'],[/^Moln ej startat$/,'السحابة غير مفعلة'],[/^Aktiv ✓$/,'فعال ✓'],[/^Live-följning aktiv ✓$/,'المتابعة المباشرة فعالة ✓'],[/^Mål: (.+) kg$/,'الهدف: $1 كغ'],[/^(\\d+) min$/,'$1 دقيقة'],[/^M(\\d+)$/,'ش$1'],[/^(\\d{2}:\\d{2}) · om (\\d+) min$/,'$1 · بعد $2 دقيقة'],[/^(\\d{2}:\\d{2}) · pågår nu$/,'$1 · يحدث الآن'],[/^(\\d{2}:\\d{2}) · planerad$/,'$1 · مجدول']
+];
+const PH_AR={loginUsername:'اسم المستخدم',loginPassword:'كلمة المرور',p1:'أهم شيء اليوم',p2:'الأمر المهم التالي',p3:'الثالث إذا احتجته',w1:'أهم شيء هذا الأسبوع',w2:'التالي',w3:'الثالث',tom1:'الأهم غداً',tom2:'التالي',tom3:'الثالث',displayName:'اسم العرض',journeyTitle:'اسم الرحلة',weightInput:'مثال 62,4',weightGoalInput:'هدف الوزن',currentPassword:'كلمة المرور الحالية',newPassword:'كلمة مرور جديدة · 12 حرفاً على الأقل',confirmPassword:'أعد كتابة كلمة المرور',viewerCommentName:'اسمك، مثال: ماما',viewerCommentText:'اكتب تعليقاً…'};
+function arText(raw){const trimmed=String(raw||'').trim();if(!trimmed)return raw;let translated=AR[trimmed];if(!translated){for(const [re,to] of AR_RE){if(re.test(trimmed)){translated=trimmed.replace(re,to);break}}}return translated?String(raw).replace(trimmed,translated):raw}
+function localizeInputs(){document.querySelectorAll('[placeholder]').forEach(el=>{if(!el.dataset.svPlaceholder)el.dataset.svPlaceholder=el.getAttribute('placeholder')||'';el.setAttribute('placeholder',currentLang==='ar'?(PH_AR[el.id]||el.dataset.svPlaceholder):el.dataset.svPlaceholder)});document.documentElement.lang=currentLang==='ar'?'ar':'sv';document.documentElement.dir=currentLang==='ar'?'rtl':'ltr';document.body.classList.toggle('lang-ar',currentLang==='ar');if($('languageBtn'))$('languageBtn').textContent=currentLang==='ar'?'🌐 العربية / Svenska':'🌐 Svenska / العربية';if($('viewerLanguageBtn'))$('viewerLanguageBtn').textContent=currentLang==='ar'?'🌐 العربية / SV':'🌐 عربي / SV';if($('dateLabel')){$('dateLabel').textContent=new Date().toLocaleDateString(currentLang==='ar'?'ar-SE':'sv-SE',{weekday:'long',day:'numeric',month:'long'}).replace('.','').toUpperCase()}}
+function localize(root=document.body){if(i18nBusy||!root)return;i18nBusy=true;try{localizeInputs();const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(n){const p=n.parentElement;if(!p||['SCRIPT','STYLE','TEXTAREA','OPTION'].includes(p.tagName)||p.closest('.comment-message')||p.closest('.comment-author')||p.closest('.sharelink')||p.closest('.account-id'))return NodeFilter.FILTER_REJECT;return n.nodeValue&&n.nodeValue.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});const nodes=[];while(w.nextNode())nodes.push(w.currentNode);for(const n of nodes){if(!I18N_ORIGINAL.has(n))I18N_ORIGINAL.set(n,n.nodeValue);const sv=I18N_ORIGINAL.get(n);n.nodeValue=currentLang==='ar'?arText(sv):sv}}finally{i18nBusy=false}}
+function setLanguage(lang){currentLang=lang==='ar'?'ar':'sv';S.s(LANG_KEY,currentLang);S.s(LANG_SEEN,true);$('langPrompt')?.classList.remove('show');localize();document.querySelectorAll('.modal-back').forEach(m=>m.classList.remove('show'))}
+const i18nObserver=new MutationObserver(m=>{if(i18nBusy)return;for(const x of m){for(const n of x.addedNodes){if(n.nodeType===1||n.nodeType===3)localize(n.nodeType===1?n:n.parentElement)}}});
+setTimeout(()=>{i18nObserver.observe(document.body,{subtree:true,childList:true});localize()},0);
+const BG_SCENES=[
+ 'radial-gradient(circle at 13% 20%,rgba(60,132,255,.30),transparent 26%),radial-gradient(circle at 84% 76%,rgba(108,76,255,.20),transparent 25%),linear-gradient(135deg,#04070c 0%,#0b1323 52%,#05070c 100%)',
+ 'radial-gradient(circle at 19% 77%,rgba(0,192,171,.24),transparent 24%),radial-gradient(circle at 81% 17%,rgba(84,118,255,.22),transparent 27%),linear-gradient(140deg,#061013 0%,#0b2025 52%,#05080c 100%)',
+ 'radial-gradient(circle at 17% 23%,rgba(255,173,72,.20),transparent 28%),radial-gradient(circle at 80% 76%,rgba(255,81,113,.14),transparent 24%),linear-gradient(135deg,#100806 0%,#29160f 55%,#07080c 100%)',
+ 'radial-gradient(circle at 16% 20%,rgba(53,184,114,.23),transparent 26%),radial-gradient(circle at 82% 72%,rgba(106,228,170,.14),transparent 23%),linear-gradient(135deg,#06100b 0%,#10251a 56%,#05080a 100%)',
+ 'radial-gradient(circle at 16% 21%,rgba(185,126,255,.26),transparent 27%),radial-gradient(circle at 82% 74%,rgba(73,102,255,.17),transparent 23%),linear-gradient(135deg,#0b0610 0%,#1d112b 55%,#06080d 100%)',
+ 'linear-gradient(110deg,transparent 42%,rgba(255,255,255,.025) 43%,transparent 44%),radial-gradient(circle at 82% 17%,rgba(125,231,255,.20),transparent 22%),linear-gradient(135deg,#05070b,#111a26 58%,#05070b)',
+ 'radial-gradient(ellipse at 50% 102%,rgba(255,196,107,.16),transparent 30%),radial-gradient(circle at 20% 16%,rgba(57,95,180,.18),transparent 24%),linear-gradient(180deg,#080a12 0%,#101425 46%,#090b12 100%)'
+];
+let bgFront=true,bgLast=-1,bgTimer=null;
+function randomScene(){let i=Math.floor(Math.random()*BG_SCENES.length);if(i===bgLast)i=(i+1)%BG_SCENES.length;bgLast=i;return BG_SCENES[i]}
+function rotateScene(initial=false){const a=$('bgSceneA'),b=$('bgSceneB');if(!a||!b)return;const show=bgFront?b:a,hide=bgFront?a:b;show.style.backgroundImage=randomScene();show.classList.add('show');hide.classList.remove('show');bgFront=!bgFront;if(!initial&&prefs?.sceneRotation!==false&&prefs?.bgMotion!==false)bgTimer=setTimeout(()=>rotateScene(false),12000+Math.floor(Math.random()*8001))}
+function startScenes(){clearTimeout(bgTimer);const a=$('bgSceneA');if(a&&!a.style.backgroundImage)a.style.backgroundImage=randomScene();if(prefs?.sceneRotation!==false&&prefs?.bgMotion!==false)bgTimer=setTimeout(()=>rotateScene(false),12000+Math.floor(Math.random()*8001))}
+
+function openLanguage(){$('languageModal')?.classList.add('show')}
+document.querySelectorAll('#languageModal .modalClose').forEach(b=>b.addEventListener('click',()=>document.querySelectorAll('.modal-back').forEach(m=>m.classList.remove('show'))));
+$('languageModal')?.addEventListener('click',e=>{if(e.target===$('languageModal'))$('languageModal').classList.remove('show')});
 function viewerMode(){
  const m=location.hash.match(/^#live=([0-9a-f-]+)$/i);if(!m)return false;
- document.body.classList.add('viewer');
- const token=m[1];
- async function refresh(){
-   try{
-     const r=await fetch(CLOUD_ENDPOINT+'?token='+encodeURIComponent(token),{cache:'no-store'});
-     if(!r.ok)throw new Error(String(r.status));
-     const j=await r.json();renderViewer(j.data||{},j.updated_at);
-   }catch(e){
-     $('viewerLiveText').textContent='OFFLINE';$('viewerUpdated').textContent='Kunde inte hämta live-data';
-   }
- }
- refresh();setInterval(refresh,8000);return true;
+ document.body.classList.add('viewer');const token=m[1];let lastCommentStamp='';
+ async function refresh(){try{const r=await fetch(CLOUD_ENDPOINT+'?token='+encodeURIComponent(token),{cache:'no-store'});if(!r.ok)throw new Error(String(r.status));const j=await r.json();renderViewer(j.data||{},j.updated_at)}catch{$('viewerLiveText').textContent='OFFLINE';$('viewerUpdated').textContent='Kunde inte hämta live-data'} }
+ async function refreshComments(){try{const r=await fetch(CLOUD_ENDPOINT+'?comments=1&token='+encodeURIComponent(token),{cache:'no-store'});if(!r.ok)throw 0;const j=await r.json();renderViewerComments(j.comments||[]);const last=j.comments?.at(-1)?.created_at||'';lastCommentStamp=last}catch{}}
+ function renderViewerComments(list){const box=$('viewerComments');if(!box)return;box.innerHTML=list.length?list.slice(-20).reverse().map(c=>`<div class="comment-item"><div class="comment-head"><span class="comment-author">${escapeHtml(c.author_name)}</span><span class="comment-time">${new Date(c.created_at).toLocaleString(currentLang==='ar'?'ar-SE':'sv-SE',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</span></div><div class="comment-message">${escapeHtml(c.message)}</div></div>`).join(''):'<div class="comments-empty">Inga kommentarer ännu.</div>';localize(box)}
+ let clientId=S.g('viewer:commentClient',null);if(!clientId){clientId=crypto.randomUUID();S.s('viewer:commentClient',clientId)}
+ $('viewerCommentName').value=S.g('viewer:commentName','');$('viewerCommentName').addEventListener('change',e=>S.s('viewer:commentName',e.target.value.trim().slice(0,32)));
+ $('viewerCommentSend').onclick=async()=>{const name=$('viewerCommentName').value.trim().slice(0,32),message=$('viewerCommentText').value.trim().slice(0,280);if(!message){$('viewerCommentHint').textContent='Skriv något först.';localize($('viewerCommentHint'));return}$('viewerCommentSend').disabled=true;$('viewerCommentHint').textContent='Skickar…';try{const r=await fetch(CLOUD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'comment',public_token:token,author_name:name||'Familj',message,client_id:clientId}),cache:'no-store'});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||'fail');S.s('viewer:commentName',name);$('viewerCommentText').value='';$('viewerCommentHint').textContent='Skickad ✓';await refreshComments();setTimeout(()=>{$('viewerCommentHint').textContent='Max 280 tecken';localize($('viewerCommentHint'))},1800)}catch(e){$('viewerCommentHint').textContent=e.message?.includes('Too many')?'Vänta lite innan nästa kommentar.':'Kunde inte skicka just nu.'}finally{$('viewerCommentSend').disabled=false;localize($('viewerCommentsCard'))}};
+ $('viewerLanguageBtn').onclick=()=>openLanguage();$('promptSv').onclick=()=>setLanguage('sv');$('promptAr').onclick=()=>setLanguage('ar');
+ startScenes();localize();if(!S.g(LANG_SEEN,false))setTimeout(()=>$('langPrompt')?.classList.add('show'),900);
+ refresh();refreshComments();setInterval(refresh,8000);setInterval(refreshComments,12000);return true;
 }
 function renderViewer(d,updated){
  const visual=d.visual||{};if(visual.accent)document.body.dataset.accent=visual.accent;
- $('viewerName').textContent=d.profile?.displayName||'Min utveckling';$('viewerJourney').textContent=d.profile?.journeyTitle||'6 månader av fokus';
+ $('viewerName').textContent=d.profile?.displayName||'Ibbes Framsteg';$('viewerJourney').textContent=d.profile?.journeyTitle||'Ibrahims resa framåt';
  const when=updated?new Date(updated):new Date(d.ts||Date.now());$('viewerUpdated').textContent='Uppdaterad '+when.toLocaleTimeString('sv-SE',{hour:'2-digit',minute:'2-digit'});
  if(d.weekPct!=null){$('viewerWeekPct').textContent=d.weekPct+'%';$('viewerWeekRing').style.setProperty('--p',d.weekPct)}
  else $('viewerWeekCard').classList.add('hidden');
@@ -673,13 +750,14 @@ function renderViewer(d,updated){
  else $('viewerFocusCard').classList.add('hidden');
  if(Array.isArray(d.months)){ $('viewerRoadmap').innerHTML=d.months.map((x,i)=>`<div class="road"><div class="road-num">${pad(i+1)}</div><div><b>${escapeHtml(x.label)}</b><small>${x.done?'Genomförd':'Pågående / kommande'}</small></div><span class="pill">${x.done?'KLAR':'—'}</span></div>`).join('')}
  else $('viewerRoadCard').classList.add('hidden');
+ localize($('viewerShell'));
 }
 function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
 
 if(!viewerMode()){
  const __ownerReady=await ensureOwnerAuth();
  if(__ownerReady){
- applyPrefs();
+ applyPrefs();startScenes();localize();
 
  // Daily state
  let daily=S.g('daily:'+today,{});
@@ -770,7 +848,7 @@ if(!viewerMode()){
  function toggleTimer(){if(timerInt){clearInterval(timerInt);timerInt=null;timerRender();return}timerInt=setInterval(()=>{timerSec--;if(timerSec<=0){clearInterval(timerInt);timerInt=null;timerSec=0;timerRender();haptic([40,60,40]);toast('Fokusblocket är klart. Paus nu.');sendNotif('Fokus klart','Bra. Ta pausen.') }else timerRender()},1000);timerRender()}
  $('timerStart').onclick=toggleTimer;$('modalTimerToggle').onclick=toggleTimer;$('timerReset').onclick=()=>{clearInterval(timerInt);timerInt=null;timerSec=timerTotal;timerRender()};timerRender();
  function openModal(id){$(id).classList.add('show')}function closeModals(){document.querySelectorAll('.modal-back').forEach(m=>m.classList.remove('show'))}
- document.querySelectorAll('.modalClose').forEach(b=>b.onclick=closeModals);document.querySelectorAll('.modal-back').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModals()}));
+ document.querySelectorAll('.modalClose').forEach(b=>b.onclick=closeModals);document.querySelectorAll('.modal-back').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModals()}));$('languageBtn').onclick=openLanguage;$('pickSv').onclick=()=>setLanguage('sv');$('pickAr').onclick=()=>setLanguage('ar');$('promptSv').onclick=()=>setLanguage('sv');$('promptAr').onclick=()=>setLanguage('ar');$('settingsLanguageBtn').onclick=openLanguage;if(!S.g(LANG_SEEN,false))setTimeout(()=>$('langPrompt')?.classList.add('show'),1000);
  $('minimumSide').onclick=$('minimumHero').onclick=()=>openModal('minimumModal');$('minimumFocus').onclick=()=>{closeModals();setPreset(5);openModal('focusModal')};
  $('openFocus').onclick=()=>{$('focusModalTask').textContent=daily.p1?daily.p1:'En sak. Inget annat.';openModal('focusModal')};$('modalTimerDone').onclick=()=>{closeModals();clearInterval(timerInt);timerInt=null;timerSec=timerTotal;timerRender()};
  $('fab').onclick=()=>openModal('minimumModal');
@@ -816,7 +894,7 @@ if(!viewerMode()){
 
  // Settings controls
  document.querySelectorAll('.themebtn').forEach(b=>b.onclick=()=>{prefs.theme=b.dataset.v;savePrefs()});document.querySelectorAll('.accentbtn').forEach(b=>b.onclick=()=>{prefs.accent=b.dataset.v;savePrefs()});document.querySelectorAll('#densitySeg .seg').forEach(b=>b.onclick=()=>{prefs.density=b.dataset.v;savePrefs()});
- $('bgMotionSwitch').onclick=()=>{prefs.bgMotion=!prefs.bgMotion;savePrefs()};$('hapticSwitch').onclick=()=>{prefs.haptics=!prefs.haptics;savePrefs()};$('energySwitch').onclick=()=>{prefs.showEnergy=!prefs.showEnergy;savePrefs()};$('quoteSwitch').onclick=()=>{prefs.showQuote=!prefs.showQuote;savePrefs()};$('weightSwitch').onclick=()=>{prefs.showWeight=!prefs.showWeight;savePrefs()};
+ $('bgMotionSwitch').onclick=()=>{prefs.bgMotion=!prefs.bgMotion;savePrefs();startScenes()};$('sceneSwitch').onclick=()=>{prefs.sceneRotation=!prefs.sceneRotation;savePrefs();startScenes()};$('hapticSwitch').onclick=()=>{prefs.haptics=!prefs.haptics;savePrefs()};$('energySwitch').onclick=()=>{prefs.showEnergy=!prefs.showEnergy;savePrefs()};$('quoteSwitch').onclick=()=>{prefs.showQuote=!prefs.showQuote;savePrefs()};$('weightSwitch').onclick=()=>{prefs.showWeight=!prefs.showWeight;savePrefs()};
  $('weightGoalInput').onchange=e=>{const v=parseFloat(e.target.value.replace(',','.'));if(Number.isFinite(v)&&v>=35&&v<=200){prefs.weightGoal=v;savePrefs();renderWeights()}};
  function renderSettings(){
    applyPrefs();$('goalSettings').innerHTML=Object.keys(defaultGoals).map(k=>`<div class="settings-row"><input class="input goal-label" data-k="${k}" value="${escapeHtml(goalCfg[k].label)}" style="max-width:190px"><input class="input goal-target" data-k="${k}" inputmode="numeric" value="${goalCfg[k].target}" style="max-width:80px"></div>`).join('');
@@ -828,7 +906,7 @@ if(!viewerMode()){
  // Authenticated cloud + private owner backup
  let cloudShare=null,cloudTimer=null,cloudBusy=false,cloudPending=false,privateTimer=null,privateBusy=false,shareUrl='';
  function shareSnapshot(){
-   const ws=weekStats(),snap={v:5,ts:Date.now(),profile:{displayName:prefs.displayName||'Min utveckling',journeyTitle:prefs.journeyTitle||'6 månader av fokus'},visual:{accent:prefs.accent}};
+   const ws=weekStats(),snap={v:5,ts:Date.now(),profile:{displayName:prefs.displayName||'Ibbes Framsteg',journeyTitle:prefs.journeyTitle||'Ibrahims resa framåt'},visual:{accent:prefs.accent}};
    if(familyPrefs.week){snap.weekPct=ws.pct;snap.goals=Object.keys(defaultGoals).map(k=>({key:k,label:goalCfg[k].label,target:goalCfg[k].target,value:counts[k]||0}))}
    if(familyPrefs.streak)snap.streak=streak();if(familyPrefs.weight&&prefs.showWeight){snap.weight=weights.at(-1)?.value??null;snap.weightGoal=prefs.weightGoal}
    if(familyPrefs.months)snap.months=roadLabels.map((l,i)=>({label:l,done:S.g('month:m'+(i+1),false)}));
@@ -856,6 +934,17 @@ if(!viewerMode()){
  $('accountUsername').textContent=OWNER_USERNAME;privateUi('Aktiv','good');$('accountStatus').textContent='Inloggad som '+OWNER_USERNAME+' · sessionen förnyas automatiskt.';
  $('logoutTop').onclick=$('logoutSettings').onclick=()=>logoutOwner();
  $('changePassword').onclick=async()=>{const cur=$('currentPassword').value,nw=$('newPassword').value,cf=$('confirmPassword').value;if(!cur||nw.length<12||nw!==cf){toast(nw!==cf?'De nya lösenorden matchar inte.':'Nytt lösenord måste vara minst 12 tecken.');return}$('changePassword').disabled=true;try{const verified=await authTokenRequest('password',{email:OWNER_EMAIL,password:cur});storeAuth(verified);const token=verified.access_token;const r=await fetch(SUPABASE_URL+'/auth/v1/user',{method:'PUT',headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify({password:nw}),cache:'no-store'});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.msg||j.message||'Password update failed');$('currentPassword').value=$('newPassword').value=$('confirmPassword').value='';toast('Lösenordet är bytt.')}catch{toast('Nuvarande lösenord stämmer inte eller bytet misslyckades.')}finally{$('changePassword').disabled=false}};
+
+
+ // Family comments
+ let ownerComments=[],commentPollTimer=null,knownCommentIds=new Set();
+ function commentAge(ts){const d=new Date(ts),sec=Math.max(0,Math.floor((Date.now()-d)/1000));if(sec<60)return currentLang==='ar'?'الآن':'nyss';if(sec<3600)return currentLang==='ar'?`منذ ${Math.floor(sec/60)} د`:`${Math.floor(sec/60)} min`;if(sec<86400)return currentLang==='ar'?`منذ ${Math.floor(sec/3600)} س`:`${Math.floor(sec/3600)} h`;return d.toLocaleDateString(currentLang==='ar'?'ar-SE':'sv-SE',{day:'numeric',month:'short'})}
+ function renderOwnerComments(){const box=$('ownerComments');if(!box)return;const unread=ownerComments.filter(c=>!c.read_at).length;$('ownerUnreadBadge').textContent=unread;$('ownerUnreadBadge').classList.toggle('hidden',!unread);$('topCommentCount').textContent=unread;$('topCommentBadge').classList.toggle('hidden',!unread);box.innerHTML=ownerComments.length?ownerComments.map(c=>`<div class="comment-item ${c.read_at?'':'unread'}"><div class="comment-head"><span class="comment-author">${escapeHtml(c.author_name)}</span><span class="comment-time">${commentAge(c.created_at)}</span></div><div class="comment-message">${escapeHtml(c.message)}</div><div class="comment-actions"><button class="btn ghost small" data-delcomment="${c.id}" type="button">Radera</button></div></div>`).join(''):'<div class="comments-empty">Inga kommentarer ännu.</div>';document.querySelectorAll('[data-delcomment]').forEach(b=>b.onclick=async()=>{if(!confirm('Radera kommentaren?'))return;try{await ownerCall('comment-delete',{comment_id:b.dataset.delcomment});ownerComments=ownerComments.filter(c=>c.id!==b.dataset.delcomment);renderOwnerComments()}catch{toast('Kunde inte radera kommentaren.')}});localize(box)}
+ async function loadOwnerComments(notifyNew=true){if(!navigator.onLine)return;try{const j=await ownerCall('owner-comments');const list=j.comments||[];const newUnread=list.filter(c=>!c.read_at&&!knownCommentIds.has(c.id));if(knownCommentIds.size&&notifyNew&&newUnread.length){const c=newUnread[0];toast(`${c.author_name}: ${c.message.slice(0,70)}${c.message.length>70?'…':''}`);if('Notification'in window&&Notification.permission==='granted')sendNotif('Ny familjekommentar',`${c.author_name}: ${c.message}`);haptic([22,45,22])}ownerComments=list;knownCommentIds=new Set(list.map(c=>c.id));renderOwnerComments()}catch(e){console.warn('comments',e)}}
+ $('markCommentsRead').onclick=async()=>{try{await ownerCall('comments-read');ownerComments=ownerComments.map(c=>({...c,read_at:c.read_at||new Date().toISOString()}));renderOwnerComments();toast('Kommentarerna är markerade som lästa.')}catch{toast('Kunde inte markera kommentarer.') }};
+ $('enableCommentNotify').onclick=async()=>{if(await askNotify()){toast('Kommentarsnotiser är aktiverade.');$('enableCommentNotify').textContent='Kommentarsnotiser aktiva ✓';localize($('enableCommentNotify'))}};
+ $('topCommentBadge').onclick=()=>{showPage('family');setTimeout(()=>$('ownerCommentsCard')?.scrollIntoView({behavior:'smooth',block:'center'}),150)};
+ await loadOwnerComments(false);commentPollTimer=setInterval(()=>loadOwnerComments(true),15000);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')loadOwnerComments(true)});
 
  // Network
  function renderNetwork(){$('networkPill').textContent=navigator.onLine?'Online':'Offline';$('networkPill').style.color=navigator.onLine?'':'var(--warn)'}addEventListener('online',renderNetwork);addEventListener('offline',renderNetwork);renderNetwork();

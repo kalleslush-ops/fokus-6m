@@ -1,7 +1,7 @@
 {
-  "name": "Fokus 6M — Secure Command Center",
-  "short_name": "Fokus 6M",
-  "description": "Säkert personligt command center med ägarinloggning, privat molnbackup och read-only familjevy.",
+  "name": "Ibbes Framsteg — Fokus 6M",
+  "short_name": "Ibbes Framsteg",
+  "description": "Ibbes personliga command center med säker ägarinloggning, svensk/arabiska, familjekommentarer och live-progress.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -24,12 +24,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    },
-    {
-      "src": "icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
     }
   ]
 }
