@@ -1,12 +1,12 @@
 {
-  "name": "Ibbes Framsteg — Fokus, Tro & Kunskap",
+  "name": "Ibbes Framsteg — Social Clean v7.4",
   "short_name": "Ibbes Framsteg",
-  "description": "Ibbes Framsteg v7.2 med visuellt kunskapsbibliotek, quiz, minne, tro, familj och progress.",
+  "description": "Ren och professionell dark-mode design med kunskap, tro, planering, familjevy och visuellt innehåll.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#090b0f",
-  "theme_color": "#090b0f",
+  "background_color": "#0b0b0c",
+  "theme_color": "#0b0b0c",
   "icons": [
     {
       "src": "icon-192.png",
