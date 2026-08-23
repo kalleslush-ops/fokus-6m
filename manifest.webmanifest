@@ -1,7 +1,7 @@
 {
-  "name": "Ibbes Framsteg — Fokus 6M",
+  "name": "Ibbes Framsteg — Kunskap, Tro & Fokus",
   "short_name": "Ibbes Framsteg",
-  "description": "Ibbes personliga command center med säker ägarinloggning, svensk/arabiska, familjekommentarer och live-progress.",
+  "description": "Personligt command center med lärande, quiz, minnesträning, bönetider, familjevy och säker molnbackup.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
