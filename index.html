@@ -224,7 +224,7 @@ body.lang-ar{direction:rtl;font-family:Inter,ui-sans-serif,system-ui,-apple-syst
 
 <div class="auth-gate hidden" id="authGate">
   <form class="auth-panel" id="authForm">
-    <div class="auth-brand"><div class="logo-mark logo-photo-mark"><img src="logo-photo.png" alt="Ibbe"></div><div><b>Ibbes Framsteg</b><div class="kicker">SECURE OWNER ACCESS</div></div></div>
+    <div class="auth-brand"><div class="logo-mark logo-photo-mark"><img src="logo-photo.jpg" alt="Ibbe"></div><div><b>Ibbes Framsteg</b><div class="kicker">SECURE OWNER ACCESS</div></div></div>
     <div class="kicker">ÄGARLÄGE</div><h1>Logga in.</h1>
     <div class="lead">Redigering, privata anteckningar och molnbackup öppnas bara för det verifierade ägarkontot. Familjelänken kräver ingen inloggning och är alltid read-only.</div>
     <div class="auth-field"><label for="loginUsername">Användarnamn</label><input class="input" id="loginUsername" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="Användarnamn"></div>
@@ -239,7 +239,7 @@ body.lang-ar{direction:rtl;font-family:Inter,ui-sans-serif,system-ui,-apple-syst
 <div class="shell">
   <aside class="sidebar">
     <div class="logo">
-      <div class="logo-mark logo-photo-mark"><img src="logo-photo.png" alt="Ibbe"></div>
+      <div class="logo-mark logo-photo-mark"><img src="logo-photo.jpg" alt="Ibbe"></div>
       <div><b>Ibbes Framsteg</b><small>Fokus 6M</small></div>
     </div>
     <nav class="nav">
@@ -657,7 +657,7 @@ body.lang-ar{direction:rtl;font-family:Inter,ui-sans-serif,system-ui,-apple-syst
 <div class="modal-back" id="viewerBgModal"><div class="modal" style="max-width:450px"><div class="card-header"><div><div class="kicker">FAMILJENS KÄNSLA</div><h2>Välj bakgrund</h2><p>Valet sparas bara på den här telefonen.</p></div><button class="iconbtn modalClose">×</button></div><div class="bg-pack-grid" id="viewerBgPacks"></div></div></div>
 <div class="viewer-shell" id="viewerShell">
   <div class="viewer-top">
-    <div class="viewer-brand"><div class="logo-mark logo-photo-mark"><img src="logo-photo.png" alt="Ibbe"></div><div><b>Ibbes Framsteg</b><div class="kicker">SUPPORT VIEW</div></div></div>
+    <div class="viewer-brand"><div class="logo-mark logo-photo-mark"><img src="logo-photo.jpg" alt="Ibbe"></div><div><b>Ibbes Framsteg</b><div class="kicker">SUPPORT VIEW</div></div></div>
     <div class="viewer-top-actions"><button class="pill lang-chip" id="viewerLanguageBtn" type="button">🌐 عربي / SV</button><div style="display:flex;gap:7px;align-items:center"><button class="pill lang-chip" id="viewerBgBtn" type="button">Bakgrund</button><div class="live-tag"><span class="livepulse"></span><span id="viewerLiveText">LIVE</span></div></div></div>
   </div>
   <div class="card viewer-hero">
@@ -686,6 +686,9 @@ body.lang-ar{direction:rtl;font-family:Inter,ui-sans-serif,system-ui,-apple-syst
 
 <script type="module">
 const $=id=>document.getElementById(id);
+window.addEventListener('error',e=>{try{document.body.dataset.runtimeError='1';console.error('F6M runtime',e.error||e.message)}catch{}});
+window.addEventListener('unhandledrejection',e=>{try{console.error('F6M promise',e.reason)}catch{}});
+
 window.addEventListener('error',e=>{console.error('F6M runtime',e.error||e.message);const b=document.getElementById('bootFail');if(b)b.classList.add('show')});window.addEventListener('unhandledrejection',e=>{console.error('F6M promise',e.reason);});
 let __suppressPrivateHook=false;
 const S={g:(k,d)=>{try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch{return d}},s:(k,v)=>{localStorage.setItem(k,JSON.stringify(v));if(!__suppressPrivateHook&&window.__f6mPrivateChanged)window.__f6mPrivateChanged(k)},del:k=>{localStorage.removeItem(k);if(!__suppressPrivateHook&&window.__f6mPrivateChanged)window.__f6mPrivateChanged(k)}};
@@ -696,7 +699,7 @@ const OWNER_USERNAME='fokus6m-owner';
 const OWNER_EMAIL='fokus6m.owner@fokus6m.app';
 const AUTH_KEY='f6m:auth:v1';
 const PRIVATE_REMOTE_KEY='f6m:privateRemoteVersion';
-const APP_VERSION='6.0.2';
+const APP_VERSION='6.0.3';
 const pad=n=>String(n).padStart(2,'0');
 const dateKey=(d=new Date())=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
 const today=dateKey();
@@ -775,7 +778,7 @@ function showPage(id){
  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));
  document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
  $('pageTitle').textContent=pageNames[id]||'Fokus 6M';scrollTo({top:0,behavior:prefs.bgMotion?'smooth':'auto'});
- if(id==='learn')renderLearning();if(id==='quiz')renderQuiz();if(id==='memory')renderMemory();if(id==='faith')renderFaith();if(id==='progress')renderProgress();if(id==='family'){renderFamily();loadOwnerComments(false)}if(id==='settings')renderSettings();setTimeout(()=>localize(),0)
+ try{window.__f6mRenderers?.[id]?.()}catch(e){console.error('page render',id,e)}setTimeout(()=>localize(),0)
 }
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
 const now=new Date();$('dateLabel').textContent=now.toLocaleDateString('sv-SE',{weekday:'long',day:'numeric',month:'long'}).replace('.','').toUpperCase();
@@ -821,10 +824,10 @@ const AR_RE=[
 Object.assign(AR,{"Lär":"تعلّم","Lärande":"التعلّم","Quiz":"اختبار","Minne":"الذاكرة","Tro":"الإيمان","Tro & bön":"الإيمان والصلاة","ADAPTIV DAG":"يوم متكيّف","Starta dagen när du faktiskt vaknar":"ابدأ يومك عندما تستيقظ فعلاً","Schemat anpassas efter verkligheten, inte en perfekt morgon.":"الجدول يتكيف مع الواقع وليس مع صباح مثالي.","Jag vaknade nu":"استيقظت الآن","NÄSTA BÖN · ENKÖPING":"الصلاة القادمة · إنشوبينغ","Visa alla fem":"عرض الصلوات الخمس","DAGENS KUNSKAP":"معلومة اليوم","Ny lärdom varje dag":"معلومة جديدة كل يوم","10–15 minuter. En sak i taget.":"10–15 دقيقة. شيء واحد في كل مرة.","Lär mig nu":"علّمني الآن","Min adaptiva dag":"يومي المتكيّف","Relativa rutiner + de fem bönerna som fasta ankare.":"روتين مرن مع الصلوات الخمس كمواعيد ثابتة.","Tryck “Jag vaknade nu”":"اضغط «استيقظت الآن»","DAGENS KUNSKAP · 10–15 MIN":"معلومة اليوم · 10–15 دقيقة","Läs mer hos källan ↗":"اقرأ المزيد من المصدر ↗","Jag kan detta idag ✓":"تعلمت هذا اليوم ✓","5 snabba frågor":"5 أسئلة سريعة","Kunskapsbank":"بنك المعرفة","Korta förklaringar. Tryck på en rubrik när du vill öppna mer.":"شروحات قصيرة. اضغط على العنوان لفتح المزيد.","Dagens ord":"كلمة اليوم","Bygg ordförråd som gör det lättare att uttrycka dig.":"ابنِ مفردات تساعدك على التعبير عن نفسك.","Lärandestatus":"حالة التعلّم","Små pass, upprepade många gånger.":"جلسات صغيرة متكررة.","dagars lärande":"أيام تعلّم","quiz rätt":"إجابات صحيحة","minnesvinster":"انتصارات الذاكرة","Nyhetskoll — utan doomscroll":"متابعة الأخبار بدون تمرير بلا نهاية","Välj EN källa, läs 10 minuter och kom tillbaka.":"اختر مصدراً واحداً واقرأ 10 دقائق ثم ارجع.","QUICK QUIZ":"اختبار سريع","5 frågor. En i taget.":"5 أسئلة، واحد في كل مرة.","Direkt svar + kort förklaring. Ingen lång provkänsla.":"إجابة مباشرة مع شرح قصير، بدون إحساس اختبار طويل.","0 rätt":"0 صحيح","Välj det svar du tror är rätt.":"اختر الإجابة التي تعتقد أنها صحيحة.","Nästa fråga":"السؤال التالي","Nytt quiz":"اختبار جديد","MINNESTRÄNING":"تدريب الذاكرة","Matcha paren":"طابق الأزواج","Korta rundor tränar arbetsminne och repetition.":"جولات قصيرة تدرب الذاكرة العاملة والتكرار.","0 drag":"0 حركة","Blanda om":"خلط جديد","Så använder du spelet":"طريقة استخدام اللعبة","Hellre 5 minuter ofta än 30 minuter en gång.":"5 دقائق متكررة أفضل من 30 دقيقة مرة واحدة.","TRO & VARDAG · ENKÖPING":"الإيمان والحياة · إنشوبينغ","Dagens fem böner":"الصلوات الخمس اليوم","Aktivera bönpåminnelser":"تفعيل تذكيرات الصلاة","30 dagar till kalender":"إضافة 30 يوماً للتقويم","Qibla från Enköping":"القبلة من إنشوبينغ","Ungefärlig riktning mot Kaaba.":"اتجاه تقريبي نحو الكعبة.","Asr-inställning":"إعداد العصر","Standard används tills du själv väljer annat.":"يستخدم الإعداد القياسي حتى تختار غيره.","Fem pelare — snabb repetition":"أركان الإسلام الخمسة — مراجعة سريعة","Lär med Ibbe":"تعلّم مع إبّي","Se dagens lärdom och testa dig själv.":"شاهد معلومة اليوم واختبر نفسك.","Dagens bön":"صلاة اليوم","Delad från Ibbes egen app.":"مشاركة من تطبيق إبّي.","Bakgrund":"الخلفية","FAMILJENS KÄNSLA":"أجواء العائلة","Välj bakgrund":"اختر الخلفية","Valet sparas bara på den här telefonen.":"يُحفظ الاختيار على هذا الهاتف فقط.","Bakgrundspaket":"حزمة الخلفيات","Sverige":"السويد","Libyen · flaggkänsla":"ليبيا · ألوان العلم","Libyen · Medelhav":"ليبيا · البحر المتوسط","Marocko":"المغرب","Mix":"مزيج"});
 const PH_AR={loginUsername:'اسم المستخدم',loginPassword:'كلمة المرور',p1:'أهم شيء اليوم',p2:'الأمر المهم التالي',p3:'الثالث إذا احتجته',w1:'أهم شيء هذا الأسبوع',w2:'التالي',w3:'الثالث',tom1:'الأهم غداً',tom2:'التالي',tom3:'الثالث',displayName:'اسم العرض',journeyTitle:'اسم الرحلة',weightInput:'مثال 62,4',weightGoalInput:'هدف الوزن',currentPassword:'كلمة المرور الحالية',newPassword:'كلمة مرور جديدة · 12 حرفاً على الأقل',confirmPassword:'أعد كتابة كلمة المرور',viewerCommentName:'اسمك، مثال: ماما',viewerCommentText:'اكتب تعليقاً…'};
 function arText(raw){const trimmed=String(raw||'').trim();if(!trimmed)return raw;let translated=AR[trimmed];if(!translated){for(const [re,to] of AR_RE){if(re.test(trimmed)){translated=trimmed.replace(re,to);break}}}return translated?String(raw).replace(trimmed,translated):raw}
-function localizeInputs(){document.querySelectorAll('[placeholder]').forEach(el=>{if(!el.dataset.svPlaceholder)el.dataset.svPlaceholder=el.getAttribute('placeholder')||'';el.setAttribute('placeholder',currentLang==='ar'?(PH_AR[el.id]||el.dataset.svPlaceholder):el.dataset.svPlaceholder)});document.documentElement.lang=currentLang==='ar'?'ar':'sv';document.documentElement.dir=currentLang==='ar'?'rtl':'ltr';document.body.classList.toggle('lang-ar',currentLang==='ar');if($('languageBtn'))$('languageBtn').textContent=currentLang==='ar'?'🌐 العربية / Svenska':'🌐 Svenska / العربية';if($('viewerLanguageBtn'))$('viewerLanguageBtn').textContent=currentLang==='ar'?'🌐 العربية / SV':'🌐 عربي / SV';if($('dateLabel')){$('dateLabel').textContent=new Date().toLocaleDateString(currentLang==='ar'?'ar-SE':'sv-SE',{weekday:'long',day:'numeric',month:'long'}).replace('.','').toUpperCase()}}
+function localizeInputs(){document.querySelectorAll('[placeholder]').forEach(el=>{if(!el.dataset.svPlaceholder)el.dataset.svPlaceholder=el.getAttribute('placeholder')||'';const v=currentLang==='ar'?(PH_AR[el.id]||el.dataset.svPlaceholder):el.dataset.svPlaceholder;if(el.getAttribute('placeholder')!==v)el.setAttribute('placeholder',v)});const lang=currentLang==='ar'?'ar':'sv',dir=currentLang==='ar'?'rtl':'ltr';if(document.documentElement.lang!==lang)document.documentElement.lang=lang;if(document.documentElement.dir!==dir)document.documentElement.dir=dir;document.body.classList.toggle('lang-ar',currentLang==='ar');const lb=currentLang==='ar'?'🌐 العربية / Svenska':'🌐 Svenska / العربية';if($('languageBtn')&&$('languageBtn').textContent!==lb)$('languageBtn').textContent=lb;const vlb=currentLang==='ar'?'🌐 العربية / SV':'🌐 عربي / SV';if($('viewerLanguageBtn')&&$('viewerLanguageBtn').textContent!==vlb)$('viewerLanguageBtn').textContent=vlb;if($('dateLabel')){const d=new Date().toLocaleDateString(currentLang==='ar'?'ar-SE':'sv-SE',{weekday:'long',day:'numeric',month:'long'}).replace('.','').toUpperCase();if($('dateLabel').textContent!==d)$('dateLabel').textContent=d}}
 function localize(root=document.body){if(i18nBusy||!root)return;i18nBusy=true;try{localizeInputs();const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(n){const p=n.parentElement;if(!p||['SCRIPT','STYLE','TEXTAREA','OPTION'].includes(p.tagName)||p.closest('.comment-message')||p.closest('.comment-author')||p.closest('.sharelink')||p.closest('.account-id'))return NodeFilter.FILTER_REJECT;return n.nodeValue&&n.nodeValue.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});const nodes=[];while(w.nextNode())nodes.push(w.currentNode);for(const n of nodes){if(!I18N_ORIGINAL.has(n))I18N_ORIGINAL.set(n,n.nodeValue);const sv=I18N_ORIGINAL.get(n);n.nodeValue=currentLang==='ar'?arText(sv):sv}}finally{i18nBusy=false}}
-function setLanguage(lang){currentLang=lang==='ar'?'ar':'sv';S.s(LANG_KEY,currentLang);S.s(LANG_SEEN,true);$('langPrompt')?.classList.remove('show');localize();document.querySelectorAll('.modal-back').forEach(m=>m.classList.remove('show'));try{renderLearning();renderQuiz();renderMemory();renderFaith();renderAdaptiveDay();renderNext();queueCloudSync()}catch{}}
-const i18nObserver=new MutationObserver(m=>{if(i18nBusy)return;for(const x of m){for(const n of x.addedNodes){if(n.nodeType===1||n.nodeType===3)localize(n.nodeType===1?n:n.parentElement)}}});
+function setLanguage(lang){currentLang=lang==='ar'?'ar':'sv';S.s(LANG_KEY,currentLang);S.s(LANG_SEEN,true);$('langPrompt')?.classList.remove('show');localize();document.querySelectorAll('.modal-back').forEach(m=>m.classList.remove('show'));try{['learn','quiz','memory','faith','progress','family','settings'].forEach(k=>window.__f6mRenderers?.[k]?.());window.__f6mLocalRefresh?.()}catch(e){console.error('language refresh',e)}}
+let i18nQueued=false;const i18nObserver=new MutationObserver(()=>{if(i18nBusy||i18nQueued)return;i18nQueued=true;requestAnimationFrame(()=>{i18nQueued=false;localize()})});
 setTimeout(()=>{i18nObserver.observe(document.body,{subtree:true,childList:true});localize()},0);
 
 const BG_PACKS={
@@ -1203,6 +1206,8 @@ $('languageBtn').onclick=openLanguage;$('pickSv').onclick=()=>setLanguage('sv');
 
 
  // Knowledge + faith initialization
+ window.__f6mRenderers={learn:()=>renderLearning(),quiz:()=>renderQuiz(),memory:()=>renderMemory(),faith:()=>renderFaith(),progress:()=>renderProgress(),family:()=>{renderFamily();loadOwnerComments(false)},settings:()=>renderSettings()};
+ window.__f6mLocalRefresh=()=>{renderAdaptiveDay();renderNext();queueCloudSync()};
  renderLearning();newQuiz();newMemory();renderAdaptiveDay();loadPrayers();renderPrayerMicro();renderBgPacks();$('enablePrayerNotify').textContent=prefs.prayerNotify?bi('Bönpåminnelser på ✓','تذكيرات الصلاة مفعلة ✓'):bi('Aktivera bönpåminnelser','تفعيل تذكيرات الصلاة');
  $('bootFail')?.classList.remove('show');document.documentElement.dataset.f6mBoot='ready';
  if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{}));

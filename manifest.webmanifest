@@ -1,7 +1,7 @@
 {
   "name": "Ibbes Framsteg — Kunskap, Tro & Fokus",
   "short_name": "Ibbes Framsteg",
-  "description": "Ibbes Framsteg v6.0.2 — snabb lokal start, lärande, quiz, minne, tro, bönetider och familjevy.",
+  "description": "Ibbes Framsteg v6.0.3 — fokus, kunskap, tro, minne, familj och progress.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
