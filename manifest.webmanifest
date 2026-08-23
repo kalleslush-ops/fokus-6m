@@ -1,7 +1,7 @@
 {
   "name": "Ibbes Framsteg — Kunskap, Tro & Fokus",
   "short_name": "Ibbes Framsteg",
-  "description": "Personligt command center med lärande, quiz, minnesträning, bönetider, familjevy och säker molnbackup.",
+  "description": "Ibbes Framsteg v6.0.2 — snabb lokal start, lärande, quiz, minne, tro, bönetider och familjevy.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
