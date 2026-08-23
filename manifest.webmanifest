@@ -1,17 +1,12 @@
 {
-  "name": "Ibbes Framsteg — Kunskap, Tro & Fokus",
+  "name": "Ibbes Framsteg",
   "short_name": "Ibbes Framsteg",
-  "description": "Ibbes Framsteg v6.0.3 — fokus, kunskap, tro, minne, familj och progress.",
+  "description": "Fokus, kunskap, tro och utveckling i en app.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait-primary",
-  "background_color": "#06080d",
-  "theme_color": "#06080d",
-  "categories": [
-    "productivity",
-    "lifestyle"
-  ],
+  "background_color": "#090b0f",
+  "theme_color": "#090b0f",
   "icons": [
     {
       "src": "icon-192.png",
