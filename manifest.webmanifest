@@ -1,12 +1,20 @@
 {
-  "name": "Ibbes Framsteg — Social Clean v7.4",
+  "name": "Ibbes Framsteg — Kunskap, Tro & Fokus",
   "short_name": "Ibbes Framsteg",
-  "description": "Ren och professionell dark-mode design med kunskap, tro, planering, familjevy och visuellt innehåll.",
-  "start_url": "./",
+  "description": "Personligt command center för fokus, lärande, minne, tro, progress och familjestöd.",
+  "start_url": "./?page=today",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0b0b0c",
-  "theme_color": "#0b0b0c",
+  "orientation": "any",
+  "background_color": "#202124",
+  "theme_color": "#202124",
+  "lang": "sv",
+  "dir": "ltr",
+  "categories": [
+    "productivity",
+    "education",
+    "lifestyle"
+  ],
   "icons": [
     {
       "src": "icon-192.png",
@@ -19,6 +27,41 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Idag",
+      "short_name": "Idag",
+      "url": "./?page=today",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Lärande",
+      "short_name": "Lär",
+      "url": "./?page=learn",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Tro & bön",
+      "short_name": "Tro",
+      "url": "./?page=faith",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }
