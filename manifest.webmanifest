@@ -1,15 +1,13 @@
 {
-  "name": "Ibbes Framsteg — Kunskap, Tro & Fokus",
-  "short_name": "Ibbes Framsteg",
-  "description": "Personligt command center för fokus, lärande, minne, tro, progress och familjestöd.",
-  "start_url": "./?page=today",
+  "name": "Ibbes Framsteg",
+  "short_name": "Ibbes",
+  "description": "En enkel personlig app för dagens plan, lärande, tro och utveckling.",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
+  "background_color": "#1a1b1e",
+  "theme_color": "#1a1b1e",
   "orientation": "any",
-  "background_color": "#202124",
-  "theme_color": "#202124",
-  "lang": "sv",
-  "dir": "ltr",
   "categories": [
     "productivity",
     "education",
@@ -27,41 +25,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Idag",
-      "short_name": "Idag",
-      "url": "./?page=today",
-      "icons": [
-        {
-          "src": "icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "Lärande",
-      "short_name": "Lär",
-      "url": "./?page=learn",
-      "icons": [
-        {
-          "src": "icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "Tro & bön",
-      "short_name": "Tro",
-      "url": "./?page=faith",
-      "icons": [
-        {
-          "src": "icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
     }
   ]
 }
