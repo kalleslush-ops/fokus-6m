@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#eef1f4">
+<meta name="theme-color" content="#202124">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Ibbes Framsteg">
-<meta name="description" content="Personlig app för fokus, kunskap, tro, träning och utveckling.">
+<meta name="apple-mobile-web-app-title" content="Fokus 6M">
+<meta name="description" content="Ett personligt command center för sex månader av fokus, progress och familjestöd.">
 <title>Ibbes Framsteg</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png" type="image/png">
@@ -600,7 +600,7 @@ button:active{transform:scale(.985)!important}
 .modal-back{background:rgba(15,17,20,.42)!important;backdrop-filter:blur(4px)!important}.modal{background:var(--panel)!important;border:1px solid var(--line)!important;border-radius:20px!important;box-shadow:0 24px 80px rgba(16,24,40,.18)!important}.mobile-more-grid{grid-template-columns:1fr!important;gap:4px!important}.mobile-more-grid .navbtn{min-height:50px!important;background:transparent!important;border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;color:var(--text)!important;padding:0 8px!important}.mobile-more-grid .navbtn:last-child{border-bottom:0!important}.kb-more-item:hover{background:var(--panel2)!important}
 
 /* Strong but calm action feedback */
-.toast-area{top:auto!important;left:50%!important;right:auto!important;bottom:22px!important;transform:translateX(-50%)!important;width:min(440px,calc(100vw - 24px))!important;direction:ltr!important}.toast{min-width:0!important;max-width:none!important;width:100%!important;border-radius:13px!important;background:#17181b!important;color:white!important;border:0!important;box-shadow:0 12px 34px rgba(0,0,0,.18)!important;padding:13px 15px!important;font-size:.78rem!important;font-weight:650!important}.toast::before{content:"✓";display:inline-grid;place-items:center;width:20px;height:20px;margin-right:8px;border-radius:50%;background:#fff;color:#17181b;font-size:.7rem;vertical-align:middle}.v9-next-feedback{display:block;margin-top:4px;margin-left:28px;color:rgba(255,255,255,.68);font-size:.68rem;font-weight:500}
+.toast-area{top:auto!important;right:50%!important;bottom:22px!important;transform:translateX(50%)!important;width:min(440px,calc(100vw - 24px))!important}.toast{min-width:0!important;max-width:none!important;width:100%!important;border-radius:13px!important;background:#17181b!important;color:white!important;border:0!important;box-shadow:0 12px 34px rgba(0,0,0,.18)!important;padding:13px 15px!important;font-size:.78rem!important;font-weight:650!important}.toast::before{content:"✓";display:inline-grid;place-items:center;width:20px;height:20px;margin-right:8px;border-radius:50%;background:#fff;color:#17181b;font-size:.7rem;vertical-align:middle}.v9-next-feedback{display:block;margin-top:4px;margin-left:28px;color:rgba(255,255,255,.68);font-size:.68rem;font-weight:500}
 
 /* Desktop viewer also cleaner */
 .viewer-shell{max-width:900px!important}.viewer-hero{background:var(--panel)!important}.viewer-grid{gap:14px!important}.live-tag{background:#f0fdf4!important;border-color:#bbf7d0!important;color:#166534!important}
@@ -621,29 +621,9 @@ button:active{transform:scale(.985)!important}
 @media(max-width:350px){.category-grid,.memory-chooser #memoryCats{grid-template-columns:1fr!important}.memory-board{grid-template-columns:repeat(2,minmax(0,1fr))!important}.mnav{font-size:.61rem!important}.mnav svg{width:22px!important;height:22px!important}.top-actions [data-page="settings"]{display:none!important}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition-duration:.001ms!important}}
 
-
-/* v9.0.1 visual hardening — override legacy high-specificity rules */
-.btn:not(.secondary):not(.ghost):not(.danger){background:var(--v9-primary)!important;color:var(--v9-primary-text)!important;border-color:var(--v9-primary)!important;background-image:none!important}
-.btn:disabled{opacity:.46!important;cursor:not-allowed!important;transform:none!important}
-.pro-status{display:none!important}
-#networkPill:not(.is-offline){display:none!important}
-#energyModule,.energy-card{background:var(--panel)!important;color:var(--text)!important;background-image:none!important}
-.today-learn-card{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:10px!important}
-.today-learn-card .today-learn-thumb{display:block!important;width:100%!important;height:84px!important;min-height:84px!important;margin:0!important;flex:0 0 84px!important;background-size:cover!important;background-position:center!important;background-color:var(--panel2)!important;border:1px solid var(--line)!important}
-.today-learn-card .today-learn-copy{min-width:0!important;width:100%!important}
-.today-learn-card>.btn{width:100%!important;margin-top:auto!important}
-@media(max-width:880px){.today-learn-card .today-learn-thumb{height:120px!important;min-height:120px!important;flex-basis:120px!important}}
-
-
-/* v9.0.2 desktop shell fix — fixed rail must not also consume a grid column */
-.shell{display:block!important;width:100%!important;max-width:none!important}
-.main{margin-left:248px!important;width:calc(100% - 248px)!important}
-@media(max-width:1180px) and (min-width:881px){.main{margin-left:86px!important;width:calc(100% - 86px)!important}}
-@media(max-width:880px){.main{margin-left:0!important;width:100%!important}}
-
 </style>
 </head>
-<body data-theme="social" data-accent="ice" data-density="comfortable">
+<body data-theme="social" data-accent="ice" data-density="comfortable"><script>window.__qaErrors=[];try{localStorage.setItem('f6m:auth:v1',JSON.stringify({access_token:'qa-token',refresh_token:'qa-refresh',expires_at:Math.floor(Date.now()/1000)+86400,last_verified_at:Date.now(),user:{id:'qa-owner',email:'qa@local'}}));}catch(e){window.__qaErrors.push(String(e))}</script>
 <div class="ambient a"></div><div class="ambient b"></div><div class="bg-scene show" id="bgSceneA"></div><div class="bg-scene" id="bgSceneB"></div>
 <div class="toast-area" id="toastArea"></div>
 <div class="boot-fail" id="bootFail">Appen kunde inte starta en funktion. Ladda om sidan. Din sparade data är kvar.</div>
@@ -1043,7 +1023,7 @@ button:active{transform:scale(.985)!important}
           <div class="card pad">
             <div class="card-header"><div><h2>App & data</h2><p>Installera, exportera eller återställ från backup.</p></div></div>
             <div class="hero-actions"><button class="btn" id="installSettings">Installera app</button><button class="btn secondary" id="exportData">Exportera backup</button><label class="btn secondary" style="cursor:pointer">Importera<input type="file" id="importData" accept="application/json" hidden></label></div>
-            <p class="hero-meta" style="margin-top:12px">Ibbes Framsteg v9.0 · 1 073 kunskapskort · smart navigation · mobil/desktop.</p>
+            <p class="hero-meta" style="margin-top:12px">Ibbes Framsteg v8.2 SOCIAL KNOWLEDGE · 1 073 kunskapskort · ren navigation · mobil/desktop.</p>
           </div>
         </div>
       </div>
@@ -1197,7 +1177,6 @@ let roadLabels=S.g('roadmap:v5',defaultRoad);
 if(!Array.isArray(roadLabels)||roadLabels.length!==6)roadLabels=[...defaultRoad];
 
 function toast(msg){
- const area=$('toastArea');if(area)area.replaceChildren();
  const e=document.createElement('div');e.className='toast';const main=document.createElement('span');main.textContent=msg;e.appendChild(main);
  const next=document.getElementById('nextTitle');if(next&&next.textContent&&document.body.dataset.page==='today'){const sub=document.createElement('span');sub.className='v9-next-feedback';sub.textContent=(currentLang==='ar'?'التالي: ':'Nästa: ')+next.textContent;e.appendChild(sub)}
  $('toastArea').appendChild(e);
@@ -1218,8 +1197,6 @@ function applyPrefs(){
 }
 function savePrefs(){S.s('prefs:v5',prefs);applyPrefs();window.__f6mQueueCloud?.()}
 
-function f6mPushHistory(state,u){try{if(location.protocol==='about:')history.pushState(state,'');else history.pushState(state,'',u.pathname+u.search)}catch(e){console.warn('history push',e)}}
-function f6mReplaceHistory(state,u){try{if(location.protocol==='about:')history.replaceState(state,'');else history.replaceState(state,'',u.pathname+u.search)}catch(e){console.warn('history replace',e)}}
 function showPage(id,opts={push:true}){
  if(!pageNames[id])id='today';
  document.body.dataset.page=id;
@@ -1227,7 +1204,7 @@ function showPage(id,opts={push:true}){
  document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
  const secondaryMobilePages=['memory','week','plan','progress','family','quotes','settings'];if($('mobileMoreBtn'))$('mobileMoreBtn').classList.toggle('active',secondaryMobilePages.includes(id));const secondaryDesktopPages=['week','plan','family','quotes'];if($('desktopMoreBtn'))$('desktopMoreBtn').classList.toggle('active',secondaryDesktopPages.includes(id));
  $('pageTitle').textContent=pageNames[id]||'Fokus 6M';
- if(opts.push&&!document.body.classList.contains('viewer')){try{const current=new URL(location.href),u=new URL(location.href);const curPage=current.searchParams.get('page')||'today',hadSub=current.searchParams.has('sub'),hadCat=current.searchParams.has('cat');u.searchParams.set('page',id);u.searchParams.delete('sub');u.searchParams.delete('cat');if(curPage!==id||hadSub||hadCat)f6mPushHistory({page:id},u)}catch(e){console.warn('history page',e)}}
+ if(opts.push&&!document.body.classList.contains('viewer')){try{const current=new URL(location.href),u=new URL(location.href);const curPage=current.searchParams.get('page')||'today',hadSub=current.searchParams.has('sub'),hadCat=current.searchParams.has('cat');u.searchParams.set('page',id);u.searchParams.delete('sub');u.searchParams.delete('cat');if(curPage!==id||hadSub||hadCat)history.pushState({page:id},'',u.pathname+u.search)}catch(e){console.warn('history page',e)}}
  scrollTo({top:0,behavior:prefs.bgMotion?'smooth':'auto'});
  try{window.__f6mRenderers?.[id]?.()}catch(e){console.error('page render',id,e)}
  try{window.__f6mPageChanged?.(id)}catch{}
@@ -1235,7 +1212,7 @@ function showPage(id,opts={push:true}){
  setTimeout(()=>localize(),0)
 }
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
-addEventListener('popstate',(e)=>{if(document.body.classList.contains('viewer'))return;const id=e.state?.page||new URL(location.href).searchParams.get('page')||'today';showPage(id,{push:false});setTimeout(()=>window.__f6mApplyRoute?.(e.state||null),0)});
+addEventListener('popstate',()=>{if(document.body.classList.contains('viewer'))return;const id=new URL(location.href).searchParams.get('page')||'today';showPage(id,{push:false});setTimeout(()=>window.__f6mApplyRoute?.(),0)});
 const now=new Date();$('dateLabel').textContent=now.toLocaleDateString('sv-SE',{weekday:'long',day:'numeric',month:'long'}).replace('.','').toUpperCase();
 const hh=now.getHours();if($('homeGreeting'))$('homeGreeting').textContent=(hh<11?'God morgon':hh<17?'God dag':'God kväll')+', Ibbe.';
 
@@ -1418,12 +1395,12 @@ const V8_SUB_DEFAULTS={learn:'today',faith:'prayers',week:'focus',plan:'schedule
 function v8Card(id){return document.getElementById(id)?.closest('.card')||null}
 function v8El(tag,cls='',html=''){const e=document.createElement(tag);if(cls)e.className=cls;if(html)e.innerHTML=html;return e}
 function v8Panel(id,nodes=[]){const p=v8El('div','subpanel');p.dataset.subpanel=id;nodes.filter(Boolean).forEach(n=>p.appendChild(n));return p}
-function v8ActivateSub(page,view,{push=false}={}){const sec=document.getElementById(page);if(!sec)return;const valid=[...sec.querySelectorAll(':scope > .subpanel')].map(p=>p.dataset.subpanel);if(!valid.includes(view))view=V8_SUB_DEFAULTS[page]||valid[0];sec.querySelectorAll(':scope > .subpanel').forEach(p=>p.classList.toggle('active',p.dataset.subpanel===view));sec.querySelectorAll(':scope > .subnav [data-subview]').forEach(b=>b.classList.toggle('active',b.dataset.subview===view));sec.dataset.activeSubview=view;if(push){try{const cur=new URL(location.href),u=new URL(location.href);u.searchParams.set('page',page);u.searchParams.set('sub',view);u.searchParams.delete('cat');if(cur.searchParams.get('page')!==page||cur.searchParams.get('sub')!==view||cur.searchParams.has('cat'))f6mPushHistory({page,sub:view},u)}catch(e){console.warn('history sub',e)}}}
+function v8ActivateSub(page,view,{push=false}={}){const sec=document.getElementById(page);if(!sec)return;const valid=[...sec.querySelectorAll(':scope > .subpanel')].map(p=>p.dataset.subpanel);if(!valid.includes(view))view=V8_SUB_DEFAULTS[page]||valid[0];sec.querySelectorAll(':scope > .subpanel').forEach(p=>p.classList.toggle('active',p.dataset.subpanel===view));sec.querySelectorAll(':scope > .subnav [data-subview]').forEach(b=>b.classList.toggle('active',b.dataset.subview===view));sec.dataset.activeSubview=view;if(push){try{const cur=new URL(location.href),u=new URL(location.href);u.searchParams.set('page',page);u.searchParams.set('sub',view);u.searchParams.delete('cat');if(cur.searchParams.get('page')!==page||cur.searchParams.get('sub')!==view||cur.searchParams.has('cat'))history.pushState({page,sub:view},'',u.pathname+u.search)}catch(e){console.warn('history sub',e)}}}
 function v8Tabs(sec,page,tabs,panels){const nav=v8El('div','subnav');tabs.forEach(([id,label])=>{const b=v8El('button','subnav-btn',label);b.type='button';b.dataset.subview=id;b.onclick=()=>v8ActivateSub(page,id,{push:true});nav.appendChild(b)});sec.replaceChildren(nav,...panels);v8ActivateSub(page,V8_SUB_DEFAULTS[page]||tabs[0][0])}
-function v8PushMode(page,sub,cat=''){try{const cur=new URL(location.href),u=new URL(location.href);u.searchParams.set('page',page);u.searchParams.set('sub',sub);if(cat)u.searchParams.set('cat',cat);else u.searchParams.delete('cat');if(cur.searchParams.get('page')!==page||cur.searchParams.get('sub')!==sub||String(cur.searchParams.get('cat')||'')!==String(cat||''))f6mPushHistory({page,sub,cat},u)}catch(e){console.warn('history mode',e)}}
+function v8PushMode(page,sub,cat=''){try{const cur=new URL(location.href),u=new URL(location.href);u.searchParams.set('page',page);u.searchParams.set('sub',sub);if(cat)u.searchParams.set('cat',cat);else u.searchParams.delete('cat');if(cur.searchParams.get('page')!==page||cur.searchParams.get('sub')!==sub||String(cur.searchParams.get('cat')||'')!==String(cat||''))history.pushState({page,sub,cat},'',u.pathname+u.search)}catch(e){console.warn('history mode',e)}}
 function v8SetMemoryMode(mode,push=false){const sec=document.getElementById('memory');if(!sec)return;sec.classList.toggle('memory-playing',mode==='game');if(push)v8PushMode('memory',mode)}
 function v8SetQuizMode(mode,push=false){const sec=document.getElementById('quiz');if(!sec)return;sec.classList.toggle('quiz-playing',mode==='game');if(push)v8PushMode('quiz',mode)}
-function v8SetLibraryDetail(on,push=false){const c=document.querySelector('.learn-library-card');if(!c)return;c.classList.toggle('detail-mode',!!on);if(push){const u=new URL(location.href);u.searchParams.set('page','learn');u.searchParams.set('sub','library');if(on&&window.__f6mLearnCat)u.searchParams.set('cat',window.__f6mLearnCat());else u.searchParams.delete('cat');try{f6mPushHistory({page:'learn',sub:'library',cat:on?window.__f6mLearnCat?.():''},u)}catch(e){console.warn('history learn',e)}}}
+function v8SetLibraryDetail(on,push=false){const c=document.querySelector('.learn-library-card');if(!c)return;c.classList.toggle('detail-mode',!!on);if(push){const u=new URL(location.href);u.searchParams.set('page','learn');u.searchParams.set('sub','library');if(on&&window.__f6mLearnCat)u.searchParams.set('cat',window.__f6mLearnCat());else u.searchParams.delete('cat');try{history.pushState({page:'learn',sub:'library',cat:on?window.__f6mLearnCat?.():''},'',u.pathname+u.search)}catch(e){console.warn('history learn',e)}}}
 function buildV8IA(){
  const today=document.getElementById('today');if(today&&!today.dataset.v8){today.dataset.v8='1';const greeting=today.querySelector('.pro-greeting'),hero=today.querySelector('.hero'),wake=document.getElementById('wakeMicro'),prayer=document.getElementById('todayPrayerTime')?.closest('.micro-card'),learn=document.getElementById('todayLearnTitle')?.closest('.micro-card'),top3=v8Card('p1'),base=v8Card('dailyTasks'),adaptive=document.getElementById('adaptiveTodayCard'),focus=v8Card('timerRing'),energy=document.getElementById('energyModule'),quote=document.getElementById('quoteMiniModule');const core=v8El('div','today-core'),daily=v8El('div','today-daily-grid'),energySlot=v8El('div','today-energy-slot'),checks=v8El('div','today-check-grid'),hooks=v8El('div','today-support-hooks');[wake,prayer,learn].filter(Boolean).forEach(n=>daily.appendChild(n));if(energy)energySlot.appendChild(energy);[top3,base].filter(Boolean).forEach(n=>checks.appendChild(n));[focus,quote].filter(Boolean).forEach(n=>hooks.appendChild(n));core.append(daily,energySlot,checks,hooks);const plan=document.getElementById('plan');if(adaptive&&plan){plan.appendChild(adaptive);plan.dataset.v8Adaptive='1'}today.replaceChildren(...[greeting,hero,core].filter(Boolean))}
  const learnSec=document.getElementById('learn');if(learnSec&&!learnSec.dataset.v8){learnSec.dataset.v8='1';const lesson=v8Card('dailyLessonTitle'),library=v8Card('knowledgeCategories'),word=v8Card('wordToday'),stats=v8Card('learnStreak'),news=v8Card('newsNote');if(library){library.classList.add('learn-library-card');const intro=v8El('div','library-intro hero-meta','Välj ett ämne. De vanligaste ligger framme — resten finns under Mer.');const back=v8El('button','section-back','← Till kategorier');back.id='knowledgeBack';back.type='button';back.onclick=()=>{kbQuery='';kbVisible=KB_PAGE_SIZE;v8SetLibraryDetail(false,true)};const search=v8El('div','kb-search-wrap');search.innerHTML='<span class="kb-search-icon">⌕</span><input class="input" id="knowledgeSearch" type="search" autocomplete="off" placeholder="Sök i kunskapsbanken…"><span class="kb-total-pill">1 073 kort</span>';const cats=document.getElementById('knowledgeCategories');library.insertBefore(intro,cats);library.insertBefore(back,cats);library.insertBefore(search,cats);const input=search.querySelector('#knowledgeSearch');input.addEventListener('input',()=>{kbQuery=input.value;kbVisible=KB_PAGE_SIZE;renderKnowledgeList()})}
@@ -1438,7 +1415,7 @@ function buildV8IA(){
  const quotes=document.getElementById('quotes');if(quotes&&!quotes.dataset.v8){quotes.dataset.v8='1';const stage=document.getElementById('quoteText')?.closest('.quote-stage'),fav=v8Card('favoriteQuotes'),principles=[...quotes.querySelectorAll('.card')].find(c=>c!==fav&&c!==stage);v8Tabs(quotes,'quotes',[['quotes','Citat'],['favorites','Favoriter'],['principles','Principer']],[v8Panel('quotes',[stage]),v8Panel('favorites',[fav]),v8Panel('principles',[principles])])}
  const settings=document.getElementById('settings');if(settings&&!settings.dataset.v8){settings.dataset.v8='1';const appearance=v8Card('themeGrid'),modules=v8Card('energySwitch'),goals=v8Card('goalSettings'),roads=v8Card('roadSettings'),account=v8Card('accountUsername'),diag=v8Card('selfTestBadge'),data=v8Card('installSettings');v8Tabs(settings,'settings',[['appearance','Utseende'],['plan','Plan'],['account','Konto'],['system','System']],[v8Panel('appearance',[appearance,modules]),v8Panel('plan',[goals,roads]),v8Panel('account',[account]),v8Panel('system',[diag,data])])}
 }
-function v8ApplyRoute(state=null){if(document.body.classList.contains('viewer'))return;const u=new URL(location.href),page=state?.page||u.searchParams.get('page')||'today',sub=state?.sub??u.searchParams.get('sub'),cat=state?.cat??u.searchParams.get('cat');if(V8_SUB_DEFAULTS[page])v8ActivateSub(page,sub||V8_SUB_DEFAULTS[page]);if(page==='memory')v8SetMemoryMode(sub==='game'?'game':'choose');if(page==='quiz')v8SetQuizMode(sub==='game'?'game':'choose');if(page==='learn'&&sub==='library'){v8SetLibraryDetail(!!cat);if(cat&&window.__f6mSetLearnCat)window.__f6mSetLearnCat(cat)}}
+function v8ApplyRoute(){if(document.body.classList.contains('viewer'))return;const u=new URL(location.href),page=u.searchParams.get('page')||'today',sub=u.searchParams.get('sub'),cat=u.searchParams.get('cat');if(V8_SUB_DEFAULTS[page])v8ActivateSub(page,sub||V8_SUB_DEFAULTS[page]);if(page==='memory')v8SetMemoryMode(sub==='game'?'game':'choose');if(page==='quiz')v8SetQuizMode(sub==='game'?'game':'choose');if(page==='learn'&&sub==='library'){v8SetLibraryDetail(!!cat);if(cat&&window.__f6mSetLearnCat)window.__f6mSetLearnCat(cat)}}
 window.__f6mApplyRoute=v8ApplyRoute;window.__f6mActivateDefault=(page)=>{if(V8_SUB_DEFAULTS[page])v8ActivateSub(page,V8_SUB_DEFAULTS[page])};
 
 if(!viewerMode()){
@@ -1817,7 +1794,7 @@ async function verifyMediaAssets(){const critical=['bg-sweden-01.jpg','bg-libya-
 
   $('bootFail')?.classList.remove('show');document.documentElement.dataset.f6mBoot='ready';
  const initialOwnerUrl=new URL(location.href),initialOwnerPage=initialOwnerUrl.searchParams.get('page')||'today',initialOwnerSub=initialOwnerUrl.searchParams.get('sub')||'',initialOwnerCat=initialOwnerUrl.searchParams.get('cat')||'';
- try{f6mReplaceHistory({page:pageNames[initialOwnerPage]?initialOwnerPage:'today',sub:initialOwnerSub,cat:initialOwnerCat},new URL(location.href))}catch(e){console.warn('history init',e)}
+ try{history.replaceState({page:pageNames[initialOwnerPage]?initialOwnerPage:'today',sub:initialOwnerSub,cat:initialOwnerCat},'',location.pathname+location.search)}catch(e){console.warn('history init',e)}
  showPage(pageNames[initialOwnerPage]?initialOwnerPage:'today',{push:false});setTimeout(()=>window.__f6mApplyRoute?.(),0);
  if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{}));
  }
